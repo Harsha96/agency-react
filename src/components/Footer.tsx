@@ -11,12 +11,12 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">AI</span>
+                <span className="text-white font-bold text-xl">AC</span>
               </div>
-              <span className="font-bold text-xl text-white">Agency</span>
+              <span className="font-bold text-xl text-white">Akinahs Collective</span>
             </div>
             <p className="text-sm leading-relaxed">
-              AI-powered solutions for modern businesses. We combine cutting-edge technology with human expertise.
+              All your digital needs in one place
             </p>
             <div className="flex space-x-4">
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">
@@ -35,28 +35,28 @@ export default function Footer() {
             <h3 className="font-semibold text-white mb-4">Services</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/services/seo" className="hover:text-blue-400 transition-colors">
-                  SEO Content Writing
+                <Link to="/services/design" className="hover:text-blue-400 transition-colors">
+                  Graphic Design & Branding
                 </Link>
               </li>
               <li>
-                <Link to="/services/ai" className="hover:text-blue-400 transition-colors">
-                  AI Services
+                <Link to="/services/marketing" className="hover:text-blue-400 transition-colors">
+                  Digital Marketing
                 </Link>
               </li>
               <li>
                 <Link to="/services/web" className="hover:text-blue-400 transition-colors">
-                  Website Building
+                  Website Design
                 </Link>
               </li>
               <li>
-                <Link to="/services/data" className="hover:text-blue-400 transition-colors">
-                  Data Analytics
+                <Link to="/services/software" className="hover:text-blue-400 transition-colors">
+                  Software & AI Solutions
                 </Link>
               </li>
               <li>
-                <Link to="/services/dev" className="hover:text-blue-400 transition-colors">
-                  Software Development
+                <Link to="/services/support" className="hover:text-blue-400 transition-colors">
+                  Content & Support
                 </Link>
               </li>
             </ul>
@@ -93,8 +93,8 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start space-x-2">
                 <Mail className="w-4 h-4 mt-1 flex-shrink-0" />
-                <a href="mailto:hello@aiagency.com" className="hover:text-blue-400 transition-colors">
-                  hello@aiagency.com
+                <a href="mailto:hello@akinahscollective.com" className="hover:text-blue-400 transition-colors">
+                  hello@akinahscollective.com
                 </a>
               </li>
               <li className="flex items-start space-x-2">
@@ -112,7 +112,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-sm text-center">
-          <p>&copy; {currentYear} AI Agency. All rights reserved.</p>
+          <p>&copy; {currentYear} Akinahs Collective. All rights reserved.</p>
         </div>
       </div>
     </footer>

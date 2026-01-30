@@ -60,7 +60,7 @@ export default function About() {
 
   return (
     <div className="min-h-screen">
-      <section className="relative bg-gradient-to-br from-blue-50 via-white to-cyan-50 py-20 px-4 sm:px-6 lg:px-8">
+      {/* <section className="relative bg-gradient-to-br from-blue-50 via-white to-cyan-50 py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-4xl mx-auto mb-16">
             <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
@@ -84,8 +84,38 @@ export default function About() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
+      <section className="relative bg-gradient-to-br from-blue-50 via-white to-cyan-50 py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center max-w-4xl mx-auto mb-16">
+            <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <Users className="w-4 h-4" />
+              <span>Who We Are</span>
+            </div>
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              Akinahs Collective
+            </h1>
+            <p className="text-xl text-gray-600 leading-relaxed mb-4">
+              A full-service digital agency delivering smart, reliable online solutions for individuals and businesses.
+            </p>
+            <p className="text-xl text-gray-600 leading-relaxed mb-8">
+              We combine creativity, technology, and strategy to help brands grow in the digital space.
+            </p>
+            <p className="text-lg text-gray-700 font-medium leading-relaxed max-w-3xl mx-auto">
+              Whether you need eye-catching designs or scalable software solutions, we handle everything under one roof simple, efficient, and result driven.
+            </p>
+          </div>
 
+          <div className="grid md:grid-cols-4 gap-8 mb-16">
+            {stats.map((stat, index) => (
+              <div key={index} className="bg-white rounded-xl p-8 shadow-lg text-center">
+                <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">{stat.number}</div>
+                <div className="text-gray-600 font-medium">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-center mb-20">

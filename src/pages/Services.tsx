@@ -1,76 +1,76 @@
 import { Link } from 'react-router-dom';
-import { PenTool, Bot, Globe, BarChart, Code, ArrowRight, CheckCircle } from 'lucide-react';
+import { PenTool, Bot, Globe, BarChart, Code, ArrowRight, CheckCircle, Palette, Megaphone, MessageSquare, Shield } from 'lucide-react';
 
 export default function Services() {
   const services = [
     {
-      icon: <PenTool className="w-12 h-12" />,
-      title: 'SEO Content Writing',
-      description: 'Drive organic traffic with content that ranks and converts.',
+      icon: <Palette className="w-12 h-12" />,
+      title: 'Graphic Design & Branding',
+      description: 'Creative visuals, logos, and brand identities that make your business stand out.',
       features: [
-        'Blog posts & articles',
-        'Website content',
-        'Product descriptions',
-        'Technical writing',
-        'Social media content',
+        'Logo design & brand identity',
+        'Marketing materials',
+        'Social media graphics',
+        'Packaging design',
+        'Brand guidelines',
       ],
-      link: '/services/seo',
+      link: '/services/design',
       color: 'from-blue-500 to-cyan-500',
     },
     {
-      icon: <Bot className="w-12 h-12" />,
-      title: 'AI Services',
-      description: 'Intelligent automation and AI-powered solutions.',
+      icon: <Megaphone className="w-12 h-12" />,
+      title: 'Digital Marketing & Social Media',
+      description: 'Strategic online marketing to grow your audience and engagement.',
       features: [
-        'AI chatbots',
-        'Workflow automation',
-        'API integrations',
-        'Natural language processing',
-        'Machine learning models',
+        'Social media management',
+        'Content strategy',
+        'Paid advertising campaigns',
+        'Email marketing',
+        'Analytics & reporting',
       ],
-      link: '/services/ai',
+      link: '/services/marketing',
       color: 'from-purple-500 to-pink-500',
     },
     {
       icon: <Globe className="w-12 h-12" />,
-      title: 'Website Building',
-      description: 'Modern, responsive websites that drive results.',
+      title: 'Website Design & Development',
+      description: 'Modern, responsive websites built for performance and usability.',
       features: [
-        'Custom web development',
-        'Landing pages',
-        'E-commerce platforms',
-        'Responsive design',
-        'Performance optimization',
+        'Custom website design',
+        'Responsive development',
+        'E-commerce solutions',
+        'CMS integration',
+        'SEO optimization',
       ],
       link: '/services/web',
       color: 'from-green-500 to-emerald-500',
     },
     {
-      icon: <BarChart className="w-12 h-12" />,
-      title: 'Data Analytics',
-      description: 'Transform data into actionable business insights.',
+      icon: <Bot className="w-12 h-12" />,
+      title: 'Software & AI Solutions',
+      description: 'Custom software solutions designed to support and scale your business.',
       features: [
-        'Dashboard development',
-        'Business intelligence',
-        'Data visualization',
-        'Predictive analytics',
-        'Reporting automation',
+        'Custom software development',
+        'AI-powered automation',
+        'API integrations',
+        'Mobile applications',
+        'Cloud infrastructure',
       ],
-      link: '/services/data',
+      link: '/services/software',
       color: 'from-orange-500 to-red-500',
     },
     {
-      icon: <Code className="w-12 h-12" />,
-      title: 'Software Development',
-      description: 'Full-stack development for web and mobile.',
+      icon: <MessageSquare className="w-12 h-12" />,
+      title: 'Content & Online Support',
+      description: 'Clear content, ongoing support, and tailored digital solutions.',
       features: [
-        'Mobile applications',
-        'Web applications',
-        'API development',
-        'Database design',
-        'Cloud infrastructure',
+        'Content creation & copywriting',
+        'Ongoing technical support',
+        'Website maintenance',
+        'Digital strategy consulting',
+        'Training & documentation',
       ],
-      link: '/services/dev',
+      link: '/services/support',
       color: 'from-indigo-500 to-blue-500',
     },
   ];
@@ -80,11 +80,11 @@ export default function Services() {
       <section className="relative bg-gradient-to-br from-blue-50 via-white to-cyan-50 py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              Comprehensive Digital Services
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4 leading-tight">
+              Our Services
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed">
-              From AI-powered content to custom software development, we provide end-to-end solutions that help your business grow and scale.
+              Everything your brand needs to succeed online — all under one roof.
             </p>
           </div>
         </div>

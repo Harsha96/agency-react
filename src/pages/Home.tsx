@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles, Zap, Target, TrendingUp, PenTool, Bot, Globe, BarChart, Code, Star, CheckCircle } from 'lucide-react';
+import { ArrowRight, Sparkles, Zap, Target, TrendingUp, PenTool, Bot, Globe, BarChart, Code, Star, CheckCircle, Package, Lightbulb, MessageSquare, Shield } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
 import type { Database } from '../lib/supabase';
@@ -59,26 +59,32 @@ export default function Home() {
     },
   ];
 
+  // Updated "Why Choose Us" section
   const benefits = [
     {
-      icon: <Sparkles className="w-6 h-6" />,
-      title: 'AI + Human Expertise',
-      description: 'Best of both worlds: AI efficiency with human creativity and oversight.',
+      icon: <Package className="w-6 h-6" />,
+      title: 'End-to-End Solutions',
+      description: 'Complete digital services from start to finish — all under one roof.',
     },
     {
-      icon: <Zap className="w-6 h-6" />,
-      title: 'Fast Delivery',
-      description: 'Rapid turnaround without compromising on quality or attention to detail.',
+      icon: <Lightbulb className="w-6 h-6" />,
+      title: 'Creative & Technical Expertise',
+      description: 'A perfect blend of artistic vision and technical mastery.',
+    },
+    {
+      icon: <MessageSquare className="w-6 h-6" />,
+      title: 'Clear Communication',
+      description: 'Simple, transparent communication throughout every project.',
     },
     {
       icon: <Target className="w-6 h-6" />,
-      title: 'Scalable Solutions',
-      description: 'Systems designed to grow with your business and adapt to changing needs.',
+      title: 'Tailored Solutions',
+      description: 'Custom strategies designed specifically for your unique needs.',
     },
     {
-      icon: <TrendingUp className="w-6 h-6" />,
-      title: 'Data-Driven Decisions',
-      description: 'Every recommendation backed by analytics and proven methodologies.',
+      icon: <Shield className="w-6 h-6" />,
+      title: 'Reliable Support',
+      description: 'Ongoing support and partnership you can trust.',
     },
   ];
 
@@ -105,52 +111,46 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
+      {/* Hero Section - Cleaned up (removed duplicate) */}
       <section className="relative bg-gradient-to-br from-blue-50 via-white to-cyan-50 pt-20 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <section className="relative bg-gradient-to-br from-blue-50 via-white to-cyan-50 pt-20 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
-            <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-              <div className="max-w-7xl mx-auto relative z-10">
-                 <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
               <Sparkles className="w-4 h-4" />
               <span>AI-Powered Digital Solutions</span>
             </div>
-            <div className="text-center max-w-4xl mx-auto">
-              {/* Headline */}
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-4 leading-tight">
-                Design. Develop. Deliver.
-              </h1>
+            {/* Headline */}
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-4 leading-tight">
+              Design. Develop. Deliver.
+            </h1>
 
-              {/* Sub-headline */}
-              <p className="text-2xl md:text-3xl text-gray-700 font-medium mb-4">
-                Everything your brand needs to succeed online
-              </p>
+            {/* Sub-headline */}
+            <p className="text-2xl md:text-3xl text-gray-700 font-medium mb-4">
+              Everything your brand needs to succeed online
+            </p>
 
-              {/* Supporting line */}
-              <p className="text-xl text-gray-600 mb-10">
-                All your digital needs in one place.
-              </p>
+            {/* Supporting line */}
+            <p className="text-xl text-gray-600 mb-10">
+              All your digital needs in one place.
+            </p>
 
-              {/* Call to Action */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  to="/about"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
-                >
-                  Get Started
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg border-2 border-blue-600 hover:bg-blue-50 transition-all"
-                >
-                  Contact Us
-                </Link>
-              </div>
+            {/* Call to Action */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                to="/about"
+                className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
+              >
+                Get Started
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Link>
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg border-2 border-blue-600 hover:bg-blue-50 transition-all"
+              >
+                Contact Us
+              </Link>
             </div>
-          </div>
-        </section>
           </div>
         </div>
       </section>
@@ -196,16 +196,17 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Updated "Why Choose Us" Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Why Choose Us</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We bring together the best of technology and human expertise
+              Your trusted partner for digital success
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
             {benefits.map((benefit, index) => (
               <div
                 key={index}
@@ -316,20 +317,20 @@ export default function Home() {
       </section>
 
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-600 to-cyan-600 text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Transform Your Business?</h2>
-          <p className="text-xl mb-10 opacity-90">
-            Let's discuss how we can help you achieve your goals with AI-powered solutions.
-          </p>
-          <Link
-            to="/contact"
-            className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
-          >
-            Get in Touch
-            <ArrowRight className="ml-2 w-5 h-5" />
-          </Link>
-        </div>
-      </section>
+  <div className="max-w-4xl mx-auto text-center">
+    <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to grow your digital presence?</h2>
+    <p className="text-xl mb-10 opacity-90">
+      Let's build something impactful together.
+    </p>
+    <Link
+      to="/contact"
+      className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+    >
+      Get Started with us
+      <ArrowRight className="ml-2 w-5 h-5" />
+    </Link>
+  </div>
+</section>
     </div>
   );
 }

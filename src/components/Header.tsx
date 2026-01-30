@@ -25,9 +25,9 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center space-x-2">
             <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">AI</span>
+              <span className="text-white font-bold text-xl">AC</span>
             </div>
-            <span className="font-bold text-xl text-gray-900">Agency</span>
+            <span className="font-bold text-xl text-gray-900">Akinahs Collective</span>
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
@@ -54,7 +54,7 @@ export default function Header() {
                   location.pathname.startsWith('/services') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'
                 }`}
                 onMouseEnter={() => setServicesOpen(true)}
-                onMouseLeave={() => setServicesOpen(false)}
+                onMouseLeave={() => setServicesOpen(true)}
               >
                 <span>Services</span>
                 <ChevronDown className="w-4 h-4" />
