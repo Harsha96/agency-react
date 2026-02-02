@@ -19,6 +19,8 @@ import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Admin from './pages/Admin';
 
+import { InteractiveMascot } from './components/InteractiveMascot';
+
 function App() {
   return (
     <AuthProvider>
@@ -51,6 +53,7 @@ function App() {
             </Routes>
           </main>
           <Footer />
+          <InteractiveMascot />
         </div>
       </Router>
     </AuthProvider>
