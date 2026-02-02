@@ -1,17 +1,37 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Sparkles, Zap, Target, TrendingUp, PenTool, Bot, Globe, BarChart, Code, Star, CheckCircle, Package, Lightbulb, MessageSquare, Shield } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { supabase } from '../lib/supabase';
 import type { Database } from '../lib/supabase';
+import CatEyes from '../components/cateyes';
 
 type CaseStudy = Database['case_studies'];
 
 export default function Home() {
   const [caseStudies, setCaseStudies] = useState<CaseStudy[]>([]);
   const [loading, setLoading] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
+  const heroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     loadCaseStudies();
+    
+    // Intersection Observer for scroll-triggered animations
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (heroRef.current) {
+      observer.observe(heroRef.current);
+    }
+
+    return () => observer.disconnect();
   }, []);
 
   const loadCaseStudies = async () => {
@@ -110,51 +130,100 @@ export default function Home() {
   ];
 
   return (
+    // new 
+    
+    //end return
     <div className="min-h-screen">
-      {/* Hero Section - Cleaned up (removed duplicate) */}
-      <section className="relative bg-gradient-to-br from-blue-50 via-white to-cyan-50 pt-20 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <Sparkles className="w-4 h-4" />
-              <span>AI-Powered Digital Solutions</span>
-            </div>
-            {/* Headline */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-4 leading-tight">
-              Design. Develop. Deliver.
-            </h1>
+      {/* ===== ELEGANT ANIMATED HERO SECTION ===== */}
+      <section 
+        ref={heroRef}
+        className="relative bg-gradient-to-br from-gray-900 via-slate-900/95 to-gray-900 pt-24 pb-32 px-4 sm:px-6 lg:px-8 overflow-hidden gradient-flow"
+        style={{ 
+          background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 30%, #0f172a 100%)',
+          backgroundSize: '400% 400%'
+        }}
+      >
+        {/* Cat mascot – scrolls with hero */}
+<div className="absolute bottom-8 right-8 hidden md:block z-20">
+  <CatEyes />
+</div>
 
-            {/* Sub-headline */}
-            <p className="text-2xl md:text-3xl text-gray-700 font-medium mb-4">
-              Everything your brand needs to succeed online
-            </p>
+        {/* Animated gradient orbs */}
+        <div className="absolute -top-48 -right-48 w-[500px] h-[500px] bg-gradient-to-br from-blue-600/15 to-purple-700/15 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute -bottom-48 -left-48 w-[400px] h-[400px] bg-gradient-to-br from-cyan-500/15 to-emerald-600/15 rounded-full blur-3xl animate-float" style={{ animationDelay: '-12s' }}></div>
+        
+        {/* Subtle grid pattern overlay */}
+        <div 
+          className="absolute inset-0 opacity-5"
+          style={{ 
+            backgroundImage: `url("image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23334155' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundSize: '60px 60px'
+          }}
+        ></div>
+        
+        <div className="max-w-4xl mx-auto relative z-10 text-center animate-fade-in">
+          {/* Floating glass badge with fade-in */}
+          <div className={`inline-flex items-center space-x-2 glass-card px-5 py-2.5 rounded-full text-sm font-medium mb-10 mx-auto transform transition-all duration-500 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}>
+            <Sparkles className="w-4 h-4 text-blue-400 animate-pulse-slow" />
+            <span className="text-blue-200">Design. Develop. Deliver.</span>
+          </div>
+          
+          {/* Headline with gradient text */}
+          <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight transform transition-all duration-700 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          }`}>
+            Design.{' '}
+            <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent gradient-text">
+              Develop
+            </span>
+            . Deliver.
+          </h1>
 
-            {/* Supporting line */}
-            <p className="text-xl text-gray-600 mb-10">
-              All your digital needs in one place.
-            </p>
+          {/* Sub-headline */}
+          <p className={`text-2xl md:text-3xl text-slate-300 font-medium mb-10 max-w-3xl mx-auto transform transition-all duration-700 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          }`}>
+            Everything your brand needs to succeed online
+          </p>
 
-            {/* Call to Action */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/about"
-                className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
-              >
+          {/* Supporting text */}
+          <p className={`text-xl text-slate-400 mb-12 max-w-2xl mx-auto transform transition-all duration-700 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          }`}>
+            All your digital needs in one place.
+          </p>
+
+          {/* CTA buttons with staggered fade-in */}
+          <div className={`flex flex-col sm:flex-row gap-5 justify-center transform transition-all duration-700 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+            {/* Primary CTA with pulse glow */}
+            <Link
+              to="/about"
+              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-semibold rounded-xl hover:from-blue-600 hover:to-cyan-500 transition-all transform hover:scale-[1.03] shadow-lg hover:shadow-blue-500/40 relative overflow-hidden group min-w-[200px] pulse-glow"
+            >
+              <span className="relative z-10 flex items-center">
                 Get Started
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Link>
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg border-2 border-blue-600 hover:bg-blue-50 transition-all"
-              >
-                Contact Us
-              </Link>
-            </div>
+                <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </Link>
+            
+            {/* Secondary CTA */}
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center px-8 py-4 glass-card text-white font-semibold rounded-xl hover:bg-white/15 transition-all transform hover:scale-[1.02] min-w-[200px]"
+            >
+              Contact Us
+            </Link>
           </div>
         </div>
+
       </section>
 
+      {/* ===== WHAT WE DO SECTION ===== */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -169,16 +238,16 @@ export default function Home() {
               <Link
                 key={index}
                 to={service.link}
-                className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+                className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100"
               >
-                <div className={`inline-flex p-4 rounded-xl bg-gradient-to-br ${service.color} text-white mb-4`}>
+                <div className={`inline-flex p-4 rounded-xl bg-gradient-to-br ${service.color} text-white mb-4 transform transition-transform duration-500 group-hover:scale-110`}>
                   {service.icon}
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
                 <p className="text-gray-600 mb-4 leading-relaxed">{service.description}</p>
                 <div className="flex items-center text-blue-600 font-medium group-hover:gap-2 transition-all">
                   Learn more
-                  <ArrowRight className="w-4 h-4 ml-1 group-hover:ml-2 transition-all" />
+                  <ArrowRight className="w-4 h-4 ml-1 group-hover:ml-2 transition-all transform group-hover:translate-x-1" />
                 </div>
               </Link>
             ))}
@@ -187,7 +256,7 @@ export default function Home() {
           <div className="text-center mt-12">
             <Link
               to="/services/dev"
-              className="inline-flex items-center justify-center px-8 py-4 bg-gray-900 text-white font-semibold rounded-lg hover:bg-gray-800 transition-all"
+              className="inline-flex items-center justify-center px-8 py-4 bg-gray-900 text-white font-semibold rounded-lg hover:bg-gray-800 transition-all transform hover:scale-105"
             >
               <Code className="w-5 h-5 mr-2" />
               Software Development
@@ -196,7 +265,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Updated "Why Choose Us" Section */}
+      {/* ===== WHY CHOOSE US SECTION ===== */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -210,9 +279,9 @@ export default function Home() {
             {benefits.map((benefit, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow"
+                className="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
               >
-                <div className="inline-flex p-3 rounded-lg bg-blue-100 text-blue-600 mb-4">
+                <div className="inline-flex p-3 rounded-lg bg-blue-100 text-blue-600 mb-4 transform transition-transform duration-300 hover:scale-110">
                   {benefit.icon}
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
@@ -223,6 +292,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== RECENT WORK SECTION ===== */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -241,13 +311,13 @@ export default function Home() {
               {caseStudies.map((study) => (
                 <div
                   key={study.id}
-                  className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+                  className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
                 >
                   <div className="relative h-48 overflow-hidden bg-gray-200">
                     <img
                       src={study.image_url}
                       alt={study.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                   </div>
                   <div className="p-6">
@@ -257,7 +327,7 @@ export default function Home() {
                       {study.tech_stack.slice(0, 3).map((tech, i) => (
                         <span
                           key={i}
-                          className="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded-full"
+                          className="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded-full transform transition-transform hover:scale-105"
                         >
                           {tech}
                         </span>
@@ -276,15 +346,16 @@ export default function Home() {
           <div className="text-center mt-12">
             <Link
               to="/portfolio"
-              className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all"
+              className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all transform hover:scale-105"
             >
               View All Projects
-              <ArrowRight className="ml-2 w-5 h-5" />
+              <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
         </div>
       </section>
 
+      {/* ===== TESTIMONIALS SECTION ===== */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -298,7 +369,7 @@ export default function Home() {
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow"
+                className="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
               >
                 <div className="flex items-center mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
@@ -316,21 +387,22 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== FINAL CTA SECTION ===== */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-600 to-cyan-600 text-white">
-  <div className="max-w-4xl mx-auto text-center">
-    <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to grow your digital presence?</h2>
-    <p className="text-xl mb-10 opacity-90">
-      Let's build something impactful together.
-    </p>
-    <Link
-      to="/contact"
-      className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
-    >
-      Get Started with us
-      <ArrowRight className="ml-2 w-5 h-5" />
-    </Link>
-  </div>
-</section>
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to grow your digital presence?</h2>
+          <p className="text-xl mb-10 opacity-90">
+            Let's build something impactful together.
+          </p>
+          <Link
+            to="/contact"
+            className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg pulse-glow"
+          >
+            Get Started with us
+            <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }
