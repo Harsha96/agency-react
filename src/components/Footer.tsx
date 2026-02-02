@@ -35,28 +35,28 @@ export default function Footer() {
             <h3 className="font-semibold text-white mb-4">Services</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/services/design" className="hover:text-blue-400 transition-colors">
-                  Graphic Design & Branding
+                <Link to="/services/seo" className="hover:text-blue-400 transition-colors">
+                  SEO Content Writing
                 </Link>
               </li>
               <li>
-                <Link to="/services/marketing" className="hover:text-blue-400 transition-colors">
-                  Digital Marketing
+                <Link to="/services/ai" className="hover:text-blue-400 transition-colors">
+                  AI Solutions
                 </Link>
               </li>
               <li>
                 <Link to="/services/web" className="hover:text-blue-400 transition-colors">
-                  Website Design
+                  Website Building
                 </Link>
               </li>
               <li>
-                <Link to="/services/software" className="hover:text-blue-400 transition-colors">
-                  Software & AI Solutions
+                <Link to="/services/data" className="hover:text-blue-400 transition-colors">
+                  Data Analytics
                 </Link>
               </li>
               <li>
-                <Link to="/services/support" className="hover:text-blue-400 transition-colors">
-                  Content & Support
+                <Link to="/services/dev" className="hover:text-blue-400 transition-colors">
+                  Software Development
                 </Link>
               </li>
             </ul>

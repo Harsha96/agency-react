@@ -3,12 +3,18 @@ import { Link, useLocation } from 'react-router-dom';
 
 export const InteractiveMascot = () => {
     const [eyePosition, setEyePosition] = useState({ x: 0, y: 0 });
+    const [isHoveringInteractive, setIsHoveringInteractive] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
     const location = useLocation();
     const isContactPage = location.pathname === '/contact';
 
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
+            // Check for interactive elements
+            const target = e.target as HTMLElement;
+            const interactive = target.closest('button, a, [role="button"]');
+            setIsHoveringInteractive(!!interactive);
+
             if (!containerRef.current) return;
 
             const rect = containerRef.current.getBoundingClientRect();
@@ -52,8 +58,18 @@ export const InteractiveMascot = () => {
                     <path d="M140 40 L125 70 L110 60 Z" className="fill-blue-500" />
 
                     {/* Eyes Container */}
-                    <circle cx="75" cy="110" r="25" className="fill-gray-900" />
-                    <circle cx="125" cy="110" r="25" className="fill-gray-900" />
+                    <circle
+                        cx="75"
+                        cy="110"
+                        r="25"
+                        className={`transition-colors duration-300 ${isHoveringInteractive && !isContactPage ? 'fill-yellow-400 animate-pulse' : 'fill-gray-900'}`}
+                    />
+                    <circle
+                        cx="125"
+                        cy="110"
+                        r="25"
+                        className={`transition-colors duration-300 ${isHoveringInteractive && !isContactPage ? 'fill-yellow-400 animate-pulse' : 'fill-gray-900'}`}
+                    />
 
                     {/* Eyes Logic: Happy vs Tracking */}
                     {isContactPage ? (
@@ -70,11 +86,11 @@ export const InteractiveMascot = () => {
                         /* Tracking Pupils */
                         <g style={{ transform: `translate(${eyePosition.x}px, ${eyePosition.y}px)` }}>
                             {/* Left Pupil */}
-                            <circle cx="75" cy="110" r="10" className="fill-blue-400" />
+                            <circle cx="75" cy="110" r="10" className={`${isHoveringInteractive ? 'fill-black' : 'fill-blue-400'} transition-colors duration-300`} />
                             <circle cx="78" cy="107" r="3" className="fill-white" />
 
                             {/* Right Pupil */}
-                            <circle cx="125" cy="110" r="10" className="fill-blue-400" />
+                            <circle cx="125" cy="110" r="10" className={`${isHoveringInteractive ? 'fill-black' : 'fill-blue-400'} transition-colors duration-300`} />
                             <circle cx="128" cy="107" r="3" className="fill-white" />
                         </g>
                     )}
@@ -94,7 +110,7 @@ export const InteractiveMascot = () => {
                 {/* Speech Bubble Tooltip */}
                 <div className="absolute -top-16 right-0 bg-white border-2 border-gray-900 rounded-xl p-3 shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap z-50">
                     <p className="text-sm font-bold text-gray-900">
-                        {isContactPage ? "Yay! Let's talk! 🎉" : "Let's get started! 🚀"}
+                        {isContactPage ? "Yay! Let's talk! 🎉" : (isHoveringInteractive ? "Ooh! Click it! 😺" : "Let's get started! 🚀")}
                     </p>
                     <div className="absolute bottom-[-8px] right-8 w-4 h-4 bg-white border-b-2 border-r-2 border-gray-900 transform rotate-45"></div>
                 </div>
