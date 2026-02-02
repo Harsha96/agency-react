@@ -44,7 +44,7 @@ export default function DevService() {
 
   return (
     <div className="min-h-screen">
-      <section className="relative bg-gradient-to-br from-gray-50 via-white to-blue-50 py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gray-50 py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -99,7 +99,7 @@ export default function DevService() {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl p-8 hover:shadow-xl transition-shadow"
+                className="bg-white rounded-xl p-8 shadow-xl hover:shadow-2xl transition-shadow border-2 border-gray-100"
               >
                 <div className="inline-flex p-3 rounded-lg bg-gray-900 text-white mb-4">
                   {service.icon}
@@ -123,7 +123,7 @@ export default function DevService() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-12">
+            <div className="bg-white rounded-2xl p-12 shadow-xl border-2 border-gray-100">
               <h3 className="text-3xl font-bold text-gray-900 mb-8">Why Choose Us</h3>
               <div className="space-y-4">
                 {benefits.map((benefit, index) => (

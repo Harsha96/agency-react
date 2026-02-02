@@ -45,7 +45,7 @@ export default function AIService() {
 
   return (
     <div className="min-h-screen">
-      <section className="relative bg-gradient-to-br from-purple-50 via-white to-pink-50 py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gray-50 py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -100,7 +100,7 @@ export default function AIService() {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-8 hover:shadow-xl transition-shadow"
+                className="bg-white rounded-xl p-8 shadow-xl hover:shadow-2xl transition-shadow border-2 border-gray-100"
               >
                 <div className="inline-flex p-3 rounded-lg bg-purple-600 text-white mb-4">
                   {service.icon}
@@ -111,7 +111,7 @@ export default function AIService() {
             ))}
           </div>
 
-          <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-12">
+          <div className="bg-white rounded-2xl p-12 shadow-xl border-2 border-gray-100">
             <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">Key Benefits</h3>
             <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
               {benefits.map((benefit, index) => (

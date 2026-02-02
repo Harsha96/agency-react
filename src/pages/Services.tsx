@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { PenTool, Bot, Globe, BarChart, Code, ArrowRight, CheckCircle, Palette, Megaphone, MessageSquare, Shield } from 'lucide-react';
+import { Bot, Globe, ArrowRight, Zap, Palette, Megaphone, MessageSquare } from 'lucide-react';
+import { ScrollReveal } from '../components/ScrollReveal';
 
 export default function Services() {
   const services = [
@@ -76,8 +77,8 @@ export default function Services() {
   ];
 
   return (
-    <div className="min-h-screen">
-      <section className="relative bg-gradient-to-br from-blue-50 via-white to-cyan-50 py-20 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen animate-fade-in">
+      <section className="relative bg-gray-50 py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4 leading-tight">
@@ -92,52 +93,39 @@ export default function Services() {
 
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="space-y-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
             {services.map((service, index) => (
-              <div
-                key={index}
-                className={`grid md:grid-cols-2 gap-12 items-center ${
-                  index % 2 === 1 ? 'md:flex-row-reverse' : ''
-                }`}
-              >
-                <div className={index % 2 === 1 ? 'md:order-2' : ''}>
-                  <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${service.color} text-white mb-6`}>
+              <ScrollReveal key={index} delay={index * 100} width="100%">
+                <div
+                  className="relative bg-white rounded-2xl shadow-xl p-8 border-2 border-gray-100 h-full hover:shadow-2xl transition-all duration-300"
+                >
+                  <div className={`inline-flex p-4 rounded-xl bg-gradient-to-br ${service.color} text-white mb-6 transform transition-transform hover:scale-110 duration-300`}>
                     {service.icon}
                   </div>
-                  <h2 className="text-4xl font-bold text-gray-900 mb-4">{service.title}</h2>
-                  <p className="text-xl text-gray-600 mb-6 leading-relaxed">{service.description}</p>
 
-                  <div className="space-y-3 mb-8">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
+                  <p className="text-gray-600 mb-8 leading-relaxed">
+                    {service.description}
+                  </p>
+
+                  <ul className="space-y-3 mb-8">
                     {service.features.map((feature, i) => (
-                      <div key={i} className="flex items-start space-x-3">
-                        <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{feature}</span>
-                      </div>
+                      <li key={i} className="flex items-center text-gray-700">
+                        <Zap className="w-4 h-4 text-blue-500 mr-2 flex-shrink-0" />
+                        <span>{feature}</span>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
 
                   <Link
                     to={service.link}
-                    className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all"
+                    className="inline-flex items-center justify-center w-full px-6 py-3 border-2 border-gray-900 text-gray-900 font-semibold rounded-lg hover:bg-gray-900 hover:text-white transition-all duration-300"
                   >
                     Learn More
-                    <ArrowRight className="ml-2 w-5 h-5" />
+                    <ArrowRight className="ml-2 w-4 h-4" />
                   </Link>
                 </div>
-
-                <div className={index % 2 === 1 ? 'md:order-1' : ''}>
-                  <div className="relative">
-                    <div className={`absolute inset-0 bg-gradient-to-br ${service.color} rounded-2xl transform rotate-3 opacity-20`}></div>
-                    <div className="relative bg-white rounded-2xl shadow-2xl p-8">
-                      <div className={`w-full h-64 bg-gradient-to-br ${service.color} rounded-xl flex items-center justify-center`}>
-                        <div className="text-white opacity-50">
-                          {service.icon}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>

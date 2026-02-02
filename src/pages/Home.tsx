@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles, Zap, Target, TrendingUp, PenTool, Bot, Globe, BarChart, Code, Star, CheckCircle, Package, Lightbulb, MessageSquare, Shield } from 'lucide-react';
+import { ArrowRight, Sparkles, Target, PenTool, Bot, Globe, BarChart, Code, Star, CheckCircle, Package, Lightbulb, MessageSquare, Shield } from 'lucide-react';
+import { ScrollReveal } from '../components/ScrollReveal';
 import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
 import type { Database } from '../lib/supabase';
 
 type CaseStudy = Database['case_studies'];
+
+import { InteractiveGrid } from '../components/InteractiveGrid';
+import { ParallaxIcons } from '../components/ParallaxIcons';
 
 export default function Home() {
   const [caseStudies, setCaseStudies] = useState<CaseStudy[]>([]);
@@ -27,7 +31,6 @@ export default function Home() {
     }
     setLoading(false);
   };
-
   const services = [
     {
       icon: <PenTool className="w-8 h-8" />,
@@ -111,9 +114,10 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section - Cleaned up (removed duplicate) */}
-      <section className="relative bg-gradient-to-br from-blue-50 via-white to-cyan-50 pt-20 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+      {/* Hero Section - Solid Design */}
+      <section className="relative bg-gray-50 pt-24 pb-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <InteractiveGrid />
+        <ParallaxIcons />
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
@@ -121,12 +125,12 @@ export default function Home() {
               <span>AI-Powered Digital Solutions</span>
             </div>
             {/* Headline */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-4 leading-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-4 leading-tight animate-fade-in-up">
               Design. Develop. Deliver.
             </h1>
 
             {/* Sub-headline */}
-            <p className="text-2xl md:text-3xl text-gray-700 font-medium mb-4">
+            <p className="text-2xl md:text-3xl text-gray-700 font-medium mb-4 animate-fade-in-up [animation-delay:200ms]">
               Everything your brand needs to succeed online
             </p>
 
@@ -139,14 +143,14 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/about"
-                className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
+                className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
               >
                 Get Started
-                <ArrowRight className="ml-2 w-5 h-5" />
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg border-2 border-blue-600 hover:bg-blue-50 transition-all"
+                className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg border-2 border-blue-600 hover:bg-blue-50 transition-all duration-200 transform hover:scale-105 active:scale-95"
               >
                 Contact Us
               </Link>
@@ -166,21 +170,23 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => (
-              <Link
-                key={index}
-                to={service.link}
-                className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
-              >
-                <div className={`inline-flex p-4 rounded-xl bg-gradient-to-br ${service.color} text-white mb-4`}>
-                  {service.icon}
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">{service.description}</p>
-                <div className="flex items-center text-blue-600 font-medium group-hover:gap-2 transition-all">
-                  Learn more
-                  <ArrowRight className="w-4 h-4 ml-1 group-hover:ml-2 transition-all" />
-                </div>
-              </Link>
+              <ScrollReveal key={index} delay={index * 100} width="100%">
+                <Link
+                  to={service.link}
+                  className="group relative bg-white rounded-xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border-2 border-gray-100 hover:border-blue-200 block h-full"
+                >
+                  <div className={`inline-flex p-3 rounded-lg bg-gradient-to-br ${service.color} text-white mb-6 transition-transform group-hover:scale-110`}>
+                    {service.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
+                  <p className="text-gray-600 mb-6 leading-relaxed">
+                    {service.description}
+                  </p>
+                  <div className="flex items-center text-blue-600 font-semibold group-hover:gap-2 transition-all">
+                    Learn more <ArrowRight className="ml-2 w-4 h-4 transition-all" />
+                  </div>
+                </Link>
+              </ScrollReveal>
             ))}
           </div>
 
@@ -241,7 +247,7 @@ export default function Home() {
               {caseStudies.map((study) => (
                 <div
                   key={study.id}
-                  className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+                  className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border-2 border-gray-100"
                 >
                   <div className="relative h-48 overflow-hidden bg-gray-200">
                     <img
@@ -298,7 +304,7 @@ export default function Home() {
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow"
+                className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-gray-100"
               >
                 <div className="flex items-center mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
@@ -317,20 +323,20 @@ export default function Home() {
       </section>
 
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-600 to-cyan-600 text-white">
-  <div className="max-w-4xl mx-auto text-center">
-    <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to grow your digital presence?</h2>
-    <p className="text-xl mb-10 opacity-90">
-      Let's build something impactful together.
-    </p>
-    <Link
-      to="/contact"
-      className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
-    >
-      Get Started with us
-      <ArrowRight className="ml-2 w-5 h-5" />
-    </Link>
-  </div>
-</section>
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to grow your digital presence?</h2>
+          <p className="text-xl mb-10 opacity-90">
+            Let's build something impactful together.
+          </p>
+          <Link
+            to="/contact"
+            className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+          >
+            Get Started with us
+            <ArrowRight className="ml-2 w-5 h-5" />
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }

@@ -20,7 +20,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
+    <header className="bg-white shadow-md sticky top-0 z-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center space-x-2">
@@ -33,26 +33,23 @@ export default function Header() {
           <div className="hidden md:flex items-center space-x-8">
             <Link
               to="/"
-              className={`text-sm font-medium transition-colors ${
-                isActive('/') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'
-              }`}
+              className={`text-sm font-medium transition-colors ${isActive('/') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'
+                }`}
             >
               Home
             </Link>
             <Link
               to="/about"
-              className={`text-sm font-medium transition-colors ${
-                isActive('/about') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'
-              }`}
+              className={`text-sm font-medium transition-colors ${isActive('/about') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'
+                }`}
             >
               About
             </Link>
 
             <div className="relative group">
               <button
-                className={`text-sm font-medium flex items-center space-x-1 transition-colors ${
-                  location.pathname.startsWith('/services') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'
-                }`}
+                className={`text-sm font-medium flex items-center space-x-1 transition-colors ${location.pathname.startsWith('/services') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'
+                  }`}
                 onMouseEnter={() => setServicesOpen(true)}
                 onMouseLeave={() => setServicesOpen(true)}
               >
@@ -62,7 +59,7 @@ export default function Header() {
 
               {servicesOpen && (
                 <div
-                  className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg py-2 border border-gray-100"
+                  className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl py-2 border border-gray-200 animate-fade-in-up"
                   onMouseEnter={() => setServicesOpen(true)}
                   onMouseLeave={() => setServicesOpen(false)}
                 >
@@ -88,17 +85,15 @@ export default function Header() {
 
             <Link
               to="/portfolio"
-              className={`text-sm font-medium transition-colors ${
-                isActive('/portfolio') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'
-              }`}
+              className={`text-sm font-medium transition-colors ${isActive('/portfolio') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'
+                }`}
             >
               Portfolio
             </Link>
             <Link
               to="/blog"
-              className={`text-sm font-medium transition-colors ${
-                isActive('/blog') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'
-              }`}
+              className={`text-sm font-medium transition-colors ${isActive('/blog') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'
+                }`}
             >
               Blog
             </Link>
@@ -112,9 +107,8 @@ export default function Header() {
               <>
                 <Link
                   to="/admin"
-                  className={`text-sm font-medium transition-colors ${
-                    isActive('/admin') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'
-                  }`}
+                  className={`text-sm font-medium transition-colors ${isActive('/admin') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'
+                    }`}
                 >
                   Admin
                 </Link>

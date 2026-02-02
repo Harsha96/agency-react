@@ -1,4 +1,5 @@
 import { Users, Target, Heart, Award, Lightbulb, Rocket } from 'lucide-react';
+import { ScrollReveal } from '../components/ScrollReveal';
 
 export default function About() {
   const values = [
@@ -59,7 +60,7 @@ export default function About() {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen animate-fade-in">
       {/* <section className="relative bg-gradient-to-br from-blue-50 via-white to-cyan-50 py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-4xl mx-auto mb-16">
@@ -85,7 +86,7 @@ export default function About() {
           </div>
         </div>
       </section> */}
-      <section className="relative bg-gradient-to-br from-blue-50 via-white to-cyan-50 py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gray-50 py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-4xl mx-auto mb-16">
             <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
@@ -108,10 +109,12 @@ export default function About() {
 
           <div className="grid md:grid-cols-4 gap-8 mb-16">
             {stats.map((stat, index) => (
-              <div key={index} className="bg-white rounded-xl p-8 shadow-lg text-center">
-                <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">{stat.number}</div>
-                <div className="text-gray-600 font-medium">{stat.label}</div>
-              </div>
+              <ScrollReveal key={index} delay={index * 100} width="100%">
+                <div className="bg-white rounded-xl p-8 shadow-xl border-2 border-gray-100 text-center h-full hover:border-blue-200 transition-colors">
+                  <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">{stat.number}</div>
+                  <div className="text-gray-600 font-medium">{stat.label}</div>
+                </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -156,16 +159,17 @@ export default function About() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
             {values.map((value, index) => (
-              <div
-                key={index}
-                className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-8 hover:shadow-lg transition-shadow"
-              >
-                <div className="inline-flex p-3 rounded-lg bg-blue-600 text-white mb-4">
-                  {value.icon}
+              <ScrollReveal key={index} delay={index * 100} width="100%">
+                <div
+                  className="bg-white border-2 border-gray-100 rounded-xl p-8 shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1 hover-glow h-full"
+                >
+                  <div className="inline-flex p-3 rounded-lg bg-blue-600 text-white mb-4">
+                    {value.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{value.description}</p>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{value.description}</p>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -182,23 +186,27 @@ export default function About() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
-              >
-                <div className="relative h-64 overflow-hidden bg-gray-200">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover"
-                  />
+              <ScrollReveal key={index} delay={index * 100} width="100%">
+                <div
+                  className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+                >
+                  <div className="relative h-64 overflow-hidden bg-gray-200">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover image-hover-zoom"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                      <span className="text-white font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">View Profile</span>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
+                    <p className="text-blue-600 font-medium mb-3">{member.role}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">{member.bio}</p>
+                  </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
-                  <p className="text-blue-600 font-medium mb-3">{member.role}</p>
-                  <p className="text-gray-600 text-sm leading-relaxed">{member.bio}</p>
-                </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>

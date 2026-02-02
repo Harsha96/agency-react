@@ -53,7 +53,7 @@ export default function SEOService() {
 
   return (
     <div className="min-h-screen">
-      <section className="relative bg-gradient-to-br from-blue-50 via-white to-cyan-50 py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gray-50 py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -108,7 +108,7 @@ export default function SEOService() {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100"
+                className="bg-white rounded-xl p-8 shadow-xl hover:shadow-2xl transition-shadow border-2 border-gray-100"
               >
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{service.description}</p>
@@ -143,7 +143,7 @@ export default function SEOService() {
             {useCases.map((useCase, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-8 shadow-lg text-center"
+                className="bg-white rounded-xl p-8 shadow-xl border-2 border-gray-100 text-center"
               >
                 <div className="inline-flex p-4 rounded-xl bg-blue-100 text-blue-600 mb-4">
                   {useCase.icon}
