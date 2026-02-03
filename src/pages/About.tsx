@@ -217,7 +217,7 @@ export default function About() {
           </p>
           <a
             href="mailto:careers@aiagency.com"
-            className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+            className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl shadow-blue-900/20"
           >
             View Open Positions
           </a>

@@ -62,14 +62,14 @@ export default function AIService() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center px-10 py-5 text-lg bg-purple-600 text-white font-bold rounded-xl hover:bg-purple-700 transition-all shadow-xl hover:shadow-2xl"
+                  className="inline-flex items-center justify-center px-10 py-5 text-lg bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all shadow-lg shadow-purple-500/40 hover:shadow-purple-500/50"
                 >
                   Get Started
                   <ArrowRight className="ml-2 w-6 h-6" />
                 </Link>
                 <Link
                   to="/portfolio"
-                  className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white text-purple-600 font-bold rounded-xl border-2 border-purple-600 hover:bg-purple-50 transition-all"
+                  className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white text-purple-600 font-bold rounded-xl border-2 border-purple-600 hover:bg-purple-50 transition-all shadow-md hover:shadow-lg"
                 >
                   View Case Studies
                 </Link>
@@ -100,7 +100,7 @@ export default function AIService() {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-8 shadow-xl hover:shadow-2xl transition-shadow border-2 border-gray-100"
+                className="bg-white rounded-xl p-8 shadow-xl hover:shadow-2xl transition-shadow border-2 border-gray-100 flex flex-col items-center text-center"
               >
                 <div className="inline-flex p-3 rounded-lg bg-purple-600 text-white mb-4">
                   {service.icon}
@@ -156,7 +156,7 @@ export default function AIService() {
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white text-purple-600 font-bold rounded-xl hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl hover:shadow-2xl"
+            className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white text-purple-600 font-bold rounded-xl hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl shadow-purple-900/20"
           >
             Schedule AI Consultation
             <ArrowRight className="ml-2 w-6 h-6" />

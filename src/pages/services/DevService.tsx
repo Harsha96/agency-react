@@ -61,14 +61,14 @@ export default function DevService() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center px-10 py-5 text-lg bg-gray-900 text-white font-bold rounded-xl hover:bg-gray-800 transition-all shadow-xl hover:shadow-2xl"
+                  className="inline-flex items-center justify-center px-10 py-5 text-lg bg-gradient-to-r from-gray-900 to-gray-800 text-white font-bold rounded-xl hover:from-black hover:to-gray-900 transition-all shadow-lg shadow-gray-500/40 hover:shadow-gray-500/50"
                 >
                   Start Your Project
                   <ArrowRight className="ml-2 w-6 h-6" />
                 </Link>
                 <Link
                   to="/portfolio"
-                  className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white text-gray-900 font-bold rounded-xl border-2 border-gray-900 hover:bg-gray-50 transition-all"
+                  className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white text-gray-900 font-bold rounded-xl border-2 border-gray-900 hover:bg-gray-50 transition-all shadow-md hover:shadow-lg"
                 >
                   View Projects
                 </Link>
@@ -99,7 +99,7 @@ export default function DevService() {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-8 shadow-xl hover:shadow-2xl transition-shadow border-2 border-gray-100"
+                className="bg-white rounded-xl p-8 shadow-xl hover:shadow-2xl transition-shadow border-2 border-gray-100 flex flex-col items-center text-center"
               >
                 <div className="inline-flex p-3 rounded-lg bg-gray-900 text-white mb-4">
                   {service.icon}
@@ -146,7 +146,7 @@ export default function DevService() {
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white text-gray-900 font-bold rounded-xl hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl hover:shadow-2xl"
+            className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white text-gray-900 font-bold rounded-xl hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl shadow-gray-900/20"
           >
             Get a Development Quote
             <ArrowRight className="ml-2 w-6 h-6" />

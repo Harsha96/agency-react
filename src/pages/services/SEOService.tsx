@@ -70,14 +70,14 @@ export default function SEOService() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center px-10 py-5 text-lg bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-all shadow-xl hover:shadow-2xl"
+                  className="inline-flex items-center justify-center px-10 py-5 text-lg bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-bold rounded-xl hover:from-blue-700 hover:to-cyan-700 transition-all shadow-lg shadow-blue-500/40 hover:shadow-blue-500/50"
                 >
                   Get Started
                   <ArrowRight className="ml-2 w-6 h-6" />
                 </Link>
                 <Link
                   to="/portfolio"
-                  className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white text-blue-600 font-bold rounded-xl border-2 border-blue-600 hover:bg-blue-50 transition-all"
+                  className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white text-blue-600 font-bold rounded-xl border-2 border-blue-600 hover:bg-blue-50 transition-all shadow-md hover:shadow-lg"
                 >
                   View Examples
                 </Link>
@@ -108,7 +108,7 @@ export default function SEOService() {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-8 shadow-xl hover:shadow-2xl transition-shadow border-2 border-gray-100"
+                className="bg-white rounded-xl p-8 shadow-xl hover:shadow-2xl transition-shadow border-2 border-gray-100 flex flex-col items-center text-center"
               >
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{service.description}</p>
@@ -143,7 +143,7 @@ export default function SEOService() {
             {useCases.map((useCase, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-8 shadow-xl border-2 border-gray-100 text-center"
+                className="bg-white rounded-xl p-8 shadow-xl border-2 border-gray-100 text-center flex flex-col items-center"
               >
                 <div className="inline-flex p-4 rounded-xl bg-blue-100 text-blue-600 mb-4">
                   {useCase.icon}
@@ -164,7 +164,7 @@ export default function SEOService() {
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white text-blue-600 font-bold rounded-xl hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl hover:shadow-2xl"
+            className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white text-blue-600 font-bold rounded-xl hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl shadow-blue-900/20"
           >
             Start Your Content Strategy
             <ArrowRight className="ml-2 w-6 h-6" />

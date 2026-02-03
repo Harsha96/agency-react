@@ -122,7 +122,7 @@ export default function Portfolio() {
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white text-blue-600 font-bold rounded-xl hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl hover:shadow-2xl"
+            className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white text-blue-600 font-bold rounded-xl hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl shadow-blue-900/20"
           >
             Start Your Project
           </Link>

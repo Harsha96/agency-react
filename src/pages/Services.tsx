@@ -15,7 +15,7 @@ export default function Services() {
         'Packaging design',
         'Brand guidelines',
       ],
-      link: '/services/design',
+      link: '/services/web',
       color: 'from-blue-500 to-cyan-500',
     },
     {
@@ -29,7 +29,7 @@ export default function Services() {
         'Email marketing',
         'Analytics & reporting',
       ],
-      link: '/services/marketing',
+      link: '/services/seo',
       color: 'from-purple-500 to-pink-500',
     },
     {
@@ -57,7 +57,7 @@ export default function Services() {
         'Mobile applications',
         'Cloud infrastructure',
       ],
-      link: '/services/software',
+      link: '/services/ai',
       color: 'from-orange-500 to-red-500',
     },
     {
@@ -71,7 +71,7 @@ export default function Services() {
         'Digital strategy consulting',
         'Training & documentation',
       ],
-      link: '/services/support',
+      link: '/services/seo',
       color: 'from-indigo-500 to-blue-500',
     },
   ];
@@ -97,7 +97,7 @@ export default function Services() {
             {services.map((service, index) => (
               <ScrollReveal key={index} delay={index * 100} width="100%">
                 <div
-                  className="relative bg-white rounded-2xl shadow-xl p-8 border-2 border-gray-100 h-full hover:shadow-2xl transition-all duration-300"
+                  className="relative bg-white rounded-2xl shadow-xl p-8 border-2 border-gray-100 h-full hover:shadow-2xl transition-all duration-300 flex flex-col items-center text-center"
                 >
                   <div className={`inline-flex p-4 rounded-xl bg-gradient-to-br ${service.color} text-white mb-6 transform transition-transform hover:scale-110 duration-300`}>
                     {service.icon}
@@ -110,7 +110,7 @@ export default function Services() {
 
                   <ul className="space-y-3 mb-8">
                     {service.features.map((feature, i) => (
-                      <li key={i} className="flex items-center text-gray-700">
+                      <li key={i} className="flex items-center justify-center text-gray-700">
                         <Zap className="w-4 h-4 text-blue-500 mr-2 flex-shrink-0" />
                         <span>{feature}</span>
                       </li>

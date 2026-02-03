@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -10,13 +10,34 @@
   }
 
   body {
-    @apply font-sans antialiased text-gray-900 bg-gray-50;
+    @apply font-sans antialiased text-slate-900 bg-slate-50;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 rounded-full hover:bg-slate-400 transition-colors;
   }
 }
 
 @layer utilities {
   .bg-grid-pattern {
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236366f1' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-violet-600 to-indigo-600;
+  }
+
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-lg border border-white/20 shadow-xl;
   }
 
   .reveal-hidden {
@@ -29,35 +50,11 @@
     transform: translateY(0);
   }
 
-  .hover-glow {
-    transition: box-shadow 0.3s ease-in-out;
-  }
-
-  .hover-glow:hover {
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
-  }
-
   .image-hover-zoom {
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .group:hover .image-hover-zoom {
-    transform: scale(1.1);
-  }
-
-  @keyframes float {
-
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-
-    50% {
-      transform: translateY(-10px);
-    }
-  }
-
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
+    transform: scale(1.05);
   }
 }

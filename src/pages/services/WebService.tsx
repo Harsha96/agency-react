@@ -56,14 +56,14 @@ export default function WebService() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center px-10 py-5 text-lg bg-green-600 text-white font-bold rounded-xl hover:bg-green-700 transition-all shadow-xl hover:shadow-2xl"
+                  className="inline-flex items-center justify-center px-10 py-5 text-lg bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold rounded-xl hover:from-green-700 hover:to-emerald-700 transition-all shadow-lg shadow-green-500/40 hover:shadow-green-500/50"
                 >
                   Start Your Project
                   <ArrowRight className="ml-2 w-6 h-6" />
                 </Link>
                 <Link
                   to="/portfolio"
-                  className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white text-green-600 font-bold rounded-xl border-2 border-green-600 hover:bg-green-50 transition-all"
+                  className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white text-green-600 font-bold rounded-xl border-2 border-green-600 hover:bg-green-50 transition-all shadow-md hover:shadow-lg"
                 >
                   View Portfolio
                 </Link>
@@ -94,7 +94,7 @@ export default function WebService() {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-8 shadow-xl hover:shadow-2xl transition-shadow border-2 border-gray-100"
+                className="bg-white rounded-xl p-8 shadow-xl hover:shadow-2xl transition-shadow border-2 border-gray-100 flex flex-col items-center text-center"
               >
                 <div className="inline-flex p-3 rounded-lg bg-green-600 text-white mb-4">
                   {service.icon}
@@ -141,7 +141,7 @@ export default function WebService() {
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white text-green-600 font-bold rounded-xl hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl hover:shadow-2xl"
+            className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white text-green-600 font-bold rounded-xl hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl shadow-green-900/20"
           >
             Get a Free Quote
             <ArrowRight className="ml-2 w-6 h-6" />
