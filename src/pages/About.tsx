@@ -6,22 +6,22 @@ export default function About() {
     {
       icon: <Lightbulb className="w-8 h-8" />,
       title: 'Innovation First',
-      description: 'We stay ahead of the curve, constantly exploring and implementing the latest AI and technology trends.',
+      description: 'Constantly exploring the latest AI trends.',
     },
     {
       icon: <Heart className="w-8 h-8" />,
       title: 'Client Success',
-      description: 'Your success is our success. We measure our performance by the results we deliver for you.',
+      description: 'Your success is our success.',
     },
     {
       icon: <Target className="w-8 h-8" />,
       title: 'Quality Obsessed',
-      description: 'Excellence is non-negotiable. Every project receives meticulous attention to detail.',
+      description: 'Meticulous attention to detail.',
     },
     {
       icon: <Rocket className="w-8 h-8" />,
       title: 'Fast Execution',
-      description: 'Speed matters in business. We deliver quickly without compromising on quality.',
+      description: 'Quick delivery without quality compromise.',
     },
   ];
 
@@ -86,24 +86,21 @@ export default function About() {
           </div>
         </div>
       </section> */}
-      <section className="relative bg-gray-50 py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gradient-to-br from-blue-100 via-white to-blue-50 py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-4xl mx-auto mb-16">
-            <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-8">
               <Users className="w-4 h-4" />
-              <span>Who We Are</span>
+              <span className="tracking-wide">Who We Are</span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
               Akinahs Collective
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed mb-4">
-              A full-service digital agency delivering smart, reliable online solutions for individuals and businesses.
+            <p className="text-xl md:text-2xl text-gray-700 font-medium leading-relaxed tracking-wide mb-8 max-w-3xl mx-auto">
+              Smart, reliable digital solutions for your business.
             </p>
-            <p className="text-xl text-gray-600 leading-relaxed mb-8">
-              We combine creativity, technology, and strategy to help brands grow in the digital space.
-            </p>
-            <p className="text-lg text-gray-700 font-medium leading-relaxed max-w-3xl mx-auto">
-              Whether you need eye-catching designs or scalable software solutions, we handle everything under one roof simple, efficient, and result driven.
+            <p className="text-lg text-gray-600 leading-relaxed tracking-wide max-w-2xl mx-auto">
+              We handle everything under one roof — simple, efficient, and result-driven.
             </p>
           </div>
 

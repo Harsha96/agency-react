@@ -3,27 +3,27 @@ import { Globe, Smartphone, Zap, CheckCircle, ArrowRight } from 'lucide-react';
 
 export default function WebService() {
   const benefits = [
-    'Fast, responsive websites that work on all devices',
-    'Modern design that builds trust and credibility',
-    'Optimized for conversions and user experience',
+    'Fast, responsive websites',
+    'Trust-building modern design',
+    'Optimized for conversions',
     'SEO-friendly architecture',
-    'Scalable infrastructure that grows with you',
+    'Scalable infrastructure',
   ];
 
   const services = [
     {
       title: 'Custom Website Development',
-      description: 'Fully custom websites built to your exact specifications using modern frameworks.',
+      description: 'Custom built to your specs.',
       icon: <Globe className="w-8 h-8" />,
     },
     {
       title: 'Landing Pages',
-      description: 'High-converting landing pages designed to turn visitors into customers.',
+      description: 'High-converting pages.',
       icon: <Zap className="w-8 h-8" />,
     },
     {
       title: 'Responsive Design',
-      description: 'Beautiful experiences across desktop, tablet, and mobile devices.',
+      description: 'Great experiences on all devices.',
       icon: <Smartphone className="w-8 h-8" />,
     },
   ];
@@ -47,23 +47,23 @@ export default function WebService() {
                 <Globe className="w-4 h-4" />
                 <span>Web Development</span>
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
                 Website Building
               </h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Modern, responsive websites built with cutting-edge technology and beautiful design.
+              <p className="text-xl md:text-2xl text-gray-700 font-medium leading-relaxed tracking-wide mb-8">
+                Modern, responsive websites with beautiful design.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-all"
+                  className="inline-flex items-center justify-center px-10 py-5 text-lg bg-green-600 text-white font-bold rounded-xl hover:bg-green-700 transition-all shadow-xl hover:shadow-2xl"
                 >
                   Start Your Project
-                  <ArrowRight className="ml-2 w-5 h-5" />
+                  <ArrowRight className="ml-2 w-6 h-6" />
                 </Link>
                 <Link
                   to="/portfolio"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-white text-green-600 font-semibold rounded-lg border-2 border-green-600 hover:bg-green-50 transition-all"
+                  className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white text-green-600 font-bold rounded-xl border-2 border-green-600 hover:bg-green-50 transition-all"
                 >
                   View Portfolio
                 </Link>
@@ -141,10 +141,10 @@ export default function WebService() {
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center justify-center px-8 py-4 bg-white text-green-600 font-semibold rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+            className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white text-green-600 font-bold rounded-xl hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl hover:shadow-2xl"
           >
             Get a Free Quote
-            <ArrowRight className="ml-2 w-5 h-5" />
+            <ArrowRight className="ml-2 w-6 h-6" />
           </Link>
         </div>
       </section>

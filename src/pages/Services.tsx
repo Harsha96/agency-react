@@ -7,7 +7,7 @@ export default function Services() {
     {
       icon: <Palette className="w-12 h-12" />,
       title: 'Graphic Design & Branding',
-      description: 'Creative visuals, logos, and brand identities that make your business stand out.',
+      description: 'Creative visuals and brand identities.',
       features: [
         'Logo design & brand identity',
         'Marketing materials',
@@ -21,7 +21,7 @@ export default function Services() {
     {
       icon: <Megaphone className="w-12 h-12" />,
       title: 'Digital Marketing & Social Media',
-      description: 'Strategic online marketing to grow your audience and engagement.',
+      description: 'Strategic marketing to grow your audience.',
       features: [
         'Social media management',
         'Content strategy',
@@ -35,7 +35,7 @@ export default function Services() {
     {
       icon: <Globe className="w-12 h-12" />,
       title: 'Website Design & Development',
-      description: 'Modern, responsive websites built for performance and usability.',
+      description: 'Modern, responsive, performant websites.',
       features: [
         'Custom website design',
         'Responsive development',
@@ -49,7 +49,7 @@ export default function Services() {
     {
       icon: <Bot className="w-12 h-12" />,
       title: 'Software & AI Solutions',
-      description: 'Custom software solutions designed to support and scale your business.',
+      description: 'Custom software to scale your business.',
       features: [
         'Custom software development',
         'AI-powered automation',
@@ -63,7 +63,7 @@ export default function Services() {
     {
       icon: <MessageSquare className="w-12 h-12" />,
       title: 'Content & Online Support',
-      description: 'Clear content, ongoing support, and tailored digital solutions.',
+      description: 'Clear content and tailored solutions.',
       features: [
         'Content creation & copywriting',
         'Ongoing technical support',
@@ -78,14 +78,14 @@ export default function Services() {
 
   return (
     <div className="min-h-screen animate-fade-in">
-      <section className="relative bg-gray-50 py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gradient-to-br from-blue-100 via-white to-blue-50 py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4 leading-tight">
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
               Our Services
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
-              Everything your brand needs to succeed online — all under one roof.
+            <p className="text-xl md:text-2xl text-gray-700 font-medium leading-relaxed tracking-wide max-w-2xl mx-auto">
+              Everything your brand needs to succeed online.
             </p>
           </div>
         </div>
@@ -139,10 +139,10 @@ export default function Services() {
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+            className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white text-blue-600 font-bold rounded-xl hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl hover:shadow-2xl"
           >
             Schedule a Consultation
-            <ArrowRight className="ml-2 w-5 h-5" />
+            <ArrowRight className="ml-2 w-6 h-6" />
           </Link>
         </div>
       </section>

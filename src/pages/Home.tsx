@@ -35,28 +35,28 @@ export default function Home() {
     {
       icon: <PenTool className="w-8 h-8" />,
       title: 'SEO Content Writing',
-      description: 'Rank higher with AI-optimized, human-crafted content that converts.',
+      description: 'Rank higher with optimized content.',
       link: '/services/seo',
       color: 'from-blue-500 to-cyan-500',
     },
     {
       icon: <Bot className="w-8 h-8" />,
       title: 'AI Services',
-      description: 'Custom AI solutions, chatbots, and intelligent automation for your business.',
+      description: 'Custom AI solutions for your business.',
       link: '/services/ai',
       color: 'from-purple-500 to-pink-500',
     },
     {
       icon: <Globe className="w-8 h-8" />,
       title: 'Website Building',
-      description: 'Modern, responsive websites built with cutting-edge technology.',
+      description: 'Modern, responsive websites.',
       link: '/services/web',
       color: 'from-green-500 to-emerald-500',
     },
     {
       icon: <BarChart className="w-8 h-8" />,
       title: 'Data Analytics',
-      description: 'Transform raw data into actionable insights and predictive models.',
+      description: 'Actionable insights for growth.',
       link: '/services/data',
       color: 'from-orange-500 to-red-500',
     },
@@ -67,27 +67,27 @@ export default function Home() {
     {
       icon: <Package className="w-6 h-6" />,
       title: 'End-to-End Solutions',
-      description: 'Complete digital services from start to finish — all under one roof.',
+      description: 'Complete digital services under one roof.',
     },
     {
       icon: <Lightbulb className="w-6 h-6" />,
       title: 'Creative & Technical Expertise',
-      description: 'A perfect blend of artistic vision and technical mastery.',
+      description: 'Artistic vision meets technical mastery.',
     },
     {
       icon: <MessageSquare className="w-6 h-6" />,
       title: 'Clear Communication',
-      description: 'Simple, transparent communication throughout every project.',
+      description: 'Simple, transparent communication.',
     },
     {
       icon: <Target className="w-6 h-6" />,
       title: 'Tailored Solutions',
-      description: 'Custom strategies designed specifically for your unique needs.',
+      description: 'Custom strategies for your unique needs.',
     },
     {
       icon: <Shield className="w-6 h-6" />,
       title: 'Reliable Support',
-      description: 'Ongoing support and partnership you can trust.',
+      description: 'Partnership you can trust.',
     },
   ];
 
@@ -115,44 +115,39 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section - Solid Design */}
-      <section className="relative bg-gray-50 pt-24 pb-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-blue-100 via-white to-blue-50 pt-24 pb-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <InteractiveGrid />
         <ParallaxIcons />
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-8">
               <Sparkles className="w-4 h-4" />
-              <span>AI-Powered Digital Solutions</span>
+              <span className="tracking-wide">AI-Powered Digital Solutions</span>
             </div>
             {/* Headline */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-4 leading-tight animate-fade-in-up">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight animate-fade-in-up tracking-tight">
               Design. Develop. Deliver.
             </h1>
 
             {/* Sub-headline */}
-            <p className="text-2xl md:text-3xl text-gray-700 font-medium mb-4 animate-fade-in-up [animation-delay:200ms]">
-              Everything your brand needs to succeed online
-            </p>
-
-            {/* Supporting line */}
-            <p className="text-xl text-gray-600 mb-10">
+            <p className="text-xl md:text-2xl text-gray-700 font-medium mb-10 animate-fade-in-up [animation-delay:200ms] tracking-wide leading-relaxed max-w-2xl mx-auto">
               All your digital needs in one place.
             </p>
 
             {/* Call to Action */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/about"
-                className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
-              >
-                Get Started
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
+            <div className="flex flex-col sm:flex-row gap-5 justify-center">
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg border-2 border-blue-600 hover:bg-blue-50 transition-all duration-200 transform hover:scale-105 active:scale-95"
+                className="inline-flex items-center justify-center px-10 py-5 text-lg bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-xl hover:shadow-2xl"
               >
-                Contact Us
+                Get Started
+                <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link
+                to="/services"
+                className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white text-blue-600 font-bold rounded-xl border-2 border-blue-600 hover:bg-blue-50 transition-all duration-200 transform hover:scale-105 active:scale-95"
+              >
+                Learn More
               </Link>
             </div>
           </div>
@@ -173,7 +168,7 @@ export default function Home() {
               <ScrollReveal key={index} delay={index * 100} width="100%">
                 <Link
                   to={service.link}
-                  className="group relative bg-white rounded-xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border-2 border-gray-100 hover:border-blue-200 block h-full"
+                  className="group relative bg-white rounded-xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border-2 border-gray-100 hover:border-blue-200 block h-full text-center"
                 >
                   <div className={`inline-flex p-3 rounded-lg bg-gradient-to-br ${service.color} text-white mb-6 transition-transform group-hover:scale-110`}>
                     {service.icon}
@@ -182,7 +177,7 @@ export default function Home() {
                   <p className="text-gray-600 mb-6 leading-relaxed">
                     {service.description}
                   </p>
-                  <div className="flex items-center text-blue-600 font-semibold group-hover:gap-2 transition-all">
+                  <div className="flex items-center justify-center text-blue-600 font-semibold group-hover:gap-2 transition-all">
                     Learn more <ArrowRight className="ml-2 w-4 h-4 transition-all" />
                   </div>
                 </Link>
@@ -216,7 +211,7 @@ export default function Home() {
             {benefits.map((benefit, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow"
+                className="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow text-center"
               >
                 <div className="inline-flex p-3 rounded-lg bg-blue-100 text-blue-600 mb-4">
                   {benefit.icon}

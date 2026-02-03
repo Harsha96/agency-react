@@ -3,32 +3,32 @@ import { Code, Smartphone, Database, Cloud, CheckCircle, ArrowRight } from 'luci
 
 export default function DevService() {
   const benefits = [
-    'Custom solutions built for your unique needs',
-    'Scalable architecture that grows with your business',
-    'Modern tech stack with best practices',
+    'Custom solutions for your needs',
+    'Scalable architecture',
+    'Modern tech stack',
     'Clean, maintainable code',
-    'Ongoing support and maintenance',
+    'Ongoing support',
   ];
 
   const services = [
     {
       title: 'Mobile Applications',
-      description: 'Native and cross-platform mobile apps for iOS and Android.',
+      description: 'Native and cross-platform mobile apps.',
       icon: <Smartphone className="w-8 h-8" />,
     },
     {
       title: 'Web Applications',
-      description: 'Full-featured web applications with modern frameworks and responsive design.',
+      description: 'Full-featured modern web apps.',
       icon: <Code className="w-8 h-8" />,
     },
     {
       title: 'API Development',
-      description: 'RESTful and GraphQL APIs for seamless integrations and data access.',
+      description: 'Seamless integrations and data access.',
       icon: <Database className="w-8 h-8" />,
     },
     {
       title: 'Cloud Infrastructure',
-      description: 'Scalable cloud solutions on AWS, Azure, or Google Cloud.',
+      description: 'Scalable solutions on AWS/Azure/GCP.',
       icon: <Cloud className="w-8 h-8" />,
     },
   ];
@@ -52,23 +52,23 @@ export default function DevService() {
                 <Code className="w-4 h-4" />
                 <span>Software Development</span>
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
                 Software Development
               </h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Full-stack development for web and mobile. We build robust, scalable systems that power modern businesses.
+              <p className="text-xl md:text-2xl text-gray-700 font-medium leading-relaxed tracking-wide mb-8">
+                Robust, scalable systems that power modern businesses.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-gray-900 text-white font-semibold rounded-lg hover:bg-gray-800 transition-all"
+                  className="inline-flex items-center justify-center px-10 py-5 text-lg bg-gray-900 text-white font-bold rounded-xl hover:bg-gray-800 transition-all shadow-xl hover:shadow-2xl"
                 >
                   Start Your Project
-                  <ArrowRight className="ml-2 w-5 h-5" />
+                  <ArrowRight className="ml-2 w-6 h-6" />
                 </Link>
                 <Link
                   to="/portfolio"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-white text-gray-900 font-semibold rounded-lg border-2 border-gray-900 hover:bg-gray-50 transition-all"
+                  className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white text-gray-900 font-bold rounded-xl border-2 border-gray-900 hover:bg-gray-50 transition-all"
                 >
                   View Projects
                 </Link>
@@ -146,10 +146,10 @@ export default function DevService() {
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center justify-center px-8 py-4 bg-white text-gray-900 font-semibold rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+            className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white text-gray-900 font-bold rounded-xl hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl hover:shadow-2xl"
           >
             Get a Development Quote
-            <ArrowRight className="ml-2 w-5 h-5" />
+            <ArrowRight className="ml-2 w-6 h-6" />
           </Link>
         </div>
       </section>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Briefcase, CheckCircle } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import type { Database } from '../lib/supabase';
@@ -28,18 +29,18 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen">
-      <section className="relative bg-gray-50 py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gradient-to-br from-blue-100 via-white to-blue-50 py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-8">
               <Briefcase className="w-4 h-4" />
-              <span>Our Work</span>
+              <span className="tracking-wide">Our Work</span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
               Portfolio & Case Studies
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
-              Real projects, real results. See how we've helped businesses achieve their goals with AI-powered solutions.
+            <p className="text-xl md:text-2xl text-gray-700 font-medium leading-relaxed tracking-wide mb-8 max-w-2xl mx-auto">
+              Real projects, real results.
             </p>
           </div>
         </div>
@@ -119,12 +120,12 @@ export default function Portfolio() {
           <p className="text-xl mb-10 opacity-90">
             Let's discuss how we can help you achieve similar success.
           </p>
-          <a
-            href="/contact"
-            className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+          <Link
+            to="/contact"
+            className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white text-blue-600 font-bold rounded-xl hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl hover:shadow-2xl"
           >
             Start Your Project
-          </a>
+          </Link>
         </div>
       </section>
     </div>

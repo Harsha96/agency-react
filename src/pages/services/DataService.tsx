@@ -3,27 +3,27 @@ import { BarChart, TrendingUp, PieChart, CheckCircle, ArrowRight } from 'lucide-
 
 export default function DataService() {
   const benefits = [
-    'Make data-driven decisions with confidence',
-    'Identify hidden opportunities in your data',
-    'Predict trends and customer behavior',
-    'Automate reporting and save hours weekly',
-    'Get actionable insights, not just numbers',
+    'Confidence in data-driven decisions',
+    'Identify hidden opportunities',
+    'Predict trends and behavior',
+    'Automate reporting',
+    'Actionable insights',
   ];
 
   const services = [
     {
       title: 'Dashboard Development',
-      description: 'Custom dashboards that visualize your key metrics in real-time.',
+      description: 'Real-time metrics visualization.',
       icon: <BarChart className="w-8 h-8" />,
     },
     {
       title: 'Business Intelligence',
-      description: 'Transform raw data into strategic insights for better decision-making.',
+      description: 'Strategic insights for decision-making.',
       icon: <TrendingUp className="w-8 h-8" />,
     },
     {
       title: 'Data Visualization',
-      description: 'Make complex data easy to understand with compelling visualizations.',
+      description: 'Compelling, easy-to-understand visuals.',
       icon: <PieChart className="w-8 h-8" />,
     },
   ];
@@ -47,23 +47,23 @@ export default function DataService() {
                 <BarChart className="w-4 h-4" />
                 <span>Data Analytics</span>
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
                 Data Analytics
               </h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Transform raw data into actionable insights and predictive models that drive business growth.
+              <p className="text-xl md:text-2xl text-gray-700 font-medium leading-relaxed tracking-wide mb-8">
+                Actionable insights and predictive models for business growth.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition-all"
+                  className="inline-flex items-center justify-center px-10 py-5 text-lg bg-orange-600 text-white font-bold rounded-xl hover:bg-orange-700 transition-all shadow-xl hover:shadow-2xl"
                 >
                   Get Started
-                  <ArrowRight className="ml-2 w-5 h-5" />
+                  <ArrowRight className="ml-2 w-6 h-6" />
                 </Link>
                 <Link
                   to="/portfolio"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-white text-orange-600 font-semibold rounded-lg border-2 border-orange-600 hover:bg-orange-50 transition-all"
+                  className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white text-orange-600 font-bold rounded-xl border-2 border-orange-600 hover:bg-orange-50 transition-all"
                 >
                   See Examples
                 </Link>
@@ -141,10 +141,10 @@ export default function DataService() {
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center justify-center px-8 py-4 bg-white text-orange-600 font-semibold rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+            className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white text-orange-600 font-bold rounded-xl hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl hover:shadow-2xl"
           >
             Schedule Data Consultation
-            <ArrowRight className="ml-2 w-5 h-5" />
+            <ArrowRight className="ml-2 w-6 h-6" />
           </Link>
         </div>
       </section>

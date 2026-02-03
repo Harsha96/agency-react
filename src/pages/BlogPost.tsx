@@ -136,7 +136,7 @@ export default function BlogPost() {
               </p>
               <Link
                 to="/contact"
-                className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all"
+                className="inline-flex items-center px-10 py-5 text-lg bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-all shadow-xl hover:shadow-2xl"
               >
                 Get in Touch
               </Link>
