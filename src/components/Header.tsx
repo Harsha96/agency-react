@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 
 export default function Header() {
@@ -8,6 +8,18 @@ export default function Header() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const location = useLocation();
   const { user, signOut } = useAuth();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const isHomePage = location.pathname === '/';
+  const isDarkHeader = isHomePage && !scrolled;
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -20,27 +32,37 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-xl border-b border-white/20 transition-all duration-300 shadow-sm">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
+      ? 'bg-white/80 backdrop-blur-xl border-b border-gray-200/50 shadow-sm py-4'
+      : 'bg-transparent py-6'
+      }`}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <Link to="/" className="flex items-center space-x-3 group">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-blue-500/20 transition-all duration-500">
+            <div className={`w-10 h-10 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg transition-all duration-500 ${scrolled ? 'scale-90' : 'scale-100'}`}>
               <span className="text-white font-bold text-xl">AC</span>
             </div>
-            <span className="font-bold text-xl text-gray-900 tracking-tight group-hover:text-blue-600 transition-colors duration-300">Akinahs Collective</span>
+            <span className={`font-bold text-xl tracking-tight transition-colors duration-300 ${isDarkHeader ? 'text-white' : 'text-gray-900 group-hover:text-blue-600'
+              }`}>
+              Akinahs Collective
+            </span>
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
             <Link
               to="/"
-              className={`text-sm font-semibold tracking-wide transition-colors ${isActive('/') ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600'
+              className={`text-sm font-semibold tracking-wide transition-colors ${isActive('/')
+                ? 'text-blue-600'
+                : (isDarkHeader ? 'text-white/80 hover:text-white' : 'text-gray-600 hover:text-blue-600')
                 }`}
             >
               Home
             </Link>
             <Link
               to="/about"
-              className={`text-sm font-semibold tracking-wide transition-colors ${isActive('/about') ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600'
+              className={`text-sm font-semibold tracking-wide transition-colors ${isActive('/about')
+                ? 'text-blue-600'
+                : (isDarkHeader ? 'text-white/80 hover:text-white' : 'text-gray-600 hover:text-blue-600')
                 }`}
             >
               About
@@ -48,7 +70,9 @@ export default function Header() {
 
             <div className="relative group">
               <button
-                className={`text-sm font-semibold tracking-wide flex items-center space-x-1 transition-colors ${location.pathname.startsWith('/services') ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600'
+                className={`text-sm font-semibold tracking-wide flex items-center space-x-1 transition-colors ${location.pathname.startsWith('/services')
+                  ? 'text-blue-600'
+                  : (isDarkHeader ? 'text-white/80 hover:text-white' : 'text-gray-600 hover:text-blue-600')
                   }`}
                 onMouseEnter={() => setServicesOpen(true)}
                 onMouseLeave={() => setServicesOpen(true)}
@@ -85,14 +109,18 @@ export default function Header() {
 
             <Link
               to="/portfolio"
-              className={`text-sm font-semibold tracking-wide transition-colors ${isActive('/portfolio') ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600'
+              className={`text-sm font-semibold tracking-wide transition-colors ${isActive('/portfolio')
+                ? 'text-blue-600'
+                : (isDarkHeader ? 'text-white/80 hover:text-white' : 'text-gray-600 hover:text-blue-600')
                 }`}
             >
               Portfolio
             </Link>
             <Link
               to="/blog"
-              className={`text-sm font-semibold tracking-wide transition-colors ${isActive('/blog') ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600'
+              className={`text-sm font-semibold tracking-wide transition-colors ${isActive('/blog')
+                ? 'text-blue-600'
+                : (isDarkHeader ? 'text-white/80 hover:text-white' : 'text-gray-600 hover:text-blue-600')
                 }`}
             >
               Blog
@@ -123,7 +151,8 @@ export default function Header() {
           </div>
 
           <button
-            className="md:hidden text-gray-900 p-2 hover:bg-gray-100 rounded-lg transition-colors"
+            className={`md:hidden p-2 rounded-lg transition-colors ${isDarkHeader ? 'text-white hover:bg-white/10' : 'text-gray-900 hover:bg-gray-100'
+              }`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

@@ -77,7 +77,7 @@ export function HeroParticles() {
 
 export function RainParticles() {
     return (
-        <div className="absolute inset-0 pointer-events-none z-0 w-full h-full opacity-70">
+        <div className="absolute inset-0 pointer-events-none z-0 w-full h-full opacity-30">
             <Canvas camera={{ position: [0, 0, 40], fov: 60 }}>
                 <MatrixFluxField />
             </Canvas>
@@ -116,7 +116,7 @@ function MatrixFluxField() {
         return cols;
     }, []);
 
-    useFrame((state) => {
+    useFrame(() => {
         if (!meshRef.current) return;
         const positions = meshRef.current.geometry.attributes.position.array as Float32Array;
 

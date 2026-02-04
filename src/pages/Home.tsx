@@ -111,7 +111,7 @@ export default function Home() {
     <div className="min-h-screen">
 
       {/* Hero Section - Expert Liquid UI */}
-      <section className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden">
+      <section className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-slate-950">
 
         {/* Hero Level Particle Magic */}
         <HeroParticles />
@@ -126,7 +126,7 @@ export default function Home() {
               y: [0, 30, 0, -30, 0]
             }}
             transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-            className="absolute top-[10%] left-[10%] w-[600px] h-[600px] bg-blue-400/10 rounded-full blur-[120px]"
+            className="absolute top-[10%] left-[10%] w-[600px] h-[600px] bg-blue-500/15 rounded-full blur-[120px]"
           />
           <motion.div
             animate={{
@@ -136,7 +136,7 @@ export default function Home() {
               y: [0, -50, 0, 50, 0]
             }}
             transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-            className="absolute bottom-[10%] right-[10%] w-[700px] h-[700px] bg-cyan-400/10 rounded-full blur-[140px]"
+            className="absolute bottom-[10%] right-[10%] w-[700px] h-[700px] bg-cyan-500/15 rounded-full blur-[140px]"
           />
         </div>
 
@@ -146,19 +146,19 @@ export default function Home() {
         >
           <div className="text-center max-w-5xl mx-auto">
             <MaskedReveal>
-              <h1 className="text-6xl md:text-7xl lg:text-9xl font-extrabold text-gray-950 mb-8 leading-[1.05] tracking-tight drop-shadow-sm">
+              <h1 className="text-6xl md:text-7xl lg:text-9xl font-extrabold text-white mb-8 leading-[1.05] tracking-tight">
                 Design. Develop. <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 animate-gradient">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-cyan-400 animate-gradient">
                   Deliver.
                 </span>
               </h1>
             </MaskedReveal>
 
             <MaskedReveal delay={0.25}>
-              <p className="text-xl md:text-3xl text-gray-600 font-light mb-6 leading-relaxed max-w-3xl mx-auto tracking-wide">
+              <p className="text-xl md:text-3xl text-white/90 font-light mb-6 leading-relaxed max-w-3xl mx-auto tracking-wide">
                 Everything your brand needs to succeed online
               </p>
-              <p className="text-lg md:text-xl text-slate-500 mb-12 max-w-2xl mx-auto">
+              <p className="text-lg md:text-xl text-slate-400 mb-12 max-w-2xl mx-auto">
                 All your digital needs in one place.
               </p>
             </MaskedReveal>
@@ -184,7 +184,7 @@ export default function Home() {
               <MagneticWrapper>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center px-10 py-5 text-xl bg-white text-slate-900 font-bold rounded-2xl border border-gray-200 backdrop-blur-xl hover:bg-gray-50 hover:border-gray-300 transition-all duration-500 shadow-sm"
+                  className="inline-flex items-center justify-center px-10 py-5 text-xl bg-white/10 text-white font-bold rounded-2xl border border-white/20 backdrop-blur-xl hover:bg-white/20 hover:border-white/30 transition-all duration-500 shadow-sm"
                 >
                   Contact Us
                 </Link>
