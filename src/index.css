@@ -10,7 +10,7 @@
   }
 
   body {
-    @apply font-sans antialiased text-slate-900 bg-slate-50;
+    @apply font-sans antialiased text-slate-900 bg-slate-50 overflow-x-hidden;
   }
 
   /* Custom Scrollbar */
@@ -37,7 +37,19 @@
   }
 
   .glass-card {
-    @apply bg-white/70 backdrop-blur-lg border border-white/20 shadow-xl;
+    @apply bg-white/70 backdrop-blur-xl border border-white/20 shadow-xl transition-all duration-300;
+  }
+
+  .glass-elite {
+    @apply bg-white/40 backdrop-blur-2xl border border-white/40 shadow-[0_8px_32px_0_rgba(31, 38, 135, 0.07)] transition-all duration-500 hover:border-blue-500/40;
+  }
+
+  .tech-glow {
+    @apply relative after:absolute after:inset-0 after:rounded-[inherit] after:shadow-[0_0_20px_rgba(59, 130, 246, 0.15)] after:opacity-0 hover:after:opacity-100 after:transition-opacity after:duration-500;
+  }
+
+  .mesh-vignette {
+    background: radial-gradient(circle at center, transparent 0%, rgba(248, 250, 252, 0.8) 100%);
   }
 
   .reveal-hidden {
@@ -54,7 +66,68 @@
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
+
   .group:hover .image-hover-zoom {
     transform: scale(1.05);
   }
+
+  /* Gradient animation for hero title */
+  @keyframes gradient {
+
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 4s ease infinite;
+  }
+
+  /* Reactive card pulse */
+  @keyframes cardPulse {
+
+    0%,
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(139, 92, 246, 0);
+    }
+
+    50% {
+      transform: scale(1.02);
+      box-shadow: 0 0 30px 0 rgba(139, 92, 246, 0.3);
+    }
+  }
+
+  .card-reactive:hover {
+    animation: cardPulse 2s ease-in-out infinite;
+  }
+}
+
+
+/* Lenis Smooth Scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }

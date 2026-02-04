@@ -1,10 +1,9 @@
 import { useEffect, useState, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import Mascot3D from './Mascot3D';
 
 export const InteractiveMascot = () => {
-    const [eyePosition, setEyePosition] = useState({ x: 0, y: 0 });
     const [hoverMessage, setHoverMessage] = useState<string | null>(null);
-    const [isGlowing, setIsGlowing] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
     const location = useLocation();
 
@@ -31,26 +30,6 @@ export const InteractiveMascot = () => {
             const target = e.target as HTMLElement;
             const interactive = target.closest('button, a, [role="button"]') as HTMLElement;
             const isHoveringSelf = containerRef.current.contains(target);
-
-            // --- Eye Tracking Logic ---
-            const rect = containerRef.current.getBoundingClientRect();
-            const centerX = rect.left + rect.width / 2;
-            const centerY = rect.top + rect.height / 2;
-
-            const angle = Math.atan2(e.clientY - centerY, e.clientX - centerX);
-            const distance = Math.min(
-                10,
-                Math.hypot(e.clientX - centerX, e.clientY - centerY) / 8
-            );
-
-            setEyePosition({
-                x: Math.cos(angle) * distance,
-                y: Math.sin(angle) * distance,
-            });
-
-            // --- Interaction Logic ---
-            const shouldGlow = !!interactive && !isHoveringSelf;
-            setIsGlowing(shouldGlow);
 
             let msg: string | null = null;
 
@@ -113,73 +92,15 @@ export const InteractiveMascot = () => {
             className={`fixed bottom-6 right-6 w-24 h-24 md:w-32 md:h-32 z-50 pointer-events-auto transition-transform duration-300 ${isContactPage ? 'animate-bounce' : 'animate-float'}`}
         >
             <Link to="/contact" className="block w-full h-full relative group">
-                <svg viewBox="0 0 200 200" className="w-full h-full drop-shadow-2xl">
-                    {/* Cat Head Shape - Solid Design */}
-                    <path
-                        d="M40 80 L60 40 L90 60 L110 60 L140 40 L160 80 L180 110 L160 170 L40 170 L20 110 Z"
-                        className="fill-white stroke-gray-900 stroke-[4]"
-                    />
-
-                    {/* Ears Inner */}
-                    <path d="M60 40 L75 70 L90 60 Z" className="fill-blue-500" />
-                    <path d="M140 40 L125 70 L110 60 Z" className="fill-blue-500" />
-
-                    {/* Eyes Container - Glows on Interaction */}
-                    <circle
-                        cx="75"
-                        cy="110"
-                        r="25"
-                        className={`transition-colors duration-300 ${isGlowing ? 'fill-yellow-400 animate-pulse' : 'fill-gray-900'}`}
-                    />
-                    <circle
-                        cx="125"
-                        cy="110"
-                        r="25"
-                        className={`transition-colors duration-300 ${isGlowing ? 'fill-yellow-400 animate-pulse' : 'fill-gray-900'}`}
-                    />
-
-                    {/* Eyes Logic: Happy vs Tracking */}
-                    {isContactPage ? (
-                        <>
-                            {/* Happy Eyes ^ ^ - Contrast adaption for Glow */}
-                            <path d="M60 115 Q75 100 90 115" className={`fill-none stroke-[4] transition-colors duration-300 ${isGlowing ? 'stroke-gray-900' : 'stroke-white'}`} />
-                            <path d="M110 115 Q125 100 140 115" className={`fill-none stroke-[4] transition-colors duration-300 ${isGlowing ? 'stroke-gray-900' : 'stroke-white'}`} />
-
-                            {/* Blush */}
-                            <circle cx="55" cy="130" r="6" className="fill-pink-300 opacity-60" />
-                            <circle cx="145" cy="130" r="6" className="fill-pink-300 opacity-60" />
-                        </>
-                    ) : (
-                        /* Tracking Pupils */
-                        <g style={{ transform: `translate(${eyePosition.x}px, ${eyePosition.y}px)` }}>
-                            {/* Left Pupil - Dilates on interaction */}
-                            <circle cx="75" cy="110" r="10" className={`transition-colors duration-300 ${isGlowing ? 'fill-black' : 'fill-blue-400'}`} />
-                            <circle cx="78" cy="107" r="3" className="fill-white" />
-
-                            {/* Right Pupil */}
-                            <circle cx="125" cy="110" r="10" className={`transition-colors duration-300 ${isGlowing ? 'fill-black' : 'fill-blue-400'}`} />
-                            <circle cx="128" cy="107" r="3" className="fill-white" />
-                        </g>
-                    )}
-
-                    {/* Nose */}
-                    <path d="M92 140 L108 140 L100 152 Z" className="fill-pink-500" />
-
-                    {/* Moustache/Whiskers - Digital Style */}
-                    <line x1="30" y1="130" x2="60" y2="135" className="stroke-gray-400 stroke-[3]" />
-                    <line x1="30" y1="145" x2="60" y2="145" className="stroke-gray-400 stroke-[3]" />
-
-                    <line x1="170" y1="130" x2="140" y2="135" className="stroke-gray-400 stroke-[3]" />
-                    <line x1="170" y1="145" x2="140" y2="145" className="stroke-gray-400 stroke-[3]" />
-
-                </svg>
+                {/* 3D Robot Cat */}
+                <Mascot3D hoverMessage={hoverMessage} />
 
                 {/* Speech Bubble Tooltip - Visible on Hover Message or Self Hover */}
-                <div className={`absolute -top-16 right-0 bg-white border-2 border-gray-900 rounded-xl p-3 shadow-xl transition-opacity duration-300 whitespace-nowrap z-50 ${hoverMessage ? 'opacity-100' : 'opacity-0'}`}>
-                    <p className="text-sm font-bold text-gray-900">
+                <div className={`absolute -top-16 right-0 bg-white border-2 border-slate-900 rounded-xl p-3 shadow-xl transition-opacity duration-300 whitespace-nowrap z-50 ${hoverMessage ? 'opacity-100' : 'opacity-0'}`}>
+                    <p className="text-sm font-bold text-slate-900">
                         {displayMessage}
                     </p>
-                    <div className="absolute bottom-[-8px] right-8 w-4 h-4 bg-white border-b-2 border-r-2 border-gray-900 transform rotate-45"></div>
+                    <div className="absolute bottom-[-8px] right-8 w-4 h-4 bg-white border-b-2 border-r-2 border-slate-900 transform rotate-45"></div>
                 </div>
             </Link>
         </div>

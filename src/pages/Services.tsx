@@ -15,7 +15,7 @@ export default function Services() {
         'Packaging design',
         'Brand guidelines',
       ],
-      link: '/services/web',
+      link: '/services/design',
       color: 'from-blue-500 to-cyan-500',
     },
     {
@@ -71,7 +71,7 @@ export default function Services() {
         'Digital strategy consulting',
         'Training & documentation',
       ],
-      link: '/services/seo',
+      link: '/services/support',
       color: 'from-indigo-500 to-blue-500',
     },
   ];

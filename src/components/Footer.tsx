@@ -15,7 +15,7 @@ export default function Footer() {
               </div>
               <span className="font-bold text-xl text-white">Akinahs Collective</span>
             </div>
-            <p className="text-sm leading-relaxed">
+            <p className="text-sm leading-relaxed font-medium text-slate-400 italic">
               All your digital needs in one place
             </p>
             <div className="flex space-x-4">

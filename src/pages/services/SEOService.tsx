@@ -62,7 +62,7 @@ export default function SEOService() {
                 <span>Content Services</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
-                SEO Content Writing
+                Digital Marketing
               </h1>
               <p className="text-xl md:text-2xl text-gray-700 font-medium leading-relaxed tracking-wide mb-8">
                 Rank higher with AI-optimized, human-crafted content.

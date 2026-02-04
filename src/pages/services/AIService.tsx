@@ -54,7 +54,7 @@ export default function AIService() {
                 <span>AI Solutions</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
-                AI Services
+                Software & AI Solutions
               </h1>
               <p className="text-xl md:text-2xl text-gray-700 font-medium leading-relaxed tracking-wide mb-8">
                 Automate tasks, enhance experiences, and unlock new capabilities with AI.

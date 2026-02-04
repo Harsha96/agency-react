@@ -1,14 +1,15 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles, Target, PenTool, Bot, Package, Lightbulb, MessageSquare, Shield, Users, Layout } from 'lucide-react';
-import { ScrollReveal } from '../components/ScrollReveal';
-import { useEffect, useState } from 'react';
-import { supabase } from '../lib/supabase';
-import type { Database } from '../lib/supabase';
-import { InteractiveGrid } from '../components/InteractiveGrid';
-import { ParallaxIcons } from '../components/ParallaxIcons';
-import { Process } from '../components/Process';
+import { ArrowRight, Target, PenTool, Bot, Package, Lightbulb, MessageSquare, Shield, Users, Layout, Search, Code, CheckCircle } from 'lucide-react';
+import { SectionReveal, MaskedReveal } from '../components/SectionReveal';
 import { WhoWeAre } from '../components/WhoWeAre';
 import { ProjectShowcase } from '../components/ProjectShowcase';
+import { MagneticWrapper } from '../components/MagneticWrapper';
+import { MouseGlowCard, TiltCard } from '../components/InteractiveWrappers';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { HeroParticles, RainParticles } from '../components/HeroParticles';
+import { supabase } from '../lib/supabase';
+import type { Database } from '../lib/supabase';
 
 type CaseStudy = Database['case_studies'];
 
@@ -40,7 +41,7 @@ export default function Home() {
       icon: <PenTool className="w-8 h-8" />,
       title: 'Graphic Design & Branding',
       description: 'Creative visuals, logos, and brand identities that make your business stand out.',
-      link: '/services/web',
+      link: '/services/design',
       color: 'from-blue-500 to-cyan-500',
     },
     {
@@ -68,7 +69,7 @@ export default function Home() {
       icon: <MessageSquare className="w-8 h-8" />,
       title: 'Content & Online Support',
       description: 'Clear content, ongoing support, and tailored digital solutions.',
-      link: '/services/seo',
+      link: '/services/support',
       color: 'from-pink-500 to-rose-500',
     }
   ];
@@ -101,121 +102,175 @@ export default function Home() {
     },
   ];
 
+  const { scrollY } = useScroll();
+  const heroY = useTransform(scrollY, [0, 500], [0, 200]);
+  const heroScale = useTransform(scrollY, [0, 500], [1, 0.95]);
+  const heroOpacity = useTransform(scrollY, [0, 500], [1, 0]);
+
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen">
 
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-        {/* Background Gradients */}
-        <div className="absolute inset-0 bg-gradient-to-br from-violet-50 via-white to-cyan-50 pointer-events-none" />
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-slow" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-cyan-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-slow [animation-delay:1s]" />
+      {/* Hero Section - Expert Liquid UI */}
+      <section className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden">
 
-        <InteractiveGrid />
-        <ParallaxIcons />
+        {/* Hero Level Particle Magic */}
+        <HeroParticles />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        {/* Localized Liquid Flux Animation -- EXTREMELY SOPHISTICATED */}
+        <div className="absolute inset-0 pointer-events-none z-0">
+          <motion.div
+            animate={{
+              scale: [1, 1.2, 1],
+              rotate: [0, 90, 180, 270, 360],
+              x: [0, 50, 0, -50, 0],
+              y: [0, 30, 0, -30, 0]
+            }}
+            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+            className="absolute top-[10%] left-[10%] w-[600px] h-[600px] bg-blue-400/10 rounded-full blur-[120px]"
+          />
+          <motion.div
+            animate={{
+              scale: [1, 1.3, 1],
+              rotate: [360, 270, 180, 90, 0],
+              x: [0, -40, 0, 40, 0],
+              y: [0, -50, 0, 50, 0]
+            }}
+            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+            className="absolute bottom-[10%] right-[10%] w-[700px] h-[700px] bg-cyan-400/10 rounded-full blur-[140px]"
+          />
+        </div>
+
+        <motion.div
+          style={{ y: heroY, scale: heroScale, opacity: heroOpacity }}
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full"
+        >
           <div className="text-center max-w-5xl mx-auto">
-            <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full text-sm font-medium text-violet-600 mb-8 shadow-sm animate-fade-in-up">
-              <Sparkles className="w-4 h-4" />
-              <span className="tracking-wide">Everything your brand needs to succeed online</span>
-            </div>
+            <MaskedReveal>
+              <h1 className="text-6xl md:text-7xl lg:text-9xl font-extrabold text-gray-950 mb-8 leading-[1.05] tracking-tight drop-shadow-sm">
+                Design. Develop. <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 animate-gradient">
+                  Deliver.
+                </span>
+              </h1>
+            </MaskedReveal>
 
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-extrabold text-slate-900 mb-8 leading-[1.1] tracking-tight animate-fade-in-up [animation-delay:100ms]">
-              Design. Develop. <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-fuchsia-500 to-indigo-600">
-                Deliver.
-              </span>
-            </h1>
+            <MaskedReveal delay={0.25}>
+              <p className="text-xl md:text-3xl text-gray-600 font-light mb-6 leading-relaxed max-w-3xl mx-auto tracking-wide">
+                Everything your brand needs to succeed online
+              </p>
+              <p className="text-lg md:text-xl text-slate-500 mb-12 max-w-2xl mx-auto">
+                All your digital needs in one place.
+              </p>
+            </MaskedReveal>
 
-            <p className="text-xl md:text-2xl text-slate-600 font-medium mb-12 animate-fade-in-up [animation-delay:200ms] leading-relaxed max-w-2xl mx-auto">
-              All your digital needs in one place.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-5 justify-center animate-fade-in-up [animation-delay:300ms]">
+            <motion.div
+              initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ delay: 0.5, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-col sm:flex-row gap-6 justify-center"
+            >
               {/* Primary Call to Action */}
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 text-lg bg-slate-900 text-white font-bold rounded-2xl hover:bg-slate-800 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-blue-500/20"
-              >
-                Get Started
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Link>
+              <MagneticWrapper>
+                <Link
+                  to="/about"
+                  className="group inline-flex items-center justify-center px-10 py-5 text-xl bg-blue-600 text-white font-bold rounded-2xl hover:bg-blue-700 transition-all duration-500 shadow-xl shadow-blue-500/20 transform active:scale-95"
+                >
+                  Get Started
+                  <ArrowRight className="ml-2 w-6 h-6 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </MagneticWrapper>
 
               {/* Secondary Call to Action */}
-              <Link
-                to="/services"
-                className="inline-flex items-center justify-center px-8 py-4 text-lg bg-white text-slate-900 font-bold rounded-2xl border-2 border-slate-200 hover:border-violet-200 hover:bg-violet-50 transition-all duration-300 transform hover:scale-105"
-              >
-                Learn More
-              </Link>
-            </div>
+              <MagneticWrapper>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center justify-center px-10 py-5 text-xl bg-white text-slate-900 font-bold rounded-2xl border border-gray-200 backdrop-blur-xl hover:bg-gray-50 hover:border-gray-300 transition-all duration-500 shadow-sm"
+                >
+                  Contact Us
+                </Link>
+              </MagneticWrapper>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* REACTIVE Who We Are Section */}
-      <WhoWeAre />
+      <SectionReveal>
+        <div className="relative z-10 py-24 bg-transparent">
+          <WhoWeAre />
+        </div>
+      </SectionReveal>
 
       {/* Services Section */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-slate-50 relative z-20">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-transparent relative z-20 overflow-hidden">
+
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">What We Do</h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Our Services
-            </p>
-          </div>
+          <SectionReveal>
+            <div className="text-center max-w-3xl mx-auto mb-20">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">Our Services</h2>
+              <p className="text-xl text-slate-600 leading-relaxed">
+                Everything your brand needs to succeed online.
+              </p>
+            </div>
+          </SectionReveal>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
             {services.map((service, index) => (
-              <ScrollReveal key={index} delay={index * 100} width="100%">
-                <Link
-                  to={service.link}
-                  className="group relative bg-white rounded-2xl p-8 hover:bg-white transition-all duration-300 border border-slate-100 hover:border-violet-100 hover:shadow-2xl hover:shadow-violet-500/10 block h-full overflow-hidden flex flex-col items-center text-center"
-                >
-                  <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-br ${service.color} opacity-5 rounded-bl-full group-hover:opacity-10 transition-opacity`} />
-
-                  <div className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${service.color} text-white mb-6 shadow-lg transform group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-300`}>
-                    {service.icon}
-                  </div>
-
-                  <h3 className="text-2xl font-bold text-slate-900 mb-3">{service.title}</h3>
-                  <p className="text-slate-600 mb-6 leading-relaxed">
-                    {service.description}
-                  </p>
-
-                  <div className="flex items-center text-violet-600 font-bold group-hover:gap-2 transition-all">
-                    Learn more <ArrowRight className="ml-2 w-4 h-4" />
-                  </div>
-                </Link>
-              </ScrollReveal>
+              <SectionReveal key={index} delay={index * 0.05}>
+                <TiltCard>
+                  <MouseGlowCard className="h-full">
+                    <Link
+                      to={service.link}
+                      className="group relative bg-white/40 backdrop-blur-2xl rounded-[2rem] p-10 hover:bg-white/80 transition-all duration-500 border border-gray-100/50 shadow-2xl shadow-blue-500/5 hover:border-blue-400/40 hover:shadow-blue-500/10 block h-full overflow-hidden flex flex-col items-center text-center"
+                    >
+                      <div className="p-5 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl text-blue-600 mb-8 group-hover:scale-110 transition-transform duration-700 group-hover:rotate-6 shadow-sm">
+                        {service.icon}
+                      </div>
+                      <h3 className="text-2xl font-bold text-gray-950 mb-4 tracking-tight">{service.title}</h3>
+                      <p className="text-gray-600 mb-8 leading-relaxed flex-grow text-lg">{service.description}</p>
+                      <div className="inline-flex items-center text-blue-600 font-bold group-hover:translate-x-3 transition-transform duration-500">
+                        View Solution <ArrowRight className="ml-2 w-5 h-5" />
+                      </div>
+                    </Link>
+                  </MouseGlowCard>
+                </TiltCard>
+              </SectionReveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-slate-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop')] bg-cover bg-center opacity-10 mix-blend-overlay" />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900/90 to-slate-900" />
+      {/* Why Choose Us Section - Luxury Dark Contrast */}
+      <section className="py-32 px-4 sm:px-6 lg:px-8 bg-slate-950 relative overflow-hidden">
+        {/* Deep Mesh Overlay */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.15)_0%,_transparent_70%)] z-[1]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,_rgba(99,102,241,0.1)_0%,_transparent_70%)] z-[1]" />
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Why Choose Us</h2>
-          </div>
+          <SectionReveal>
+            <div className="text-center mb-20">
+              <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">Why Choose Us</h2>
+              <div className="w-20 h-1.5 bg-blue-600 mx-auto rounded-full" />
+            </div>
+          </SectionReveal>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
             {benefits.map((benefit, index) => (
-              <div key={index} className="bg-slate-800/50 backdrop-blur-sm p-6 rounded-2xl border border-slate-700 hover:border-violet-500 transition-colors">
-                <div className="flex items-center mb-4">
-                  <div className="p-2 bg-slate-700 rounded-lg text-violet-400 mr-4">
-                    {benefit.icon}
+              <SectionReveal key={index} delay={index * 0.05}>
+                <MouseGlowCard>
+                  <div className="bg-white/5 backdrop-blur-xl p-8 rounded-[2.5rem] border border-white/10 hover:border-blue-500/50 hover:bg-white/10 transition-all duration-500 h-full group">
+                    <div className="flex items-center mb-6">
+                      <div className="p-4 bg-blue-600/20 rounded-2xl text-blue-400 mr-4 group-hover:scale-110 transition-transform duration-500">
+                        {benefit.icon}
+                      </div>
+                      <h3 className="text-xl font-bold text-white tracking-tight">{benefit.title}</h3>
+                    </div>
+                    <p className="text-slate-400 leading-relaxed text-lg group-hover:text-slate-200 transition-colors">
+                      {benefit.description}
+                    </p>
                   </div>
-                  <h3 className="text-xl font-bold text-white">{benefit.title}</h3>
-                </div>
-                <p className="text-slate-400 pl-14">{benefit.description}</p>
-              </div>
+                </MouseGlowCard>
+              </SectionReveal>
             ))}
           </div>
         </div>
@@ -223,43 +278,139 @@ export default function Home() {
 
       {/* STYLISH Project Showcase Section */}
       {!loading && caseStudies.length > 0 && (
-        <ProjectShowcase projects={caseStudies} />
+        <SectionReveal>
+          <ProjectShowcase projects={caseStudies} />
+        </SectionReveal>
       )}
 
-      {/* Process Section (How We Work) */}
-      <Process />
+      {/* How We Work Section */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
+        {/* Particle Rain Background */}
+        <RainParticles />
+        <div className="max-w-7xl mx-auto relative z-10">
+          <SectionReveal>
+            <div className="text-center mb-20">
+              <h2 className="text-4xl md:text-6xl font-bold text-gray-950 mb-6 tracking-tight">How We Work</h2>
+              <div className="w-20 h-1.5 bg-blue-600 mx-auto rounded-full" />
+            </div>
+          </SectionReveal>
 
-      {/* Our Promise Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-violet-600 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-        <div className="max-w-5xl mx-auto text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8">Our Promise</h2>
-          <p className="text-2xl md:text-3xl font-light mb-6">
-            "We don’t just deliver services, we deliver solutions that work."
-          </p>
-          <p className="text-xl font-bold tracking-wide uppercase">
-            Clear ideas. Smart execution. Real results.
-          </p>
+          <div className="relative">
+            {/* Connecting Flow Lines (Desktop) */}
+            <div className="hidden md:block absolute top-1/2 left-0 w-full -translate-y-1/2 z-0">
+              <svg className="w-full h-24 overflow-visible px-12">
+                <motion.path
+                  d="M 15 50 Q 50 0, 85 50 T 155 50 Q 190 0, 225 50 T 295 50"
+                  fill="none"
+                  stroke="url(#flowGradient)"
+                  strokeWidth="4"
+                  strokeDasharray="12 12"
+                  initial={{ strokeDashoffset: 0 }}
+                  animate={{ strokeDashoffset: -200 }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  className="opacity-20"
+                />
+                <defs>
+                  <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#3b82f6" />
+                    <stop offset="50%" stopColor="#6366f1" />
+                    <stop offset="100%" stopColor="#06b6d4" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-12 relative z-10">
+              {[
+                {
+                  icon: <Search className="w-10 h-10 text-blue-600" />,
+                  title: 'Understand',
+                  description: 'We listen to your needs and goals.',
+                  step: '01',
+                  accent: 'blue'
+                },
+                {
+                  icon: <Code className="w-10 h-10 text-indigo-600" />,
+                  title: 'Create',
+                  description: 'We design and develop smart digital solutions.',
+                  step: '02',
+                  accent: 'indigo'
+                },
+                {
+                  icon: <CheckCircle className="w-10 h-10 text-cyan-600" />,
+                  title: 'Deliver',
+                  description: 'We launch, support, and help you grow.',
+                  step: '03',
+                  accent: 'cyan'
+                }
+              ].map((step, index) => (
+                <SectionReveal key={index} delay={index * 0.05}>
+                  <div className="relative p-10 bg-slate-50/50 backdrop-blur-sm rounded-[2.5rem] border border-slate-100 group transition-all duration-700 hover:bg-white hover:shadow-[0_20px_60px_-15px_rgba(59,130,246,0.15)] group">
+                    {/* Glowing Step Number */}
+                    <div className="absolute top-6 right-8 text-5xl font-black text-slate-200/50 group-hover:text-blue-500/20 group-hover:scale-125 transition-all duration-700 select-none">
+                      {step.step}
+                      <div className="absolute inset-0 blur-2xl bg-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </div>
+
+                    {/* Pulsing Icon Container */}
+                    <div className="relative p-5 bg-white rounded-2xl w-fit mb-8 shadow-sm group-hover:shadow-xl group-hover:shadow-blue-500/10 transition-all duration-700 transform group-hover:scale-110">
+                      <div className="absolute inset-0 bg-blue-500/5 rounded-2xl animate-pulse scale-150 opacity-0 group-hover:opacity-100" />
+                      {step.icon}
+                    </div>
+
+                    <h3 className="text-3xl font-bold text-gray-950 mb-4 tracking-tight group-hover:text-blue-600 transition-colors duration-500">{step.title}</h3>
+                    <p className="text-gray-600 text-lg leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
+                </SectionReveal>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-32 px-4 sm:px-6 lg:px-8 bg-slate-50 relative overflow-hidden">
-        <div className="absolute inset-0 bg-white/50" />
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-8 tracking-tight">
-            Ready to grow your digital presence?
-          </h2>
-          <p className="text-2xl text-slate-600 mb-12 leading-relaxed">
-            Let’s build something impactful together.
-          </p>
-          <Link
-            to="/contact"
-            className="inline-flex items-center justify-center px-12 py-6 text-xl bg-slate-900 text-white font-bold rounded-2xl hover:bg-black transition-all transform hover:scale-105 shadow-2xl hover:shadow-violet-500/20"
-          >
-            Get Started with us
-            <ArrowRight className="ml-3 w-6 h-6" />
-          </Link>
+
+      {/* Our Promise Section - Ultra Clean */}
+      <SectionReveal>
+        <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600/5 via-indigo-600/5 to-cyan-500/5 backdrop-blur-md text-gray-900 border-y border-blue-100/50 relative overflow-hidden">
+          <div className="max-w-5xl mx-auto text-center relative z-10">
+            <h2 className="text-4xl md:text-5xl font-bold mb-10 tracking-tight">Our Promise</h2>
+            <p className="text-2xl md:text-4xl font-light mb-8 leading-relaxed italic text-gray-700">
+              "We don’t just deliver services, we deliver <span className="text-blue-600 font-semibold not-italic">solutions that work</span>."
+            </p>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-cyan-500 mx-auto mb-8 rounded-full" />
+            <p className="text-xl font-bold tracking-widest uppercase text-blue-600">
+              Clear ideas. Smart execution. Real results.
+            </p>
+          </div>
+        </section>
+      </SectionReveal>
+
+      {/* CTA Section - Luxury Dark */}
+      <section className="py-40 px-4 sm:px-6 lg:px-8 bg-slate-950 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-cyan-500/10 z-[1] blur-3xl opacity-50" />
+        <div className="max-w-5xl mx-auto text-center relative z-10">
+          <SectionReveal>
+            <h2 className="text-5xl md:text-8xl font-extrabold text-white mb-10 tracking-tighter leading-[0.95]">
+              Ready to grow your <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-cyan-400">
+                digital presence?
+              </span>
+            </h2>
+            <p className="text-2xl text-slate-400 mb-16 leading-relaxed max-w-2xl mx-auto">
+              Let’s build something impactful together.
+            </p>
+            <MagneticWrapper>
+              <Link
+                to="/contact"
+                className="group inline-flex items-center justify-center px-14 py-7 text-2xl bg-white text-slate-950 font-bold rounded-2xl hover:bg-blue-50 transition-all duration-500 shadow-[0_0_50px_rgba(59,130,246,0.3)] transform active:scale-95 translate-y-0 hover:-translate-y-2"
+              >
+                Get Started with us
+                <ArrowRight className="ml-3 w-8 h-8 group-hover:translate-x-2 transition-transform" />
+              </Link>
+            </MagneticWrapper>
+          </SectionReveal>
         </div>
       </section>
     </div>
