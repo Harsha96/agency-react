@@ -73,7 +73,7 @@ export default function Admin() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 pt-32 pb-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-2">Admin Dashboard</h1>
@@ -123,31 +123,28 @@ export default function Admin() {
             <nav className="flex">
               <button
                 onClick={() => setActiveTab('contacts')}
-                className={`px-6 py-4 font-medium transition-colors ${
-                  activeTab === 'contacts'
+                className={`px-6 py-4 font-medium transition-colors ${activeTab === 'contacts'
                     ? 'border-b-2 border-blue-600 text-blue-600'
                     : 'text-gray-600 hover:text-gray-900'
-                }`}
+                  }`}
               >
                 Contact Requests
               </button>
               <button
                 onClick={() => setActiveTab('portfolio')}
-                className={`px-6 py-4 font-medium transition-colors ${
-                  activeTab === 'portfolio'
+                className={`px-6 py-4 font-medium transition-colors ${activeTab === 'portfolio'
                     ? 'border-b-2 border-blue-600 text-blue-600'
                     : 'text-gray-600 hover:text-gray-900'
-                }`}
+                  }`}
               >
                 Case Studies
               </button>
               <button
                 onClick={() => setActiveTab('blog')}
-                className={`px-6 py-4 font-medium transition-colors ${
-                  activeTab === 'blog'
+                className={`px-6 py-4 font-medium transition-colors ${activeTab === 'blog'
                     ? 'border-b-2 border-blue-600 text-blue-600'
                     : 'text-gray-600 hover:text-gray-900'
-                }`}
+                  }`}
               >
                 Blog Posts
               </button>
@@ -206,11 +203,10 @@ export default function Admin() {
                         </div>
                         <button
                           onClick={() => togglePublished('case_studies', study.id, study.published)}
-                          className={`px-4 py-2 rounded-lg text-sm font-medium ${
-                            study.published
+                          className={`px-4 py-2 rounded-lg text-sm font-medium ${study.published
                               ? 'bg-green-100 text-green-700'
                               : 'bg-gray-100 text-gray-700'
-                          }`}
+                            }`}
                         >
                           {study.published ? 'Published' : 'Draft'}
                         </button>
@@ -239,11 +235,10 @@ export default function Admin() {
                         </div>
                         <button
                           onClick={() => togglePublished('blogs', blog.id, blog.published)}
-                          className={`px-4 py-2 rounded-lg text-sm font-medium ${
-                            blog.published
+                          className={`px-4 py-2 rounded-lg text-sm font-medium ${blog.published
                               ? 'bg-green-100 text-green-700'
                               : 'bg-gray-100 text-gray-700'
-                          }`}
+                            }`}
                         >
                           {blog.published ? 'Published' : 'Draft'}
                         </button>

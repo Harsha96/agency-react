@@ -70,7 +70,7 @@ export default function BlogPost() {
 
   return (
     <div className="min-h-screen">
-      <article className="py-12 px-4 sm:px-6 lg:px-8">
+      <article className="pt-32 pb-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <Link
             to="/blog"

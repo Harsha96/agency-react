@@ -29,7 +29,7 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen">
-      <section className="relative bg-gradient-to-br from-blue-100 via-white to-blue-50 py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gradient-to-br from-blue-100 via-white to-blue-50 pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-8">
