@@ -194,15 +194,12 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* REACTIVE Who We Are Section */}
       <SectionReveal>
-        <div className="relative z-10 py-24 bg-transparent">
-          <WhoWeAre />
-        </div>
+        <WhoWeAre />
       </SectionReveal>
 
       {/* Services Section */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-transparent relative z-20 overflow-hidden">
+      <section className="pt-12 pb-24 px-4 sm:px-6 lg:px-8 bg-transparent relative z-20 overflow-hidden">
 
         <div className="max-w-7xl mx-auto">
           <SectionReveal>
@@ -221,9 +218,12 @@ export default function Home() {
                   <MouseGlowCard className="h-full">
                     <Link
                       to={service.link}
-                      className="group relative bg-white/40 backdrop-blur-2xl rounded-[2rem] p-10 hover:bg-white/80 transition-all duration-500 border border-gray-100/50 shadow-2xl shadow-blue-500/5 hover:border-blue-400/40 hover:shadow-blue-500/10 block h-full overflow-hidden flex flex-col items-center text-center"
+                      className="group relative bg-white/40 backdrop-blur-2xl rounded-[2.5rem] p-10 hover:bg-white/80 transition-all duration-500 border border-gray-100/50 shadow-2xl shadow-blue-500/5 hover:border-blue-400/40 hover:shadow-blue-500/10 block h-full overflow-hidden flex flex-col items-center text-center"
                     >
-                      <div className="p-5 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl text-blue-600 mb-8 group-hover:scale-110 transition-transform duration-700 group-hover:rotate-6 shadow-sm">
+                      {/* Dynamic Background Glow */}
+                      <div className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-20 blur-3xl transition-opacity duration-700`} />
+
+                      <div className={`p-5 bg-gradient-to-br ${service.color} rounded-2xl text-white mb-8 group-hover:scale-110 transition-transform duration-700 group-hover:rotate-6 shadow-lg shadow-blue-500/10`}>
                         {service.icon}
                       </div>
                       <h3 className="text-2xl font-bold text-gray-950 mb-4 tracking-tight">{service.title}</h3>

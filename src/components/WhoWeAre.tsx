@@ -4,7 +4,7 @@ import { MaskedReveal } from './SectionReveal';
 
 export const WhoWeAre = () => {
     return (
-        <section className="py-24 px-4 sm:px-6 lg:px-8 bg-transparent relative overflow-hidden">
+        <section className="pt-24 pb-12 px-4 sm:px-6 lg:px-8 bg-transparent relative overflow-hidden">
             {/* Ultra-subtle light overlay */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-50/20 to-transparent z-[1]" />
 
