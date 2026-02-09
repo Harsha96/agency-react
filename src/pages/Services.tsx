@@ -78,10 +78,10 @@ export default function Services() {
 
   return (
     <div className="min-h-screen animate-fade-in">
-      <section className="relative bg-gradient-to-br from-blue-100 via-white to-blue-50 pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gradient-to-br from-blue-100 via-white to-blue-50 pt-40 pb-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
+            <h1 className="text-5xl md:text-7xl font-extrabold text-gray-950 mb-8 leading-tight tracking-tight">
               Our Services
             </h1>
             <p className="text-xl md:text-2xl text-gray-700 font-medium leading-relaxed tracking-wide max-w-2xl mx-auto">
@@ -91,26 +91,26 @@ export default function Services() {
         </div>
       </section>
 
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-32 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
             {services.map((service, index) => (
               <ScrollReveal key={index} delay={index * 100} width="100%">
                 <div
-                  className="relative bg-white rounded-2xl shadow-xl p-8 border-2 border-gray-100 h-full hover:shadow-2xl transition-all duration-300 flex flex-col items-center text-center"
+                  className="relative bg-white rounded-3xl shadow-xl p-10 border border-gray-100 h-full hover:shadow-2xl transition-all duration-500 flex flex-col items-center text-center group"
                 >
-                  <div className={`inline-flex p-4 rounded-xl bg-gradient-to-br ${service.color} text-white mb-6 transform transition-transform hover:scale-110 duration-300`}>
+                  <div className={`inline-flex p-5 rounded-2xl bg-gradient-to-br ${service.color} text-white mb-8 transform transition-transform group-hover:scale-110 group-hover:rotate-3 duration-500 shadow-lg`}>
                     {service.icon}
                   </div>
 
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
-                  <p className="text-gray-600 mb-8 leading-relaxed">
+                  <h3 className="text-2xl font-bold text-gray-950 mb-4 tracking-tight">{service.title}</h3>
+                  <p className="text-gray-600 mb-8 leading-relaxed flex-grow">
                     {service.description}
                   </p>
 
-                  <ul className="space-y-3 mb-8">
+                  <ul className="space-y-3 mb-10 w-full">
                     {service.features.map((feature, i) => (
-                      <li key={i} className="flex items-center justify-center text-gray-700">
+                      <li key={i} className="flex items-center justify-center text-gray-600 text-sm">
                         <Zap className="w-4 h-4 text-blue-500 mr-2 flex-shrink-0" />
                         <span>{feature}</span>
                       </li>
@@ -119,7 +119,7 @@ export default function Services() {
 
                   <Link
                     to={service.link}
-                    className="inline-flex items-center justify-center w-full px-6 py-3 border-2 border-gray-900 text-gray-900 font-semibold rounded-lg hover:bg-gray-900 hover:text-white transition-all duration-300"
+                    className="inline-flex items-center justify-center w-full px-6 py-4 bg-gray-950 text-white font-bold rounded-xl hover:bg-blue-600 transition-all duration-300 shadow-md hover:shadow-blue-500/20"
                   >
                     Learn More
                     <ArrowRight className="ml-2 w-4 h-4" />

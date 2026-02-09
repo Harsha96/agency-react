@@ -16,7 +16,7 @@ export const WhoWeAre = () => {
                     <MaskedReveal delay={0.2}>
                         <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
                             A high-end collective of creators, thinkers, and builders <br />
-                            passionate about defining the next wave of <span className="text-blue-600 font-semibold italic">digital excellence</span>.
+                            passionate about defining the next wave of <span className="text-blue-600 font-bold">digital excellence</span>.
                         </p>
                     </MaskedReveal>
                 </div>
@@ -41,7 +41,7 @@ export const WhoWeAre = () => {
                                         <p className="text-xl text-gray-600 max-w-xl leading-relaxed">
                                             Akinahs Collective is a full-service digital agency delivering smart, reliable online solutions for individuals and businesses. We combine creativity, technology, and strategy to help brands grow in the digital space.
                                         </p>
-                                        <p className="text-lg text-gray-600 mt-4 max-w-xl leading-relaxed italic">
+                                        <p className="text-lg text-gray-600 mt-4 max-w-xl leading-relaxed">
                                             Whether you need eye-catching designs or scalable software solutions, we handle everything under one roof—simple, efficient, and result driven.
                                         </p>
                                     </div>
@@ -107,25 +107,25 @@ export const WhoWeAre = () => {
                     <div className="md:col-span-3 mt-4">
                         <MouseGlowCard className="rounded-[2rem] border border-gray-100 overflow-hidden shadow-2xl shadow-blue-500/5">
                             <div className="bg-white/40 backdrop-blur-2xl p-10 relative group hover:bg-white/60 transition-all duration-700">
-                                <div className="flex flex-col md:flex-row items-center justify-between gap-10 relative z-10">
-                                    <div className="max-w-2xl text-center md:text-left">
-                                        <div className="flex items-center justify-center md:justify-start space-x-4 mb-6">
+                                <div className="flex flex-col lg:flex-row items-center justify-between gap-10 relative z-10">
+                                    <div className="max-w-2xl text-center lg:text-left">
+                                        <div className="flex items-center justify-center lg:justify-start space-x-4 mb-6">
                                             <div className="p-3 bg-yellow-400/10 rounded-xl shadow-inner">
                                                 <Zap className="w-7 h-7 text-yellow-500" />
                                             </div>
-                                            <h4 className="text-3xl font-extrabold text-gray-950 tracking-tight">
+                                            <h4 className="text-2xl md:text-3xl font-extrabold text-gray-950 tracking-tight">
                                                 Powered by Cutting-Edge Innovation
                                             </h4>
                                         </div>
-                                        <p className="text-gray-600 text-xl leading-relaxed">
+                                        <p className="text-gray-600 text-lg md:text-xl leading-relaxed">
                                             We leverage the world's most powerful technologies to build future-proof solutions. From high-performance web apps to intelligent AI integration.
                                         </p>
                                     </div>
-                                    <div className="flex flex-wrap gap-4 justify-center md:justify-end max-w-lg">
+                                    <div className="flex flex-wrap gap-4 justify-center lg:justify-end max-w-lg">
                                         {['React 19', 'TypeScript', 'Next.js', 'Node.js', 'Supabase', 'Python', 'AI/ML', 'Cloud Engineering'].map((tag, i) => (
                                             <span
                                                 key={tag}
-                                                className={`px-6 py-2.5 rounded-xl bg-white border border-gray-100 text-sm font-bold shadow-sm transition-all duration-300 hover:scale-110 hover:border-blue-300 cursor-default ${i % 2 === 0 ? 'text-blue-600' : 'text-indigo-600'}`}
+                                                className={`px-4 py-2 md:px-6 md:py-2.5 rounded-xl bg-white border border-gray-100 text-xs md:text-sm font-bold shadow-sm transition-all duration-300 hover:scale-110 hover:border-blue-300 cursor-default ${i % 2 === 0 ? 'text-blue-600' : 'text-indigo-600'}`}
                                             >
                                                 {tag}
                                             </span>

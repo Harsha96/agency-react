@@ -29,14 +29,14 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen">
-      <section className="relative bg-gradient-to-br from-blue-100 via-white to-blue-50 pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gradient-to-br from-blue-100 via-white to-blue-50 pt-40 pb-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-8">
               <Briefcase className="w-4 h-4" />
-              <span className="tracking-wide">Our Work</span>
+              <span className="tracking-wide uppercase text-xs font-bold">Our Work</span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
+            <h1 className="text-5xl md:text-7xl font-extrabold text-gray-950 mb-8 leading-tight tracking-tight">
               Portfolio & Case Studies
             </h1>
             <p className="text-xl md:text-2xl text-gray-700 font-medium leading-relaxed tracking-wide mb-8 max-w-2xl mx-auto">
@@ -62,34 +62,34 @@ export default function Portfolio() {
               {caseStudies.map((study) => (
                 <div
                   key={study.id}
-                  className="group bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-gray-100"
+                  className="group bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 flex flex-col"
                 >
-                  <div className="relative h-72 overflow-hidden bg-gray-200">
+                  <div className="relative h-80 overflow-hidden bg-gray-200">
                     <img
                       src={study.image_url}
                       alt={study.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <div className="absolute bottom-6 left-6 right-6">
-                      <h2 className="text-3xl font-bold text-white mb-2">{study.title}</h2>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                    <div className="absolute bottom-6 left-8 right-8">
+                      <h2 className="text-3xl font-bold text-white mb-2 tracking-tight">{study.title}</h2>
                     </div>
                   </div>
 
-                  <div className="p-8">
-                    <p className="text-gray-600 mb-6 leading-relaxed text-lg">
+                  <div className="p-10 flex flex-col flex-grow">
+                    <p className="text-gray-600 mb-8 leading-relaxed text-lg flex-grow">
                       {study.description}
                     </p>
 
-                    <div className="mb-6">
-                      <h3 className="text-sm font-semibold text-gray-900 mb-3 uppercase tracking-wide">
+                    <div className="mb-8">
+                      <h3 className="text-xs font-bold text-gray-950 mb-4 uppercase tracking-widest">
                         Technologies Used
                       </h3>
                       <div className="flex flex-wrap gap-2">
                         {study.tech_stack.map((tech, i) => (
                           <span
                             key={i}
-                            className="px-3 py-1 bg-blue-100 text-blue-700 text-sm font-medium rounded-full"
+                            className="px-4 py-1.5 bg-blue-50 text-blue-600 text-xs font-bold rounded-xl border border-blue-100"
                           >
                             {tech}
                           </span>
@@ -97,13 +97,15 @@ export default function Portfolio() {
                       </div>
                     </div>
 
-                    <div className="border-t border-gray-100 pt-6">
-                      <h3 className="text-sm font-semibold text-gray-900 mb-3 uppercase tracking-wide">
+                    <div className="border-t border-gray-50 pt-8 mt-auto">
+                      <h3 className="text-xs font-bold text-gray-950 mb-4 uppercase tracking-widest">
                         Results Achieved
                       </h3>
-                      <div className="flex items-start space-x-3">
-                        <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" />
-                        <p className="text-gray-700 leading-relaxed">{study.results}</p>
+                      <div className="flex items-start space-x-4">
+                        <div className="p-1 bg-green-50 rounded-full mt-1">
+                          <CheckCircle className="w-5 h-5 text-green-500" />
+                        </div>
+                        <p className="text-gray-700 leading-relaxed font-medium">{study.results}</p>
                       </div>
                     </div>
                   </div>

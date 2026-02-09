@@ -146,10 +146,10 @@ export default function Home() {
         >
           <div className="text-center max-w-5xl mx-auto">
             <MaskedReveal>
-              <h1 className="text-6xl md:text-7xl lg:text-9xl font-extrabold text-white mb-8 leading-[1.05] tracking-tight">
+              <h1 className="text-5xl md:text-7xl lg:text-9xl font-extrabold text-white mb-8 leading-[1.4] md:leading-[1.25] tracking-tight">
                 Design. Develop. <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-cyan-400 animate-gradient">
-                  Deliver.
+                  Deploy.
                 </span>
               </h1>
             </MaskedReveal>
@@ -173,10 +173,10 @@ export default function Home() {
               <MagneticWrapper>
                 <Link
                   to="/about"
-                  className="group inline-flex items-center justify-center px-10 py-5 text-xl bg-blue-600 text-white font-bold rounded-2xl hover:bg-blue-700 transition-all duration-500 shadow-xl shadow-blue-500/20 transform active:scale-95"
+                  className="group inline-flex items-center justify-center px-8 py-4 text-lg bg-blue-600 text-white font-bold rounded-2xl hover:bg-blue-700 transition-all duration-500 shadow-xl shadow-blue-500/20 transform active:scale-95"
                 >
                   Get Started
-                  <ArrowRight className="ml-2 w-6 h-6 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
                 </Link>
               </MagneticWrapper>
 
@@ -184,7 +184,7 @@ export default function Home() {
               <MagneticWrapper>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center px-10 py-5 text-xl bg-white/10 text-white font-bold rounded-2xl border border-white/20 backdrop-blur-xl hover:bg-white/20 hover:border-white/30 transition-all duration-500 shadow-sm"
+                  className="inline-flex items-center justify-center px-8 py-4 text-lg bg-white/10 text-white font-bold rounded-2xl border border-white/20 backdrop-blur-xl hover:bg-white/20 hover:border-white/30 transition-all duration-500 shadow-sm"
                 >
                   Contact Us
                 </Link>
@@ -254,18 +254,16 @@ export default function Home() {
             </div>
           </SectionReveal>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 justify-center">
             {benefits.map((benefit, index) => (
               <SectionReveal key={index} delay={index * 0.05}>
                 <MouseGlowCard>
-                  <div className="bg-white/5 backdrop-blur-xl p-8 rounded-[2.5rem] border border-white/10 hover:border-blue-500/50 hover:bg-white/10 transition-all duration-500 h-full group">
-                    <div className="flex items-center mb-6">
-                      <div className="p-4 bg-blue-600/20 rounded-2xl text-blue-400 mr-4 group-hover:scale-110 transition-transform duration-500">
-                        {benefit.icon}
-                      </div>
-                      <h3 className="text-xl font-bold text-white tracking-tight">{benefit.title}</h3>
+                  <div className="bg-white/5 backdrop-blur-xl p-8 lg:p-10 rounded-[2.5rem] border border-white/10 hover:border-blue-500/30 hover:bg-white/10 transition-all duration-500 h-full group flex flex-col items-center text-center">
+                    <div className="p-4 bg-blue-600/20 rounded-2xl text-blue-400 mb-6 group-hover:scale-110 transition-transform duration-500">
+                      {benefit.icon}
                     </div>
-                    <p className="text-slate-400 leading-relaxed text-lg group-hover:text-slate-200 transition-colors">
+                    <h3 className="text-xl font-bold text-white tracking-tight mb-4">{benefit.title}</h3>
+                    <p className="text-slate-400 leading-relaxed text-base group-hover:text-slate-200 transition-colors">
                       {benefit.description}
                     </p>
                   </div>
@@ -376,8 +374,8 @@ export default function Home() {
         <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600/5 via-indigo-600/5 to-cyan-500/5 backdrop-blur-md text-gray-900 border-y border-blue-100/50 relative overflow-hidden">
           <div className="max-w-5xl mx-auto text-center relative z-10">
             <h2 className="text-4xl md:text-5xl font-bold mb-10 tracking-tight">Our Promise</h2>
-            <p className="text-2xl md:text-4xl font-light mb-8 leading-relaxed italic text-gray-700">
-              "We don’t just deliver services, we deliver <span className="text-blue-600 font-semibold not-italic">solutions that work</span>."
+            <p className="text-2xl md:text-3xl lg:text-4xl font-light mb-8 leading-relaxed text-gray-700">
+              "We don’t just deliver services, we deliver <span className="text-blue-600 font-semibold">solutions that work</span>."
             </p>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-cyan-500 mx-auto mb-8 rounded-full" />
             <p className="text-xl font-bold tracking-widest uppercase text-blue-600">
