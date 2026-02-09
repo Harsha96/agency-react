@@ -146,7 +146,7 @@ export default function Home() {
         >
           <div className="text-center max-w-5xl mx-auto">
             <MaskedReveal>
-              <h1 className="text-5xl md:text-7xl lg:text-9xl font-extrabold text-white mb-8 leading-[1.4] md:leading-[1.25] tracking-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-extrabold text-white mb-8 leading-[1.4] md:leading-[1.25] tracking-tight">
                 Design. Develop. <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-cyan-400 animate-gradient">
                   Deploy.
@@ -155,10 +155,10 @@ export default function Home() {
             </MaskedReveal>
 
             <MaskedReveal delay={0.25}>
-              <p className="text-xl md:text-3xl text-white/90 font-light mb-6 leading-relaxed max-w-3xl mx-auto tracking-wide">
+              <p className="text-lg md:text-3xl text-white/90 font-light mb-4 md:mb-6 leading-relaxed max-w-3xl mx-auto tracking-wide">
                 Everything your brand needs to succeed online
               </p>
-              <p className="text-lg md:text-xl text-slate-400 mb-12 max-w-2xl mx-auto">
+              <p className="text-sm md:text-xl text-slate-400 mb-8 md:mb-12 max-w-2xl mx-auto">
                 All your digital needs in one place.
               </p>
             </MaskedReveal>
@@ -167,13 +167,13 @@ export default function Home() {
               initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ delay: 0.5, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col sm:flex-row gap-6 justify-center"
+              className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-stretch sm:items-center"
             >
               {/* Primary Call to Action */}
               <MagneticWrapper>
                 <Link
                   to="/about"
-                  className="group inline-flex items-center justify-center px-8 py-4 text-lg bg-blue-600 text-white font-bold rounded-2xl hover:bg-blue-700 transition-all duration-500 shadow-xl shadow-blue-500/20 transform active:scale-95"
+                  className="group inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg bg-blue-600 text-white font-bold rounded-2xl hover:bg-blue-700 transition-all duration-500 shadow-xl shadow-blue-500/20 transform active:scale-95"
                 >
                   Get Started
                   <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -184,7 +184,7 @@ export default function Home() {
               <MagneticWrapper>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center px-8 py-4 text-lg bg-white/10 text-white font-bold rounded-2xl border border-white/20 backdrop-blur-xl hover:bg-white/20 hover:border-white/30 transition-all duration-500 shadow-sm"
+                  className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg bg-white/10 text-white font-bold rounded-2xl border border-white/20 backdrop-blur-xl hover:bg-white/20 hover:border-white/30 transition-all duration-500 shadow-sm"
                 >
                   Contact Us
                 </Link>
@@ -199,13 +199,13 @@ export default function Home() {
       </SectionReveal>
 
       {/* Services Section */}
-      <section className="pt-12 pb-24 px-4 sm:px-6 lg:px-8 bg-transparent relative z-20 overflow-hidden">
+      <section className="py-16 md:pt-12 md:pb-24 px-4 sm:px-6 lg:px-8 bg-transparent relative z-20 overflow-hidden">
 
         <div className="max-w-7xl mx-auto">
           <SectionReveal>
-            <div className="text-center max-w-3xl mx-auto mb-20">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">Our Services</h2>
-              <p className="text-xl text-slate-600 leading-relaxed">
+            <div className="text-center max-w-3xl mx-auto mb-12 md:mb-20">
+              <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6 tracking-tight">Our Services</h2>
+              <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
                 Everything your brand needs to succeed online.
               </p>
             </div>
@@ -241,16 +241,16 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us Section - Luxury Dark Contrast */}
-      <section className="py-32 px-4 sm:px-6 lg:px-8 bg-slate-950 relative overflow-hidden">
+      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-slate-950 relative overflow-hidden">
         {/* Deep Mesh Overlay */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.15)_0%,_transparent_70%)] z-[1]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,_rgba(99,102,241,0.1)_0%,_transparent_70%)] z-[1]" />
 
         <div className="max-w-7xl mx-auto relative z-10">
           <SectionReveal>
-            <div className="text-center mb-20">
-              <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">Why Choose Us</h2>
-              <div className="w-20 h-1.5 bg-blue-600 mx-auto rounded-full" />
+            <div className="text-center mb-12 md:mb-20">
+              <h2 className="text-3xl md:text-6xl font-bold text-white mb-4 md:mb-6 tracking-tight">Why Choose Us</h2>
+              <div className="w-16 h-1 bg-blue-600 mx-auto rounded-full" />
             </div>
           </SectionReveal>
 
@@ -282,14 +282,14 @@ export default function Home() {
       )}
 
       {/* How We Work Section */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
+      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
         {/* Particle Rain Background */}
         <RainParticles />
         <div className="max-w-7xl mx-auto relative z-10">
           <SectionReveal>
-            <div className="text-center mb-20">
-              <h2 className="text-4xl md:text-6xl font-bold text-gray-950 mb-6 tracking-tight">How We Work</h2>
-              <div className="w-20 h-1.5 bg-blue-600 mx-auto rounded-full" />
+            <div className="text-center mb-12 md:mb-20">
+              <h2 className="text-3xl md:text-6xl font-bold text-gray-950 mb-4 md:mb-6 tracking-tight">How We Work</h2>
+              <div className="w-16 h-1 bg-blue-600 mx-auto rounded-full" />
             </div>
           </SectionReveal>
 
@@ -356,8 +356,8 @@ export default function Home() {
                       {step.icon}
                     </div>
 
-                    <h3 className="text-3xl font-bold text-gray-950 mb-4 tracking-tight group-hover:text-blue-600 transition-colors duration-500">{step.title}</h3>
-                    <p className="text-gray-600 text-lg leading-relaxed">
+                    <h3 className="text-2xl md:text-3xl font-bold text-gray-950 mb-4 tracking-tight group-hover:text-blue-600 transition-colors duration-500">{step.title}</h3>
+                    <p className="text-base md:text-lg text-gray-600 leading-relaxed">
                       {step.description}
                     </p>
                   </div>
@@ -371,14 +371,14 @@ export default function Home() {
 
       {/* Our Promise Section - Ultra Clean */}
       <SectionReveal>
-        <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600/5 via-indigo-600/5 to-cyan-500/5 backdrop-blur-md text-gray-900 border-y border-blue-100/50 relative overflow-hidden">
+        <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600/5 via-indigo-600/5 to-cyan-500/5 backdrop-blur-md text-gray-900 border-y border-blue-100/50 relative overflow-hidden">
           <div className="max-w-5xl mx-auto text-center relative z-10">
-            <h2 className="text-4xl md:text-5xl font-bold mb-10 tracking-tight">Our Promise</h2>
-            <p className="text-2xl md:text-3xl lg:text-4xl font-light mb-8 leading-relaxed text-gray-700">
-              "We don’t just deliver services, we deliver <span className="text-blue-600 font-semibold">solutions that work</span>."
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 md:mb-10 tracking-tight">Our Promise</h2>
+            <p className="text-xl md:text-3xl lg:text-4xl font-light mb-6 md:mb-8 leading-relaxed text-gray-700">
+              "We don't just deliver services, we deliver <span className="text-blue-600 font-semibold">solutions that work</span>."
             </p>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-cyan-500 mx-auto mb-8 rounded-full" />
-            <p className="text-xl font-bold tracking-widest uppercase text-blue-600">
+            <div className="w-16 md:w-20 h-1 bg-gradient-to-r from-blue-600 to-cyan-500 mx-auto mb-6 md:mb-8 rounded-full" />
+            <p className="text-sm md:text-xl font-bold tracking-widest uppercase text-blue-600">
               Clear ideas. Smart execution. Real results.
             </p>
           </div>
@@ -386,26 +386,26 @@ export default function Home() {
       </SectionReveal>
 
       {/* CTA Section - Luxury Dark */}
-      <section className="py-40 px-4 sm:px-6 lg:px-8 bg-slate-950 relative overflow-hidden">
+      <section className="py-24 md:py-40 px-4 sm:px-6 lg:px-8 bg-slate-950 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-cyan-500/10 z-[1] blur-3xl opacity-50" />
         <div className="max-w-5xl mx-auto text-center relative z-10">
           <SectionReveal>
-            <h2 className="text-5xl md:text-8xl font-extrabold text-white mb-10 tracking-tighter leading-[0.95]">
+            <h2 className="text-4xl sm:text-5xl md:text-8xl font-extrabold text-white mb-8 md:mb-10 tracking-tighter leading-[0.95]">
               Ready to grow your <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-cyan-400">
                 digital presence?
               </span>
             </h2>
-            <p className="text-2xl text-slate-400 mb-16 leading-relaxed max-w-2xl mx-auto">
-              Let’s build something impactful together.
+            <p className="text-lg md:text-2xl text-slate-400 mb-12 md:mb-16 leading-relaxed max-w-2xl mx-auto">
+              Let's build something impactful together.
             </p>
             <MagneticWrapper>
               <Link
                 to="/contact"
-                className="group inline-flex items-center justify-center px-14 py-7 text-2xl bg-white text-slate-950 font-bold rounded-2xl hover:bg-blue-50 transition-all duration-500 shadow-[0_0_50px_rgba(59,130,246,0.3)] transform active:scale-95 translate-y-0 hover:-translate-y-2"
+                className="group inline-flex items-center justify-center px-8 py-4 sm:px-14 sm:py-7 text-lg sm:text-2xl bg-white text-slate-950 font-bold rounded-2xl hover:bg-blue-50 transition-all duration-500 shadow-[0_0_50px_rgba(59,130,246,0.3)] transform active:scale-95 translate-y-0 hover:-translate-y-2"
               >
                 Get Started with us
-                <ArrowRight className="ml-3 w-8 h-8 group-hover:translate-x-2 transition-transform" />
+                <ArrowRight className="ml-2 sm:ml-3 w-6 h-6 sm:w-8 sm:h-8 group-hover:translate-x-2 transition-transform" />
               </Link>
             </MagneticWrapper>
           </SectionReveal>

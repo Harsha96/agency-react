@@ -78,20 +78,20 @@ export default function Services() {
 
   return (
     <div className="min-h-screen animate-fade-in">
-      <section className="relative bg-gradient-to-br from-blue-100 via-white to-blue-50 pt-40 pb-24 px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gradient-to-br from-blue-100 via-white to-blue-50 pt-24 md:pt-40 pb-16 md:pb-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-7xl font-extrabold text-gray-950 mb-8 leading-tight tracking-tight">
+            <h1 className="text-4xl md:text-7xl font-black text-gray-950 mb-6 md:mb-8 leading-tight tracking-tight">
               Our Services
             </h1>
-            <p className="text-xl md:text-2xl text-gray-700 font-medium leading-relaxed tracking-wide max-w-2xl mx-auto">
+            <p className="text-lg md:text-2xl text-gray-700 font-medium leading-relaxed tracking-wide max-w-2xl mx-auto">
               Everything your brand needs to succeed online.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="py-32 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
             {services.map((service, index) => (
@@ -131,17 +131,18 @@ export default function Services() {
         </div>
       </section>
 
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-600 to-cyan-600 text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Not Sure Which Service You Need?</h2>
-          <p className="text-xl mb-10 opacity-90">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-slate-950 relative overflow-hidden">
+        <div className="absolute inset-0 bg-blue-600/10 blur-3xl" />
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h2 className="text-3xl md:text-5xl font-black text-white mb-6">Need a Custom Solution?</h2>
+          <p className="text-lg md:text-xl mb-12 text-slate-400">
             Let's talk about your goals and find the perfect solution for your business.
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white text-blue-600 font-bold rounded-xl hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl hover:shadow-2xl"
+            className="inline-flex items-center justify-center px-10 py-5 text-lg bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-all transform hover:scale-105 shadow-xl shadow-blue-500/20"
           >
-            Schedule a Consultation
+            Get a Free Quote
             <ArrowRight className="ml-2 w-6 h-6" />
           </Link>
         </div>

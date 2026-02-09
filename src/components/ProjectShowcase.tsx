@@ -19,10 +19,10 @@ export const ProjectShowcase = ({ projects }: ProjectShowcaseProps) => {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-violet-100 rounded-full blur-3xl opacity-50 pointer-events-none" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-16">
-                    <div className="max-w-2xl">
-                        <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Selected Work</h2>
-                        <p className="text-xl text-slate-600">
+                <div className="flex flex-col md:flex-row justify-between items-end mb-12 md:mb-16">
+                    <div className="max-w-2xl mb-6 md:mb-0">
+                        <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4 md:mb-6">Selected Work</h2>
+                        <p className="text-lg md:text-xl text-slate-600">
                             Transforming ideas into digital reality. Here's what we've been working on.
                         </p>
                     </div>
@@ -64,21 +64,21 @@ export const ProjectShowcase = ({ projects }: ProjectShowcaseProps) => {
 
                                 {/* Content Section */}
                                 <div className="w-full lg:w-2/5">
-                                    <div className="flex items-center space-x-2 mb-4">
+                                    <div className="flex items-center space-x-2 mb-3 md:mb-4">
                                         {project.tech_stack.slice(0, 1).map((tech, i) => (
                                             <span key={i} className="text-violet-600 font-bold bg-violet-50 px-3 py-1 rounded-full text-xs uppercase tracking-wider">
                                                 {tech}
                                             </span>
                                         ))}
                                     </div>
-                                    <h3 className="text-3xl font-bold text-slate-900 mb-4 group-hover:text-violet-600 transition-colors">
+                                    <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3 md:mb-4 group-hover:text-violet-600 transition-colors">
                                         {project.title}
                                     </h3>
-                                    <p className="text-slate-600 text-lg leading-relaxed mb-6">
+                                    <p className="text-base md:text-lg text-slate-600 leading-relaxed mb-4 md:mb-6">
                                         {project.description}
                                     </p>
 
-                                    <div className="flex flex-wrap gap-2 mb-8">
+                                    <div className="flex flex-wrap gap-2 mb-6 md:mb-8">
                                         {project.tech_stack.map((tech, i) => (
                                             <span key={i} className="px-3 py-1 bg-white border border-slate-200 text-slate-500 text-xs font-medium rounded-md">
                                                 {tech}

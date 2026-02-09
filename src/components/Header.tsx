@@ -18,6 +18,11 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Auto-close mobile menu when navigating to a new page
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
+
   const isHomePage = location.pathname === '/';
   const isDarkHeader = isHomePage && !scrolled;
 
@@ -37,7 +42,7 @@ export default function Header() {
       : 'bg-transparent py-6'
       }`}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16 md:h-20">
           <Link to="/" className="flex items-center space-x-3 group">
             <div className={`w-10 h-10 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg transition-all duration-500 ${scrolled ? 'scale-90' : 'scale-100'}`}>
               <span className="text-white font-bold text-xl">AC</span>
@@ -161,44 +166,44 @@ export default function Header() {
 
         {mobileMenuOpen && (
           <div className="md:hidden py-6 border-t border-gray-100 bg-white shadow-xl rounded-b-2xl overflow-hidden animate-fade-in-up">
-            <div className="flex flex-col space-y-4 px-4">
-              <Link to="/" className="text-lg font-semibold text-gray-900 hover:text-blue-600 px-2 transition-colors">
+            <div className="flex flex-col space-y-3 px-4">
+              <Link to="/" className="text-base font-semibold text-gray-900 hover:text-blue-600 px-2 py-2 transition-colors">
                 Home
               </Link>
-              <Link to="/about" className="text-lg font-semibold text-gray-900 hover:text-blue-600 px-2 transition-colors">
+              <Link to="/about" className="text-base font-semibold text-gray-900 hover:text-blue-600 px-2 py-2 transition-colors">
                 About
               </Link>
-              <Link to="/services" className="text-lg font-semibold text-gray-900 hover:text-blue-600 px-2 transition-colors">
+              <Link to="/services" className="text-base font-semibold text-gray-900 hover:text-blue-600 px-2 py-2 transition-colors">
                 Services
               </Link>
-              <div className="grid grid-cols-1 gap-2 pl-4">
+              <div className="grid grid-cols-1 gap-2 pl-4 border-l-2 border-blue-100">
                 {services.map((service) => (
                   <Link
                     key={service.path}
                     to={service.path}
-                    className="text-sm font-medium text-gray-600 hover:text-blue-600 py-1 transition-colors"
+                    className="text-sm font-medium text-gray-600 hover:text-blue-600 py-1.5 transition-colors"
                   >
                     {service.name}
                   </Link>
                 ))}
               </div>
-              <Link to="/portfolio" className="text-lg font-semibold text-gray-900 hover:text-blue-600 px-2 transition-colors">
+              <Link to="/portfolio" className="text-base font-semibold text-gray-900 hover:text-blue-600 px-2 py-2 transition-colors">
                 Portfolio
               </Link>
-              <Link to="/blog" className="text-lg font-semibold text-gray-900 hover:text-blue-600 px-2 transition-colors">
+              <Link to="/blog" className="text-base font-semibold text-gray-900 hover:text-blue-600 px-2 py-2 transition-colors">
                 Blog
               </Link>
               <Link to="/contact" className="inline-flex items-center justify-center py-3 bg-blue-600 text-white font-bold rounded-xl mt-4 shadow-lg shadow-blue-500/20">
                 Contact Us
               </Link>
               {user && (
-                <div className="border-t border-gray-100 pt-4 flex flex-col space-y-4">
-                  <Link to="/admin" className="text-lg font-semibold text-gray-900 hover:text-blue-600 px-2 transition-colors">
+                <div className="border-t border-gray-100 pt-4 mt-4 flex flex-col space-y-3">
+                  <Link to="/admin" className="text-base font-semibold text-gray-900 hover:text-blue-600 px-2 py-2 transition-colors">
                     Admin
                   </Link>
                   <button
                     onClick={() => signOut()}
-                    className="text-lg font-semibold text-gray-900 hover:text-blue-600 text-left px-2"
+                    className="text-base font-semibold text-gray-900 hover:text-blue-600 text-left px-2 py-2"
                   >
                     Logout
                   </button>

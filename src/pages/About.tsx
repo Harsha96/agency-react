@@ -86,20 +86,20 @@ export default function About() {
           </div>
         </div>
       </section> */}
-      <section className="relative bg-gradient-to-br from-blue-100 via-white to-blue-50 pt-40 pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-4xl mx-auto mb-20">
-            <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-8">
-              <Users className="w-4 h-4" />
-              <span className="tracking-wide uppercase text-xs font-bold">Who We Are</span>
+      <section className="relative bg-gradient-to-br from-blue-100 via-white to-blue-50 pt-24 md:pt-40 pb-16 md:pb-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto text-center">
+          <div className="max-w-4xl mx-auto mb-16 md:mb-20">
+            <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-6 md:mb-8">
+              <Users className="w-3 h-3 md:w-4 md:h-4" />
+              <span className="tracking-wide uppercase text-[10px] md:text-xs font-bold">Who We Are</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-extrabold text-gray-950 mb-8 leading-tight tracking-tight">
+            <h1 className="text-4xl md:text-7xl font-black text-gray-950 mb-6 md:mb-8 leading-tight tracking-tight">
               Akinahs Collective
             </h1>
-            <p className="text-xl md:text-2xl text-gray-700 font-medium leading-relaxed tracking-wide mb-8 max-w-3xl mx-auto">
+            <p className="text-lg md:text-2xl text-gray-700 font-medium leading-relaxed tracking-wide mb-6 md:mb-8 max-w-3xl mx-auto">
               Smart, reliable digital solutions for your business.
             </p>
-            <p className="text-lg text-gray-600 leading-relaxed tracking-wide max-w-2xl mx-auto">
+            <p className="text-base md:text-lg text-gray-600 leading-relaxed tracking-wide max-w-2xl mx-auto">
               We handle everything under one roof — simple, efficient, and result-driven.
             </p>
           </div>
@@ -116,11 +116,11 @@ export default function About() {
           </div>
         </div>
       </section>
-      <section className="py-32 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
+      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-16 items-center mb-32">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center mb-24 md:mb-32">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-950 mb-8 tracking-tight">Our Story</h2>
+              <h2 className="text-3xl md:text-5xl font-bold text-gray-950 mb-6 md:mb-8 tracking-tight">Our Story</h2>
               <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
                 <p>
                   Founded in 2019, AI Agency emerged from a simple observation: businesses were struggling to harness the power of artificial intelligence and modern technology.
@@ -147,9 +147,9 @@ export default function About() {
             </div>
           </div>
 
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Values</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">Our Values</h2>
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               The principles that guide everything we do
             </p>
           </div>
@@ -174,9 +174,9 @@ export default function About() {
 
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Meet Our Team</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">Meet Our Team</h2>
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               Experts in AI, development, content, and data science
             </p>
           </div>
@@ -209,10 +209,10 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-600 to-cyan-600 text-white">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-600/10 to-cyan-600/10 border-y border-blue-100">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Join Us on This Journey</h2>
-          <p className="text-xl mb-10 opacity-90">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-gray-950 mb-6">Join Us on This Journey</h2>
+          <p className="text-lg md:text-xl mb-10 text-gray-700">
             We're always looking for talented individuals who share our passion for innovation and excellence.
           </p>
           <a

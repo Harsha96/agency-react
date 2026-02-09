@@ -34,17 +34,17 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen">
-      <section className="relative bg-gradient-to-br from-blue-100 via-white to-blue-50 pt-40 pb-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gradient-to-br from-blue-100 via-white to-blue-50 pt-24 md:pt-40 pb-16 md:pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-4xl mx-auto mb-16">
-            <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-8">
-              <Mail className="w-4 h-4" />
-              <span className="tracking-wide uppercase text-xs font-bold">Get in Touch</span>
+          <div className="text-center max-w-4xl mx-auto mb-12 md:mb-16">
+            <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-6 md:mb-8">
+              <Mail className="w-3 h-3 md:w-4 md:h-4" />
+              <span className="tracking-wide uppercase text-[10px] md:text-xs font-bold">Get in Touch</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-extrabold text-gray-950 mb-8 leading-tight tracking-tight">
-              Let's Build Something Great Together
+            <h1 className="text-4xl md:text-7xl font-black text-gray-950 mb-6 md:mb-8 leading-tight tracking-tight">
+              Let's Build Together
             </h1>
-            <p className="text-xl md:text-2xl text-gray-700 font-medium leading-relaxed tracking-wide max-w-2xl mx-auto">
+            <p className="text-lg md:text-2xl text-gray-700 font-medium leading-relaxed tracking-wide max-w-2xl mx-auto">
               Have a project? We'd love to hear about it.
             </p>
           </div>
@@ -109,8 +109,8 @@ export default function Contact() {
             </div>
 
             <div>
-              <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 p-10">
-                <h2 className="text-3xl font-extrabold text-gray-950 mb-8 tracking-tight">Send Us a Message</h2>
+              <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 p-8 md:p-10">
+                <h2 className="text-2xl md:text-3xl font-black text-gray-950 mb-8 tracking-tight">Send Us a Message</h2>
 
                 {success && (
                   <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-start space-x-3">
