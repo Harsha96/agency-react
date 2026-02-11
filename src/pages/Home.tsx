@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Target, PenTool, Bot, Package, Lightbulb, MessageSquare, Shield, Users, Layout, Search, Code, CheckCircle } from 'lucide-react';
+import { ArrowRight, Target, Palette, Sparkles, Package, Lightbulb, Headphones, Shield, TrendingUp, Globe, Search, Code, CheckCircle, MessageSquare } from 'lucide-react';
 import { SectionReveal, MaskedReveal } from '../components/SectionReveal';
 import { WhoWeAre } from '../components/WhoWeAre';
 import { ProjectShowcase } from '../components/ProjectShowcase';
@@ -38,35 +38,35 @@ export default function Home() {
 
   const services = [
     {
-      icon: <PenTool className="w-8 h-8" />,
+      icon: <Palette className="w-8 h-8" />,
       title: 'Graphic Design & Branding',
       description: 'Creative visuals, logos, and brand identities that make your business stand out.',
       link: '/services/design',
       color: 'from-blue-500 to-cyan-500',
     },
     {
-      icon: <Users className="w-8 h-8" />,
+      icon: <TrendingUp className="w-8 h-8" />,
       title: 'Digital Marketing & Social Media',
       description: 'Strategic online marketing to grow your audience and engagement.',
       link: '/services/seo',
       color: 'from-violet-500 to-purple-500',
     },
     {
-      icon: <Layout className="w-8 h-8" />,
+      icon: <Globe className="w-8 h-8" />,
       title: 'Website Design & Development',
       description: 'Modern, responsive websites built for performance and usability.',
       link: '/services/web',
       color: 'from-emerald-500 to-teal-500',
     },
     {
-      icon: <Bot className="w-8 h-8" />,
+      icon: <Sparkles className="w-8 h-8" />,
       title: 'Software & AI Solutions',
       description: 'Custom software solutions designed to support and scale your business.',
       link: '/services/ai',
       color: 'from-orange-500 to-red-500',
     },
     {
-      icon: <MessageSquare className="w-8 h-8" />,
+      icon: <Headphones className="w-8 h-8" />,
       title: 'Content & Online Support',
       description: 'Clear content, ongoing support, and tailored digital solutions.',
       link: '/services/support',
@@ -402,10 +402,10 @@ export default function Home() {
             <MagneticWrapper>
               <Link
                 to="/contact"
-                className="group inline-flex items-center justify-center px-8 py-4 sm:px-14 sm:py-7 text-lg sm:text-2xl bg-white text-slate-950 font-bold rounded-2xl hover:bg-blue-50 transition-all duration-500 shadow-[0_0_50px_rgba(59,130,246,0.3)] transform active:scale-95 translate-y-0 hover:-translate-y-2"
+                className="group inline-flex items-center justify-center px-6 py-3 sm:px-10 sm:py-5 text-base sm:text-xl bg-white text-slate-950 font-bold rounded-2xl hover:bg-blue-50 transition-all duration-500 shadow-[0_0_50px_rgba(59,130,246,0.3)] transform active:scale-95 translate-y-0 hover:-translate-y-2"
               >
                 Get Started with us
-                <ArrowRight className="ml-2 sm:ml-3 w-6 h-6 sm:w-8 sm:h-8 group-hover:translate-x-2 transition-transform" />
+                <ArrowRight className="ml-2 sm:ml-3 w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-2 transition-transform" />
               </Link>
             </MagneticWrapper>
           </SectionReveal>
