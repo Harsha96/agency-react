@@ -1,5 +1,7 @@
-import { useEffect, useState, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { MessageCircle, X } from 'lucide-react';
 import Mascot3D from './Mascot3D';
 
 export const InteractiveMascot = () => {

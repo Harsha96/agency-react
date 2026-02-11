@@ -7,9 +7,9 @@ import { MagneticWrapper } from '../components/MagneticWrapper';
 import { MouseGlowCard, TiltCard } from '../components/InteractiveWrappers';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import { HeroParticles, RainParticles } from '../components/HeroParticles';
 import { supabase } from '../lib/supabase';
 import type { Database } from '../lib/supabase';
+import { HeroParticles, RainParticles } from '../components/HeroParticles';
 
 type CaseStudy = Database['case_studies'];
 

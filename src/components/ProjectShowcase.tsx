@@ -47,6 +47,8 @@ export const ProjectShowcase = ({ projects }: ProjectShowcaseProps) => {
                                             src={project.image_url}
                                             alt={project.title}
                                             className="w-full h-[400px] object-cover object-center transform transition-transform duration-700 group-hover:scale-105"
+                                            loading="lazy"
+                                            decoding="async"
                                         />
 
                                         {/* Floating Action Badge */}

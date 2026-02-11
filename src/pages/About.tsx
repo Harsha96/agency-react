@@ -138,6 +138,8 @@ export default function About() {
                 src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800"
                 alt="Team collaboration"
                 className="rounded-2xl shadow-2xl"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute -bottom-6 -left-6 bg-blue-600 text-white p-6 rounded-xl shadow-lg">
                 <Award className="w-12 h-12 mb-2" />
@@ -192,6 +194,8 @@ export default function About() {
                       src={member.image}
                       alt={member.name}
                       className="w-full h-full object-cover image-hover-zoom"
+                      loading="lazy"
+                      decoding="async"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
                       <span className="text-white font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">View Profile</span>
