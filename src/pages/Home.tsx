@@ -199,7 +199,7 @@ export default function Home() {
       </SectionReveal>
 
       {/* Services Section */}
-      <section className="py-16 md:pt-12 md:pb-24 px-4 sm:px-6 lg:px-8 bg-transparent relative z-20 overflow-hidden">
+      <section className="py-16 md:pt-12 md:pb-24 px-4 sm:px-6 lg:px-8 bg-slate-50 relative z-20 overflow-hidden">
 
         <div className="max-w-7xl mx-auto">
           <SectionReveal>

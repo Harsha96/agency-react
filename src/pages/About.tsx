@@ -116,7 +116,7 @@ export default function About() {
           </div>
         </div>
       </section>
-      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
+      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-slate-50 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center mb-24 md:mb-32">
             <div>
