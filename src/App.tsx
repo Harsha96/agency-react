@@ -5,7 +5,6 @@ import Footer from './components/Footer';
 import ProtectedRoute from './components/ProtectedRoute';
 import ScrollToTop from './components/ScrollToTop';
 import SmoothScroll from './components/SmoothScroll';
-import { ParticlePreloader } from './components/ParticlePreloader';
 import { lazy, Suspense, useEffect } from 'react';
 
 // Lazy load all pages for better performance
@@ -57,7 +56,7 @@ function AppContent() {
         <Header />
         <main className="flex-grow">
           <div key={location.pathname} className="animate-fade-in-up" style={{ animationDelay: '100ms', animationFillMode: 'both' }}>
-            <Suspense fallback={<ParticlePreloader />}>
+            <Suspense fallback={<div className="min-h-screen bg-slate-50" />}>
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />

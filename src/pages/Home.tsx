@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Target, Palette, Sparkles, Package, Lightbulb, Headphones, Shield, TrendingUp, Globe, Search, Code, CheckCircle, MessageSquare } from 'lucide-react';
+import { ArrowRight, Target, Palette, Sparkles, Package, Lightbulb, Headphones, Shield, TrendingUp, Globe, Search, Code, CheckCircle, MessageSquare, ChevronRight } from 'lucide-react';
 import { SectionReveal, MaskedReveal } from '../components/SectionReveal';
 import { WhoWeAre } from '../components/WhoWeAre';
 import { ProjectShowcase } from '../components/ProjectShowcase';
@@ -110,13 +110,13 @@ export default function Home() {
   return (
     <div className="min-h-screen">
 
-      {/* Hero Section - Expert Liquid UI */}
+      {/* Hero Section - Clean Contained UI on Dynamic Dark Background */}
       <section className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-slate-950">
 
-        {/* Hero Level Particle Magic */}
+        {/* Restored Hero Level Particle Magic */}
         <HeroParticles />
 
-        {/* Localized Liquid Flux Animation -- EXTREMELY SOPHISTICATED */}
+        {/* Restored Liquid Flux Animation */}
         <div className="absolute inset-0 pointer-events-none z-0">
           <motion.div
             animate={{
@@ -140,58 +140,82 @@ export default function Home() {
           />
         </div>
 
-        <motion.div
-          style={{ y: heroY, scale: heroScale, opacity: heroOpacity }}
-          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full"
-        >
-          <div className="text-center max-w-5xl mx-auto">
-            <MaskedReveal>
-              <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-extrabold text-white mb-8 leading-[1.4] md:leading-[1.25] tracking-tight">
-                Design. Develop. <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-cyan-400 animate-gradient">
-                  Deploy.
-                </span>
-              </h1>
-            </MaskedReveal>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full mb-12">
+          {/* Contained Hero Box - Maintained Kymox Style */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="bg-white rounded-[3rem] shadow-[0_20px_40px_-15px_rgba(59,130,246,0.2)] border border-blue-100/50 p-8 md:p-16 lg:p-24 overflow-hidden relative"
+          >
+            {/* Subtle Gradient Decor */}
+            <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
 
-            <MaskedReveal delay={0.25}>
-              <p className="text-lg md:text-3xl text-white/90 font-light mb-4 md:mb-6 leading-relaxed max-w-3xl mx-auto tracking-wide">
-                Everything your brand needs to succeed online
-              </p>
-              <p className="text-sm md:text-xl text-slate-400 mb-8 md:mb-12 max-w-2xl mx-auto">
-                All your digital needs in one place.
-              </p>
-            </MaskedReveal>
+            <div className="max-w-4xl">
+              <MaskedReveal>
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 leading-[1.2] tracking-tight">
+                  Get a professional website <br />
+                  done for your <span className="text-blue-600">business.</span>
+                </h1>
+              </MaskedReveal>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              transition={{ delay: 0.5, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-stretch sm:items-center"
-            >
-              {/* Primary Call to Action */}
-              <MagneticWrapper>
-                <Link
-                  to="/about"
-                  className="group inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg bg-blue-600 text-white font-bold rounded-2xl hover:bg-blue-700 transition-all duration-500 shadow-xl shadow-blue-500/20 transform active:scale-95"
+              <MaskedReveal delay={0.25}>
+                <p className="text-lg md:text-xl font-medium text-slate-600 mb-10 leading-relaxed max-w-2xl">
+                  Designed, developed, ready to scale in 7 days
+                </p>
+              </MaskedReveal>
+
+              {/* Feature Checklist */}
+              <div className="grid sm:grid-cols-2 gap-4 mb-12">
+                {[
+                  'Free hosting',
+                  'Free domain',
+                  'Easily manageable by you',
+                  'Professional logo design'
+                ].map((item, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.4 + (i * 0.1) }}
+                    className="flex items-center space-x-3"
+                  >
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center">
+                      <CheckCircle className="w-4 h-4 text-white" />
+                    </div>
+                    <span className="text-base font-semibold text-gray-700">{item}</span>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="flex flex-col items-start space-y-6">
+                <MagneticWrapper>
+                  <Link
+                    to="/contact"
+                    className="group inline-flex items-center justify-center px-10 py-5 text-xl bg-blue-600 text-white font-bold rounded-2xl hover:bg-blue-700 transition-all duration-300 shadow-xl shadow-blue-500/20 active:scale-95"
+                  >
+                    Get my website
+                  </Link>
+                </MagneticWrapper>
+
+                {/* Promotional Banner */}
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.8 }}
                 >
-                  Get Started
-                  <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </MagneticWrapper>
-
-              {/* Secondary Call to Action */}
-              <MagneticWrapper>
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg bg-white/10 text-white font-bold rounded-2xl border border-white/20 backdrop-blur-xl hover:bg-white/20 hover:border-white/30 transition-all duration-500 shadow-sm"
-                >
-                  Contact Us
-                </Link>
-              </MagneticWrapper>
-            </motion.div>
-          </div>
-        </motion.div>
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center px-6 py-3 bg-amber-400 text-slate-900 font-bold rounded-full text-sm hover:bg-amber-500 transition-colors group"
+                  >
+                    Lowest payment, no monthly subscriptions
+                    <ChevronRight className="ml-1 w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+                  </Link>
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </section>
 
       <SectionReveal>
@@ -283,7 +307,7 @@ export default function Home() {
 
       {/* How We Work Section */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
-        {/* Particle Rain Background */}
+        {/* Particle Rain Background Restored */}
         <RainParticles />
         <div className="max-w-7xl mx-auto relative z-10">
           <SectionReveal>
