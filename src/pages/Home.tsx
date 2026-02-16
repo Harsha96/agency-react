@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Target, Palette, Sparkles, Package, Lightbulb, Headphones, Shield, TrendingUp, Globe, Search, Code, CheckCircle, MessageSquare, ChevronRight } from 'lucide-react';
+import { ArrowRight, Target, Palette, Sparkles, Package, Lightbulb, Headphones, Shield, TrendingUp, Globe, Search, Code, CheckCircle, MessageSquare } from 'lucide-react';
 import { SectionReveal, MaskedReveal } from '../components/SectionReveal';
 import { WhoWeAre } from '../components/WhoWeAre';
 import { ProjectShowcase } from '../components/ProjectShowcase';
 import { MagneticWrapper } from '../components/MagneticWrapper';
 import { MouseGlowCard, TiltCard } from '../components/InteractiveWrappers';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
 import type { Database } from '../lib/supabase';
@@ -102,116 +102,103 @@ export default function Home() {
     },
   ];
 
-  const { scrollY } = useScroll();
-  const heroY = useTransform(scrollY, [0, 500], [0, 200]);
-  const heroScale = useTransform(scrollY, [0, 500], [1, 0.95]);
-  const heroOpacity = useTransform(scrollY, [0, 500], [1, 0]);
+  // Case studies and other logic...
 
   return (
     <div className="min-h-screen">
 
-      {/* Hero Section - Clean Contained UI on Dynamic Dark Background */}
-      <section className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-slate-950">
+      {/* Hero Section - Premium Radial Blue Glow on Luminous White Backdrop */}
+      <section className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-white">
+        {/* Layered Luminous Blue Core - Deeper and more intentional */}
+        <div
+          className="absolute inset-0 z-0 pointer-events-none"
+          style={{
+            background: `
+              radial-gradient(circle at 40% 50%, rgba(37, 99, 235, 0.12) 0%, rgba(59, 130, 246, 0.05) 45%, transparent 85%),
+              radial-gradient(circle at 60% 40%, rgba(96, 165, 250, 0.08) 0%, transparent 60%)
+            `
+          }}
+        />
 
-        {/* Restored Hero Level Particle Magic */}
+        {/* Hero Level Particle Magic - Adjusted for white background */}
         <HeroParticles />
 
-        {/* Restored Liquid Flux Animation */}
+        {/* Soft Background Accents */}
         <div className="absolute inset-0 pointer-events-none z-0">
           <motion.div
             animate={{
               scale: [1, 1.2, 1],
-              rotate: [0, 90, 180, 270, 360],
-              x: [0, 50, 0, -50, 0],
-              y: [0, 30, 0, -30, 0]
+              opacity: [0.3, 0.5, 0.3],
+              x: [0, 30, 0],
+              y: [0, 20, 0]
             }}
-            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-            className="absolute top-[10%] left-[10%] w-[600px] h-[600px] bg-blue-500/15 rounded-full blur-[120px]"
+            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+            className="absolute top-[10%] left-[10%] w-[500px] h-[500px] bg-blue-100/40 rounded-full blur-[100px]"
           />
           <motion.div
             animate={{
               scale: [1, 1.3, 1],
-              rotate: [360, 270, 180, 90, 0],
-              x: [0, -40, 0, 40, 0],
-              y: [0, -50, 0, 50, 0]
+              opacity: [0.2, 0.4, 0.2],
+              x: [0, -20, 0],
+              y: [0, 40, 0]
             }}
-            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-            className="absolute bottom-[10%] right-[10%] w-[700px] h-[700px] bg-cyan-500/15 rounded-full blur-[140px]"
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="absolute bottom-[15%] right-[10%] w-[600px] h-[600px] bg-indigo-50/50 rounded-full blur-[120px]"
           />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full mb-12">
-          {/* Contained Hero Box - Maintained Kymox Style */}
+          {/* Contained Hero Card - Premium Glassmorphism with Floating Motion */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="bg-white rounded-[3rem] shadow-[0_20px_40px_-15px_rgba(59,130,246,0.2)] border border-blue-100/50 p-8 md:p-16 lg:p-24 overflow-hidden relative"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              transition: { duration: 1, ease: "easeOut" }
+            }}
+            style={{
+              y: useScroll().scrollYProgress.get() * -20 // Subtle parallax
+            }}
+            className="bg-blue-50/20 backdrop-blur-[100px] rounded-[3rem] shadow-[0_40px_100px_-25px_rgba(59,130,246,0.12)] border border-blue-200/40 p-10 md:p-16 lg:p-24 overflow-hidden relative group"
           >
+            {/* Inner Border Glow */}
+            <div className="absolute inset-0 border border-white/40 rounded-[3rem] pointer-events-none" />
+            <div className="absolute -inset-[1px] bg-gradient-to-br from-blue-400/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none rounded-[3rem]" />
             {/* Subtle Gradient Decor */}
-            <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-50/30 rounded-full blur-3xl pointer-events-none" />
 
             <div className="max-w-4xl">
               <MaskedReveal>
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 leading-[1.2] tracking-tight">
-                  Get a professional website <br />
-                  done for your <span className="text-blue-600">business.</span>
+                  Design. Develop. <span className="text-blue-600">Deploy.</span>
                 </h1>
               </MaskedReveal>
 
               <MaskedReveal delay={0.25}>
-                <p className="text-lg md:text-xl font-medium text-slate-600 mb-10 leading-relaxed max-w-2xl">
-                  Designed, developed, ready to scale in 7 days
+                <p className="text-xl md:text-2xl font-medium text-slate-600 mb-12 leading-relaxed max-w-2xl">
+                  Everything your brand needs to grow online. <br />
+                  All your digital needs, in one place.
                 </p>
               </MaskedReveal>
 
-              {/* Feature Checklist */}
-              <div className="grid sm:grid-cols-2 gap-4 mb-12">
-                {[
-                  'Free hosting',
-                  'Free domain',
-                  'Easily manageable by you',
-                  'Professional logo design'
-                ].map((item, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.4 + (i * 0.1) }}
-                    className="flex items-center space-x-3"
-                  >
-                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center">
-                      <CheckCircle className="w-4 h-4 text-white" />
-                    </div>
-                    <span className="text-base font-semibold text-gray-700">{item}</span>
-                  </motion.div>
-                ))}
-              </div>
-
-              <div className="flex flex-col items-start space-y-6">
+              <div className="flex flex-wrap gap-6">
                 <MagneticWrapper>
                   <Link
                     to="/contact"
                     className="group inline-flex items-center justify-center px-10 py-5 text-xl bg-blue-600 text-white font-bold rounded-2xl hover:bg-blue-700 transition-all duration-300 shadow-xl shadow-blue-500/20 active:scale-95"
                   >
-                    Get my website
+                    Get started
                   </Link>
                 </MagneticWrapper>
 
-                {/* Promotional Banner */}
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8 }}
-                >
+                <MagneticWrapper>
                   <Link
-                    to="/contact"
-                    className="inline-flex items-center px-6 py-3 bg-amber-400 text-slate-900 font-bold rounded-full text-sm hover:bg-amber-500 transition-colors group"
+                    to="/services"
+                    className="group inline-flex items-center justify-center px-10 py-5 text-xl bg-white/80 text-slate-900 font-bold rounded-2xl border-2 border-blue-100/50 hover:border-blue-600 hover:text-blue-600 backdrop-blur-sm transition-all duration-300 active:scale-95"
                   >
-                    Lowest payment, no monthly subscriptions
-                    <ChevronRight className="ml-1 w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+                    Our Services
                   </Link>
-                </motion.div>
+                </MagneticWrapper>
               </div>
             </div>
           </motion.div>
@@ -222,8 +209,8 @@ export default function Home() {
         <WhoWeAre />
       </SectionReveal>
 
-      {/* Services Section */}
-      <section className="py-16 md:pt-12 md:pb-24 px-4 sm:px-6 lg:px-8 bg-slate-50 relative z-20 overflow-hidden">
+      {/* Services Section - Light Blue Shade */}
+      <section className="py-16 md:pt-12 md:pb-24 px-4 sm:px-6 lg:px-8 bg-blue-50/30 relative z-20 overflow-hidden">
 
         <div className="max-w-7xl mx-auto">
           <SectionReveal>
@@ -242,10 +229,10 @@ export default function Home() {
                   <MouseGlowCard className="h-full">
                     <Link
                       to={service.link}
-                      className="group relative bg-white/40 backdrop-blur-2xl rounded-[2.5rem] p-10 hover:bg-white/80 transition-all duration-500 border border-gray-100/50 shadow-2xl shadow-blue-500/5 hover:border-blue-400/40 hover:shadow-blue-500/10 block h-full overflow-hidden flex flex-col items-center text-center"
+                      className="group relative bg-blue-50/80 backdrop-blur-2xl rounded-[2.5rem] p-10 hover:bg-blue-100/50 transition-all duration-500 border border-blue-200/50 shadow-2xl shadow-blue-500/5 hover:border-blue-400/40 hover:shadow-blue-500/10 block h-full overflow-hidden flex flex-col items-center text-center"
                     >
                       {/* Dynamic Background Glow */}
-                      <div className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-20 blur-3xl transition-opacity duration-700`} />
+                      <div className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-10 blur-3xl transition-opacity duration-700`} />
 
                       <div className={`p-5 bg-gradient-to-br ${service.color} rounded-2xl text-white mb-8 group-hover:scale-110 transition-transform duration-700 group-hover:rotate-6 shadow-lg shadow-blue-500/10`}>
                         {service.icon}
@@ -264,16 +251,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose Us Section - Luxury Dark Contrast */}
-      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-slate-950 relative overflow-hidden">
-        {/* Deep Mesh Overlay */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.15)_0%,_transparent_70%)] z-[1]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,_rgba(99,102,241,0.1)_0%,_transparent_70%)] z-[1]" />
+      {/* Why Choose Us Section - Soft Light Blue Aesthetic */}
+      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
+        {/* Subtle Mesh Overlay */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.05)_0%,_transparent_70%)] z-[1]" />
 
         <div className="max-w-7xl mx-auto relative z-10">
           <SectionReveal>
             <div className="text-center mb-12 md:mb-20">
-              <h2 className="text-3xl md:text-6xl font-bold text-white mb-4 md:mb-6 tracking-tight">Why Choose Us</h2>
+              <h2 className="text-3xl md:text-6xl font-bold text-gray-950 mb-4 md:mb-6 tracking-tight">Why Choose Us</h2>
               <div className="w-16 h-1 bg-blue-600 mx-auto rounded-full" />
             </div>
           </SectionReveal>
@@ -282,12 +268,12 @@ export default function Home() {
             {benefits.map((benefit, index) => (
               <SectionReveal key={index} delay={index * 0.05}>
                 <MouseGlowCard>
-                  <div className="bg-white/5 backdrop-blur-xl p-8 lg:p-10 rounded-[2.5rem] border border-white/10 hover:border-blue-500/30 hover:bg-white/10 transition-all duration-500 h-full group flex flex-col items-center text-center">
-                    <div className="p-4 bg-blue-600/20 rounded-2xl text-blue-400 mb-6 group-hover:scale-110 transition-transform duration-500">
+                  <div className="bg-blue-100/40 backdrop-blur-xl p-8 lg:p-10 rounded-[2.5rem] border border-blue-200/40 hover:border-blue-500/30 hover:bg-blue-100/60 transition-all duration-500 h-full group flex flex-col items-center text-center">
+                    <div className="p-4 bg-blue-600/10 rounded-2xl text-blue-600 mb-6 group-hover:scale-110 transition-transform duration-500">
                       {benefit.icon}
                     </div>
-                    <h3 className="text-xl font-bold text-white tracking-tight mb-4">{benefit.title}</h3>
-                    <p className="text-slate-400 leading-relaxed text-base group-hover:text-slate-200 transition-colors">
+                    <h3 className="text-xl font-bold text-gray-900 tracking-tight mb-4">{benefit.title}</h3>
+                    <p className="text-slate-600 leading-relaxed text-base group-hover:text-slate-900 transition-colors">
                       {benefit.description}
                     </p>
                   </div>
@@ -299,11 +285,13 @@ export default function Home() {
       </section>
 
       {/* STYLISH Project Showcase Section */}
-      {!loading && caseStudies.length > 0 && (
-        <SectionReveal>
-          <ProjectShowcase projects={caseStudies} />
-        </SectionReveal>
-      )}
+      {
+        !loading && caseStudies.length > 0 && (
+          <SectionReveal>
+            <ProjectShowcase projects={caseStudies} />
+          </SectionReveal>
+        )
+      }
 
       {/* How We Work Section */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
@@ -359,15 +347,15 @@ export default function Home() {
                   accent: 'indigo'
                 },
                 {
-                  icon: <CheckCircle className="w-10 h-10 text-cyan-600" />,
+                  icon: <CheckCircle className="w-10 h-10 text-blue-600" />,
                   title: 'Deliver',
                   description: 'We launch, support, and help you grow.',
                   step: '03',
-                  accent: 'cyan'
+                  accent: 'blue'
                 }
               ].map((step, index) => (
                 <SectionReveal key={index} delay={index * 0.05}>
-                  <div className="relative p-10 bg-slate-50/50 backdrop-blur-sm rounded-[2.5rem] border border-slate-100 group transition-all duration-700 hover:bg-white hover:shadow-[0_20px_60px_-15px_rgba(59,130,246,0.15)] group">
+                  <div className="relative p-10 bg-blue-50/60 backdrop-blur-sm rounded-[2.5rem] border border-blue-100/50 group transition-all duration-700 hover:bg-blue-100/40 hover:shadow-[0_20px_60px_-15px_rgba(59,130,246,0.15)] group">
                     {/* Glowing Step Number */}
                     <div className="absolute top-6 right-8 text-5xl font-black text-slate-200/50 group-hover:text-blue-500/20 group-hover:scale-125 transition-all duration-700 select-none">
                       {step.step}
@@ -435,6 +423,6 @@ export default function Home() {
           </SectionReveal>
         </div>
       </section>
-    </div>
+    </div >
   );
 }

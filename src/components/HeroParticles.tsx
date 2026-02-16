@@ -21,8 +21,8 @@ function ParticleField() {
 
     const colors = useMemo(() => {
         const cols = new Float32Array(count * 3);
-        const color1 = new THREE.Color('#3b82f6'); // blue-500
-        const color2 = new THREE.Color('#06b6d4'); // cyan-500
+        const color1 = new THREE.Color('#2563eb'); // blue-600
+        const color2 = new THREE.Color('#4338ca'); // indigo-700
         for (let i = 0; i < count; i++) {
             const mixedColor = i % 2 === 0 ? color1 : color2;
             cols[i * 3] = mixedColor.r;
@@ -51,8 +51,8 @@ function ParticleField() {
                 size={0.06}
                 sizeAttenuation={true}
                 depthWrite={false}
-                opacity={0.45}
-                blending={THREE.AdditiveBlending}
+                opacity={0.3}
+                blending={THREE.NormalBlending}
             />
             {/* Direct buffer attribute for colors to enable dual-tone mix */}
             <bufferAttribute

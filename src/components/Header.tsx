@@ -22,8 +22,8 @@ export default function Header() {
     setMobileMenuOpen(false);
   }, [location.pathname]);
 
-  const isHomePage = location.pathname === '/';
-  const isDarkHeader = isHomePage && !scrolled;
+  // With the new white hero, we always want the dark header/logo for readability
+  const isDarkHeader = false;
 
   const isActive = (path: string) => location.pathname === path;
 
