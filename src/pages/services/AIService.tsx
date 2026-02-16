@@ -13,17 +13,17 @@ export default function AIService() {
   const services = [
     {
       title: 'AI Chatbots',
-      description: 'Intelligent conversational AI that handles customer inquiries 24/7 with natural language understanding.',
+      description: 'Intelligent conversational AI for 24/7 support.',
       icon: <MessageSquare className="w-8 h-8" />,
     },
     {
       title: 'Workflow Automation',
-      description: 'Automate repetitive tasks and streamline operations with smart automation solutions.',
+      description: 'Automate tasks with smart solutions.',
       icon: <Workflow className="w-8 h-8" />,
     },
     {
       title: 'API Integrations',
-      description: 'Connect your AI systems with existing tools and platforms for seamless data flow.',
+      description: 'Connect AI with your existing tools.',
       icon: <Zap className="w-8 h-8" />,
     },
   ];
@@ -31,21 +31,21 @@ export default function AIService() {
   const useCases = [
     {
       title: 'Customer Support',
-      description: 'Handle 80% of customer inquiries automatically while maintaining high satisfaction.',
+      description: 'Automate 80% of inquiries.',
     },
     {
       title: 'Lead Qualification',
-      description: 'Automatically qualify and route leads to the right sales team members.',
+      description: 'Route leads automatically.',
     },
     {
       title: 'Data Processing',
-      description: 'Extract insights from large volumes of unstructured data in real-time.',
+      description: 'Real-time data insights.',
     },
   ];
 
   return (
     <div className="min-h-screen">
-      <section className="relative bg-gradient-to-br from-purple-50 via-white to-pink-50 py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gray-50 pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -53,23 +53,23 @@ export default function AIService() {
                 <Bot className="w-4 h-4" />
                 <span>AI Solutions</span>
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                AI Services
+              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
+                Software & AI Solutions
               </h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Harness the power of artificial intelligence to automate tasks, enhance customer experiences, and unlock new capabilities.
+              <p className="text-xl md:text-2xl text-gray-700 font-medium leading-relaxed tracking-wide mb-8">
+                Automate tasks, enhance experiences, and unlock new capabilities with AI.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition-all"
+                  className="inline-flex items-center justify-center px-10 py-5 text-lg bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all shadow-lg shadow-purple-500/40 hover:shadow-purple-500/50"
                 >
                   Get Started
-                  <ArrowRight className="ml-2 w-5 h-5" />
+                  <ArrowRight className="ml-2 w-6 h-6" />
                 </Link>
                 <Link
                   to="/portfolio"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-white text-purple-600 font-semibold rounded-lg border-2 border-purple-600 hover:bg-purple-50 transition-all"
+                  className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white text-purple-600 font-bold rounded-xl border-2 border-purple-600 hover:bg-purple-50 transition-all shadow-md hover:shadow-lg"
                 >
                   View Case Studies
                 </Link>
@@ -100,7 +100,7 @@ export default function AIService() {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-8 hover:shadow-xl transition-shadow"
+                className="bg-white rounded-xl p-8 shadow-xl hover:shadow-2xl transition-shadow border-2 border-gray-100 flex flex-col items-center text-center"
               >
                 <div className="inline-flex p-3 rounded-lg bg-purple-600 text-white mb-4">
                   {service.icon}
@@ -111,7 +111,7 @@ export default function AIService() {
             ))}
           </div>
 
-          <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-12">
+          <div className="bg-white rounded-2xl p-12 shadow-xl border-2 border-gray-100">
             <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">Key Benefits</h3>
             <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
               {benefits.map((benefit, index) => (
@@ -156,10 +156,10 @@ export default function AIService() {
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center justify-center px-8 py-4 bg-white text-purple-600 font-semibold rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+            className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white text-purple-600 font-bold rounded-xl hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl shadow-purple-900/20"
           >
             Schedule AI Consultation
-            <ArrowRight className="ml-2 w-5 h-5" />
+            <ArrowRight className="ml-2 w-6 h-6" />
           </Link>
         </div>
       </section>

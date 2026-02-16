@@ -7,15 +7,15 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">AC</span>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 text-center md:text-left">
+          <div className="flex flex-col items-center md:items-start space-y-6">
+            <Link to="/" className="inline-flex items-center space-x-2 group">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110 duration-500 shadow-lg shadow-blue-500/20">
+                <span className="text-white font-bold text-2xl">AC</span>
               </div>
-              <span className="font-bold text-xl text-white">Akinahs Collective</span>
-            </div>
-            <p className="text-sm leading-relaxed">
+              <span className="font-bold text-2xl text-white group-hover:text-blue-400 transition-colors">Akinahs Collective</span>
+            </Link>
+            <p className="text-sm leading-relaxed font-medium text-slate-400 italic">
               All your digital needs in one place
             </p>
             <div className="flex space-x-4">
@@ -31,40 +31,40 @@ export default function Footer() {
             </div>
           </div>
 
-          <div>
-            <h3 className="font-semibold text-white mb-4">Services</h3>
-            <ul className="space-y-2 text-sm">
+          <div className="flex flex-col items-center md:items-start">
+            <h3 className="font-semibold text-white mb-6">Services</h3>
+            <ul className="space-y-3 text-sm">
               <li>
-                <Link to="/services/design" className="hover:text-blue-400 transition-colors">
-                  Graphic Design & Branding
+                <Link to="/services/seo" className="hover:text-blue-400 transition-colors">
+                  SEO Content Writing
                 </Link>
               </li>
               <li>
-                <Link to="/services/marketing" className="hover:text-blue-400 transition-colors">
-                  Digital Marketing
+                <Link to="/services/ai" className="hover:text-blue-400 transition-colors">
+                  AI Solutions
                 </Link>
               </li>
               <li>
                 <Link to="/services/web" className="hover:text-blue-400 transition-colors">
-                  Website Design
+                  Website Building
                 </Link>
               </li>
               <li>
-                <Link to="/services/software" className="hover:text-blue-400 transition-colors">
-                  Software & AI Solutions
+                <Link to="/services/data" className="hover:text-blue-400 transition-colors">
+                  Data Analytics
                 </Link>
               </li>
               <li>
-                <Link to="/services/support" className="hover:text-blue-400 transition-colors">
-                  Content & Support
+                <Link to="/services/dev" className="hover:text-blue-400 transition-colors">
+                  Software Development
                 </Link>
               </li>
             </ul>
           </div>
 
-          <div>
-            <h3 className="font-semibold text-white mb-4">Company</h3>
-            <ul className="space-y-2 text-sm">
+          <div className="flex flex-col items-center md:items-start">
+            <h3 className="font-semibold text-white mb-6">Company</h3>
+            <ul className="space-y-3 text-sm">
               <li>
                 <Link to="/about" className="hover:text-blue-400 transition-colors">
                   About Us
@@ -88,24 +88,30 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h3 className="font-semibold text-white mb-4">Contact Info</h3>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-start space-x-2">
-                <Mail className="w-4 h-4 mt-1 flex-shrink-0" />
-                <a href="mailto:hello@akinahscollective.com" className="hover:text-blue-400 transition-colors">
-                  hello@akinahscollective.com
-                </a>
+          <div className="flex flex-col items-center md:items-start">
+            <h3 className="font-semibold text-white mb-6">Contact Info</h3>
+            <ul className="space-y-4 text-sm">
+              <li className="flex flex-col items-center md:items-start space-y-2">
+                <div className="flex items-center space-x-2">
+                  <Mail className="w-4 h-4 flex-shrink-0" />
+                  <a href="mailto:hello@akinahscollective.com" className="hover:text-blue-400 transition-colors">
+                    hello@akinahscollective.com
+                  </a>
+                </div>
               </li>
-              <li className="flex items-start space-x-2">
-                <Phone className="w-4 h-4 mt-1 flex-shrink-0" />
-                <a href="tel:+1234567890" className="hover:text-blue-400 transition-colors">
-                  +1 (234) 567-890
-                </a>
+              <li className="flex flex-col items-center md:items-start space-y-2">
+                <div className="flex items-center space-x-2">
+                  <Phone className="w-4 h-4 flex-shrink-0" />
+                  <a href="tel:+1234567890" className="hover:text-blue-400 transition-colors">
+                    +1 (234) 567-890
+                  </a>
+                </div>
               </li>
-              <li className="flex items-start space-x-2">
-                <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
-                <span>123 Tech Street, Silicon Valley, CA 94000</span>
+              <li className="flex flex-col items-center md:items-start space-y-2">
+                <div className="flex items-start space-x-2">
+                  <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
+                  <span className="max-w-[200px] md:max-w-none">123 Tech Street, Silicon Valley, CA 94000</span>
+                </div>
               </li>
             </ul>
           </div>

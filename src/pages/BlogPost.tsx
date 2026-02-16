@@ -70,18 +70,18 @@ export default function BlogPost() {
 
   return (
     <div className="min-h-screen">
-      <article className="py-12 px-4 sm:px-6 lg:px-8">
+      <article className="pt-40 pb-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto">
           <Link
             to="/blog"
-            className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-8 font-medium"
+            className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-12 font-bold uppercase text-xs tracking-widest"
           >
-            <ArrowLeft className="w-5 h-5 mr-2" />
+            <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Blog
           </Link>
 
-          <header className="mb-8">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+          <header className="mb-12">
+            <h1 className="text-4xl md:text-6xl font-extrabold text-gray-950 mb-6 leading-tight tracking-tight">
               {blog.title}
             </h1>
 
@@ -136,7 +136,7 @@ export default function BlogPost() {
               </p>
               <Link
                 to="/contact"
-                className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all"
+                className="inline-flex items-center px-10 py-5 text-lg bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-all shadow-xl hover:shadow-2xl"
               >
                 Get in Touch
               </Link>

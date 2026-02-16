@@ -3,33 +3,33 @@ import { PenTool, TrendingUp, Search, Target, CheckCircle, ArrowRight } from 'lu
 
 export default function SEOService() {
   const benefits = [
-    'Increase organic traffic by 300%+',
+    'Increase organic traffic significantly',
     'Improve search engine rankings',
-    'Drive qualified leads to your site',
-    'Build brand authority and trust',
-    'Long-term sustainable growth',
+    'Drive qualified leads',
+    'Build brand authority',
+    'Sustainable growth',
   ];
 
   const services = [
     {
       title: 'Blog Posts & Articles',
-      description: 'In-depth, SEO-optimized content that educates and engages your audience.',
+      description: 'In-depth, optimized content.',
     },
     {
       title: 'Website Content',
-      description: 'Compelling copy for landing pages, product pages, and service descriptions.',
+      description: 'Compelling copy for your site.',
     },
     {
       title: 'Product Descriptions',
-      description: 'Persuasive descriptions that convert browsers into buyers.',
+      description: 'Descriptions that convert.',
     },
     {
       title: 'Technical Content',
-      description: 'Complex topics explained clearly for your technical audience.',
+      description: 'Complex topics explained clearly.',
     },
     {
       title: 'Social Media Writing',
-      description: 'Engaging posts that drive traffic and build your brand presence.',
+      description: 'Engaging brand posts.',
     },
   ];
 
@@ -53,7 +53,7 @@ export default function SEOService() {
 
   return (
     <div className="min-h-screen">
-      <section className="relative bg-gradient-to-br from-blue-50 via-white to-cyan-50 py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gray-50 pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -61,23 +61,23 @@ export default function SEOService() {
                 <PenTool className="w-4 h-4" />
                 <span>Content Services</span>
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                SEO Content Writing
+              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
+                Digital Marketing
               </h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Rank higher on Google with AI-optimized, human-crafted content that converts readers into customers.
+              <p className="text-xl md:text-2xl text-gray-700 font-medium leading-relaxed tracking-wide mb-8">
+                Rank higher with AI-optimized, human-crafted content.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all"
+                  className="inline-flex items-center justify-center px-10 py-5 text-lg bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-bold rounded-xl hover:from-blue-700 hover:to-cyan-700 transition-all shadow-lg shadow-blue-500/40 hover:shadow-blue-500/50"
                 >
                   Get Started
-                  <ArrowRight className="ml-2 w-5 h-5" />
+                  <ArrowRight className="ml-2 w-6 h-6" />
                 </Link>
                 <Link
                   to="/portfolio"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg border-2 border-blue-600 hover:bg-blue-50 transition-all"
+                  className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white text-blue-600 font-bold rounded-xl border-2 border-blue-600 hover:bg-blue-50 transition-all shadow-md hover:shadow-lg"
                 >
                   View Examples
                 </Link>
@@ -108,7 +108,7 @@ export default function SEOService() {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100"
+                className="bg-white rounded-xl p-8 shadow-xl hover:shadow-2xl transition-shadow border-2 border-gray-100 flex flex-col items-center text-center"
               >
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{service.description}</p>
@@ -143,7 +143,7 @@ export default function SEOService() {
             {useCases.map((useCase, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-8 shadow-lg text-center"
+                className="bg-white rounded-xl p-8 shadow-xl border-2 border-gray-100 text-center flex flex-col items-center"
               >
                 <div className="inline-flex p-4 rounded-xl bg-blue-100 text-blue-600 mb-4">
                   {useCase.icon}
@@ -164,10 +164,10 @@ export default function SEOService() {
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+            className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white text-blue-600 font-bold rounded-xl hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl shadow-blue-900/20"
           >
             Start Your Content Strategy
-            <ArrowRight className="ml-2 w-5 h-5" />
+            <ArrowRight className="ml-2 w-6 h-6" />
           </Link>
         </div>
       </section>
