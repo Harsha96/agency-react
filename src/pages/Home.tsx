@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
 import type { Database } from '../lib/supabase';
 import { HeroParticles, RainParticles } from '../components/HeroParticles';
+import { SectionDivider } from '../components/SectionDivider';
 
 type CaseStudy = Database['case_studies'];
 
@@ -209,8 +210,10 @@ export default function Home() {
         <WhoWeAre />
       </SectionReveal>
 
+      <SectionDivider type="slant" color="fill-blue-50/60" />
+
       {/* Services Section - Light Blue Shade */}
-      <section className="py-16 md:pt-12 md:pb-24 px-4 sm:px-6 lg:px-8 bg-blue-50/30 relative z-20 overflow-hidden">
+      <section className="py-16 md:pt-12 md:pb-24 px-4 sm:px-6 lg:px-8 bg-blue-50/60 relative z-20 overflow-hidden border-b border-blue-100/40">
 
         <div className="max-w-7xl mx-auto">
           <SectionReveal>
@@ -251,10 +254,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose Us Section - Soft Light Blue Aesthetic */}
-      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
+      <SectionDivider type="curve" color="fill-indigo-50/40" />
+
+      {/* Why Choose Us Section - Soft Light Indigo Aesthetic */}
+      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-indigo-50/40 relative overflow-hidden border-b border-indigo-100/50">
         {/* Subtle Mesh Overlay */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.05)_0%,_transparent_70%)] z-[1]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.05)_0%,_transparent_70%)] z-[1]" />
 
         <div className="max-w-7xl mx-auto relative z-10">
           <SectionReveal>
@@ -284,6 +289,8 @@ export default function Home() {
         </div>
       </section>
 
+      <SectionDivider type="slant" color="fill-slate-50" reverse />
+
       {/* STYLISH Project Showcase Section */}
       {
         !loading && caseStudies.length > 0 && (
@@ -294,7 +301,7 @@ export default function Home() {
       }
 
       {/* How We Work Section */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
+      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-blue-100/10 relative overflow-hidden border-y border-blue-200/20">
         {/* Particle Rain Background Restored */}
         <RainParticles />
         <div className="max-w-7xl mx-auto relative z-10">
@@ -379,6 +386,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <SectionDivider type="wave" color="fill-blue-600/5" />
 
 
       {/* Our Promise Section - Ultra Clean */}
