@@ -15,8 +15,8 @@ export const WhoWeAre = () => {
                     </MaskedReveal>
                     <MaskedReveal delay={0.2}>
                         <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-                            A high-end collective of creators, thinkers, and builders <br className="hidden md:block" />
-                            passionate about defining the next wave of <span className="text-blue-600 font-bold">digital excellence</span>.
+                            We're a collective of creators, thinkers, and developers <br className="hidden md:block" />
+                            shaping the next wave of <span className="text-blue-600 font-bold">digital experiences</span>.
                         </p>
                     </MaskedReveal>
                 </div>
@@ -41,10 +41,10 @@ export const WhoWeAre = () => {
                                             </h3>
                                             <div className="space-y-4">
                                                 <p className="text-base md:text-xl text-gray-600 max-w-xl leading-relaxed">
-                                                    Akinahs Collective is a full-service digital agency delivering smart, reliable online solutions for individuals and businesses. We combine creativity, technology, and strategy to help brands grow in the digital space.
+                                                    We design, build, and scale digital products that actually work. From bold visuals to powerful software, we bring creativity, tech, and strategy together, all under one roof.
                                                 </p>
                                                 <p className="text-sm md:text-lg text-gray-500 max-w-xl leading-relaxed">
-                                                    Whether you need eye-catching designs or scalable software solutions, we handle everything under one roof—simple, efficient, and result driven.
+                                                    Simple. Smart. Results-driven.
                                                 </p>
                                             </div>
                                         </div>
@@ -58,8 +58,8 @@ export const WhoWeAre = () => {
                                                 ))}
                                             </div>
                                             <div>
-                                                <p className="text-base md:text-lg font-bold text-gray-950">12+ Digital Visionaries</p>
-                                                <p className="text-xs md:text-sm text-gray-500 font-medium">Powering your success 24/7</p>
+                                                <p className="text-base md:text-lg font-bold text-gray-950">12+ digital visionaries</p>
+                                                <p className="text-xs md:text-sm text-gray-500 font-medium">Working around the clock to power your success.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -82,7 +82,7 @@ export const WhoWeAre = () => {
                                         </div>
                                         <h4 className="text-xl md:text-2xl font-bold text-gray-950 mb-3 tracking-tight">Expert Strategy</h4>
                                         <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-                                            We plan with precision and execute with passion to deliver measurable scale.
+                                            Clear planning. Strong execution. Real growth.
                                         </p>
                                     </div>
                                 </div>
@@ -104,7 +104,7 @@ export const WhoWeAre = () => {
                                         </div>
                                         <h4 className="text-xl md:text-2xl font-bold text-gray-950 mb-3 tracking-tight">Creative Soul</h4>
                                         <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-                                            Bold designs that resonate deeply with your audience and amplify your identity.
+                                            Designs that connect, inspire, and stand out.
                                         </p>
                                     </div>
                                 </div>
@@ -127,11 +127,11 @@ export const WhoWeAre = () => {
                                             </h4>
                                         </div>
                                         <p className="text-gray-600 text-base md:text-xl leading-relaxed">
-                                            We leverage the world's most powerful technologies to build future-proof solutions. From high-performance web apps to intelligent AI integration.
+                                            We use modern, future-ready technology to build solutions that last.
                                         </p>
                                     </div>
                                     <div className="flex flex-wrap gap-2 md:gap-4 justify-center lg:justify-end max-w-lg">
-                                        {['React 19', 'TypeScript', 'Next.js', 'Node.js', 'Supabase', 'Python', 'AI/ML', 'Cloud Engineering'].map((tag, i) => (
+                                        {['React', 'TypeScript', 'Next.js', 'Node.js', 'Supabase', 'Python', 'AI/ML', 'Cloud'].map((tag, i) => (
                                             <span
                                                 key={tag}
                                                 className={`px-3 py-1.5 md:px-6 md:py-2.5 rounded-lg md:rounded-xl bg-white border border-gray-100 text-[10px] md:text-sm font-black shadow-sm transition-all duration-300 hover:scale-105 hover:border-blue-300 cursor-default ${i % 2 === 0 ? 'text-blue-600' : 'text-indigo-600'}`}

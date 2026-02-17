@@ -3,7 +3,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Outfit', 'sans-serif'],
+        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        heading: ['Urbanist', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
       },
       colors: {
         brand: {

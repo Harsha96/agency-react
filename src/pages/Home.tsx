@@ -41,35 +41,35 @@ export default function Home() {
     {
       icon: <Palette className="w-8 h-8" />,
       title: 'Graphic Design & Branding',
-      description: 'Creative visuals, logos, and brand identities that make your business stand out.',
+      description: 'Visuals and identities that make your brand unforgettable.',
       link: '/services/design',
       color: 'from-blue-500 to-cyan-500',
     },
     {
       icon: <TrendingUp className="w-8 h-8" />,
       title: 'Digital Marketing & Social Media',
-      description: 'Strategic online marketing to grow your audience and engagement.',
+      description: 'Smart strategies to grow your reach and engagement.',
       link: '/services/seo',
       color: 'from-violet-500 to-purple-500',
     },
     {
       icon: <Globe className="w-8 h-8" />,
       title: 'Website Design & Development',
-      description: 'Modern, responsive websites built for performance and usability.',
+      description: 'Fast, modern, and responsive websites built to perform.',
       link: '/services/web',
       color: 'from-emerald-500 to-teal-500',
     },
     {
       icon: <Sparkles className="w-8 h-8" />,
       title: 'Software & AI Solutions',
-      description: 'Custom software solutions designed to support and scale your business.',
+      description: 'Custom systems designed to scale with your business.',
       link: '/services/ai',
       color: 'from-orange-500 to-red-500',
     },
     {
       icon: <Headphones className="w-8 h-8" />,
       title: 'Content & Online Support',
-      description: 'Clear content, ongoing support, and tailored digital solutions.',
+      description: 'Clear content and ongoing support when you need it.',
       link: '/services/support',
       color: 'from-pink-500 to-rose-500',
     }
@@ -78,23 +78,23 @@ export default function Home() {
   const benefits = [
     {
       icon: <Package className="w-6 h-6" />,
-      title: 'End-to-end digital solutions',
+      title: 'End to end digital solutions',
       description: 'We handle everything under one roof.',
     },
     {
       icon: <Lightbulb className="w-6 h-6" />,
-      title: 'Creative and technical expertise',
+      title: 'Creative + technical expertise',
       description: 'Artistic vision meets technical mastery.',
     },
     {
       icon: <MessageSquare className="w-6 h-6" />,
-      title: 'Simple, clear communication',
+      title: 'Clear, honest communication',
       description: 'No jargon, just transparent partnership.',
     },
     {
       icon: <Target className="w-6 h-6" />,
-      title: 'Solutions tailored to your needs',
-      description: 'Custom strategies for your unique goals.',
+      title: 'Solutions built around your goals',
+      description: 'Custom strategies for your unique needs.',
     },
     {
       icon: <Shield className="w-6 h-6" />,
@@ -108,19 +108,8 @@ export default function Home() {
   return (
     <div className="min-h-screen">
 
-      {/* Hero Section - Premium Radial Blue Glow on Luminous White Backdrop */}
+      {/* Hero Section - Full White Background with Premium Effects */}
       <section className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-white">
-        {/* Layered Luminous Blue Core - Deeper and more intentional */}
-        <div
-          className="absolute inset-0 z-0 pointer-events-none"
-          style={{
-            background: `
-              radial-gradient(circle at 40% 50%, rgba(37, 99, 235, 0.12) 0%, rgba(59, 130, 246, 0.05) 45%, transparent 85%),
-              radial-gradient(circle at 60% 40%, rgba(96, 165, 250, 0.08) 0%, transparent 60%)
-            `
-          }}
-        />
-
         {/* Hero Level Particle Magic - Adjusted for white background */}
         <HeroParticles />
 
@@ -170,13 +159,13 @@ export default function Home() {
 
             <div className="max-w-4xl">
               <MaskedReveal>
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 leading-[1.2] tracking-tight">
+                <h1 className="font-heading text-[40px] sm:text-[50px] md:text-[60px] lg:text-[70px] font-semibold text-gray-900 mb-8 leading-[100%] tracking-[0%]">
                   Design. Develop. <span className="text-blue-600">Deploy.</span>
                 </h1>
               </MaskedReveal>
 
               <MaskedReveal delay={0.25}>
-                <p className="text-xl md:text-2xl font-medium text-slate-600 mb-12 leading-relaxed max-w-2xl">
+                <p className="text-lg font-normal text-slate-600 mb-12 leading-[167%] max-w-2xl">
                   Everything your brand needs to grow online. <br />
                   All your digital needs, in one place.
                 </p>
@@ -188,16 +177,16 @@ export default function Home() {
                     to="/contact"
                     className="group inline-flex items-center justify-center px-10 py-5 text-xl bg-blue-600 text-white font-bold rounded-2xl hover:bg-blue-700 transition-all duration-300 shadow-xl shadow-blue-500/20 active:scale-95"
                   >
-                    Get started
+                    Get Started
                   </Link>
                 </MagneticWrapper>
 
                 <MagneticWrapper>
                   <Link
-                    to="/services"
+                    to="/contact"
                     className="group inline-flex items-center justify-center px-10 py-5 text-xl bg-white/80 text-slate-900 font-bold rounded-2xl border-2 border-blue-100/50 hover:border-blue-600 hover:text-blue-600 backdrop-blur-sm transition-all duration-300 active:scale-95"
                   >
-                    Our Services
+                    Contact Us
                   </Link>
                 </MagneticWrapper>
               </div>
@@ -342,14 +331,14 @@ export default function Home() {
                 {
                   icon: <Search className="w-10 h-10 text-blue-600" />,
                   title: 'Understand',
-                  description: 'We listen to your needs and goals.',
+                  description: 'We listen first.',
                   step: '01',
                   accent: 'blue'
                 },
                 {
                   icon: <Code className="w-10 h-10 text-indigo-600" />,
                   title: 'Create',
-                  description: 'We design and develop smart digital solutions.',
+                  description: 'We design and build smart solutions.',
                   step: '02',
                   accent: 'indigo'
                 },
@@ -396,7 +385,7 @@ export default function Home() {
           <div className="max-w-5xl mx-auto text-center relative z-10">
             <h2 className="text-3xl md:text-5xl font-bold mb-6 md:mb-10 tracking-tight">Our Promise</h2>
             <p className="text-xl md:text-3xl lg:text-4xl font-light mb-6 md:mb-8 leading-relaxed text-gray-700">
-              "We don't just deliver services, we deliver <span className="text-blue-600 font-semibold">solutions that work</span>."
+              We don't just deliver services. We deliver <span className="text-blue-600 font-semibold">solutions that work</span>.
             </p>
             <div className="w-16 md:w-20 h-1 bg-gradient-to-r from-blue-600 to-cyan-500 mx-auto mb-6 md:mb-8 rounded-full" />
             <p className="text-sm md:text-xl font-bold tracking-widest uppercase text-blue-600">
@@ -425,7 +414,7 @@ export default function Home() {
                 to="/contact"
                 className="group inline-flex items-center justify-center px-6 py-3 sm:px-10 sm:py-5 text-base sm:text-xl bg-white text-slate-950 font-bold rounded-2xl hover:bg-blue-50 transition-all duration-500 shadow-[0_0_50px_rgba(59,130,246,0.3)] transform active:scale-95 translate-y-0 hover:-translate-y-2"
               >
-                Get Started with us
+                Get Started with Us
                 <ArrowRight className="ml-2 sm:ml-3 w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-2 transition-transform" />
               </Link>
             </MagneticWrapper>

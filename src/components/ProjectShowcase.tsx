@@ -24,7 +24,7 @@ export const ProjectShowcase = ({ projects }: ProjectShowcaseProps) => {
                     <div className="max-w-2xl mb-6 md:mb-0">
                         <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4 md:mb-6">Selected Work</h2>
                         <p className="text-lg md:text-xl text-slate-600">
-                            Transforming ideas into digital reality. Here's what we've been working on.
+                            Turning ideas into real digital products.
                         </p>
                     </div>
                     <Link
