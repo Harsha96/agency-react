@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Target, Palette, Sparkles, Package, Lightbulb, Headphones, Shield, TrendingUp, Globe, Search, Code, CheckCircle, MessageSquare } from 'lucide-react';
-import { SectionReveal, MaskedReveal } from '../components/SectionReveal';
+import { SectionReveal } from '../components/SectionReveal';
 import { WhoWeAre } from '../components/WhoWeAre';
 import { ProjectShowcase } from '../components/ProjectShowcase';
 import { MagneticWrapper } from '../components/MagneticWrapper';
@@ -11,6 +11,7 @@ import { supabase } from '../lib/supabase';
 import type { Database } from '../lib/supabase';
 import { HeroParticles, RainParticles } from '../components/HeroParticles';
 import { SectionDivider } from '../components/SectionDivider';
+import { ModernCarousel } from '../components/ModernCarousel';
 
 type CaseStudy = Database['case_studies'];
 
@@ -149,33 +150,66 @@ export default function Home() {
             style={{
               y: useScroll().scrollYProgress.get() * -20 // Subtle parallax
             }}
-            className="bg-blue-50/20 backdrop-blur-[100px] rounded-[3rem] shadow-[0_40px_100px_-25px_rgba(59,130,246,0.12)] border border-blue-200/40 p-10 md:p-16 lg:p-24 overflow-hidden relative group"
+            className="bg-blue-100/40 backdrop-blur-[100px] rounded-[3rem] shadow-[0_40px_100px_-25px_rgba(59,130,246,0.12)] border border-blue-200/40 p-10 md:p-16 lg:p-24 overflow-hidden relative group"
           >
             {/* Inner Border Glow */}
-            <div className="absolute inset-0 border border-white/40 rounded-[3rem] pointer-events-none" />
-            <div className="absolute -inset-[1px] bg-gradient-to-br from-blue-400/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none rounded-[3rem]" />
+            <div className="absolute inset-0 border border-slate-200 rounded-[3rem] pointer-events-none" />
+            <div className="absolute -inset-[1px] bg-gradient-to-br from-blue-600/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none rounded-[3rem]" />
             {/* Subtle Gradient Decor */}
-            <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-50/30 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl pointer-events-none" />
 
             <div className="max-w-4xl">
-              <MaskedReveal>
-                <h1 className="font-heading text-[40px] sm:text-[50px] md:text-[60px] lg:text-[70px] font-semibold text-gray-900 mb-8 leading-[100%] tracking-[0%]">
-                  Design. Develop. <span className="text-blue-600">Deploy.</span>
-                </h1>
-              </MaskedReveal>
+              {/* Tagline First */}
+              <p className="text-sm sm:text-base font-semibold text-blue-600 mb-3 sm:mb-4 tracking-wide uppercase">From Concept to Product</p>
 
-              <MaskedReveal delay={0.25}>
-                <p className="text-lg font-normal text-slate-600 mb-12 leading-[167%] max-w-2xl">
-                  Everything your brand needs to grow online. <br />
-                  All your digital needs, in one place.
-                </p>
-              </MaskedReveal>
+              {/* Main Heading */}
+              <h1 className="font-heading text-[32px] sm:text-[44px] md:text-[60px] lg:text-[70px] font-semibold text-gray-900 mb-4 sm:mb-6 md:mb-8 leading-[110%] sm:leading-[105%] md:leading-[100%] tracking-[0%]">
+                Design. Develop. <span className="text-blue-600">Deploy.</span>
+              </h1>
 
-              <div className="flex flex-wrap gap-6">
+              {/* Description */}
+              <p className="text-sm sm:text-base md:text-lg font-normal text-slate-600 mb-6 sm:mb-8 md:mb-10 leading-[160%] sm:leading-[167%] max-w-2xl">
+                Everything your brand needs to grow online. <br className="hidden sm:inline" />
+                <span className="sm:hidden"> </span>All your digital needs, in one place.
+              </p>
+
+              {/* Stats Badges */}
+              <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-4 mb-6 sm:mb-8 md:mb-10 justify-center md:justify-start">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                  className="stats-badge text-center min-w-[110px] sm:min-w-[120px] md:min-w-0 py-2 sm:py-3"
+                >
+                  <span className="stats-badge-number text-xl sm:text-2xl md:text-3xl">1K+</span>
+                  <span className="stats-badge-label text-[10px] sm:text-xs md:text-sm">Happy Clients</span>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                  className="stats-badge text-center min-w-[110px] sm:min-w-[120px] md:min-w-0 py-2 sm:py-3"
+                >
+                  <span className="stats-badge-number text-xl sm:text-2xl md:text-3xl">500+</span>
+                  <span className="stats-badge-label text-[10px] sm:text-xs md:text-sm">Projects Delivered</span>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6 }}
+                  className="stats-badge text-center min-w-[110px] sm:min-w-[120px] md:min-w-0 py-2 sm:py-3"
+                >
+                  <span className="stats-badge-number text-xl sm:text-2xl md:text-3xl">98%</span>
+                  <span className="stats-badge-label text-[10px] sm:text-xs md:text-sm">Client Satisfaction</span>
+                </motion.div>
+              </div>
+
+              {/* Mobile-optimized buttons with better touch targets */}
+              <div className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-6 w-full sm:w-auto">
                 <MagneticWrapper>
                   <Link
                     to="/contact"
-                    className="group inline-flex items-center justify-center px-10 py-5 text-xl bg-blue-600 text-white font-bold rounded-2xl hover:bg-blue-700 transition-all duration-300 shadow-xl shadow-blue-500/20 active:scale-95"
+                    className="group inline-flex items-center justify-center px-8 sm:px-10 py-4 sm:py-5 text-lg sm:text-xl bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold rounded-2xl hover:from-orange-600 hover:to-amber-600 transition-all duration-300 shadow-xl shadow-orange-500/30 active:scale-95 min-h-[48px] w-full sm:w-auto"
                   >
                     Get Started
                   </Link>
@@ -184,7 +218,7 @@ export default function Home() {
                 <MagneticWrapper>
                   <Link
                     to="/contact"
-                    className="group inline-flex items-center justify-center px-10 py-5 text-xl bg-white/80 text-slate-900 font-bold rounded-2xl border-2 border-blue-100/50 hover:border-blue-600 hover:text-blue-600 backdrop-blur-sm transition-all duration-300 active:scale-95"
+                    className="group inline-flex items-center justify-center px-8 sm:px-10 py-4 sm:py-5 text-lg sm:text-xl bg-white/80 text-slate-900 font-bold rounded-2xl border-2 border-blue-100/50 hover:border-blue-600 hover:text-blue-600 backdrop-blur-sm transition-all duration-300 active:scale-95 min-h-[48px] w-full sm:w-auto"
                   >
                     Contact Us
                   </Link>
@@ -201,20 +235,46 @@ export default function Home() {
 
       <SectionDivider type="slant" color="fill-blue-50/60" />
 
-      {/* Services Section - Light Blue Shade */}
-      <section className="py-16 md:pt-12 md:pb-24 px-4 sm:px-6 lg:px-8 bg-blue-50/60 relative z-20 overflow-hidden border-b border-blue-100/40">
+      {/* Services Section - Darker Background */}
+      <section className="py-10 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-slate-100 relative z-20 overflow-hidden border-b border-slate-200">
 
         <div className="max-w-7xl mx-auto">
           <SectionReveal>
-            <div className="text-center max-w-3xl mx-auto mb-12 md:mb-20">
+            <div className="text-center max-w-3xl mx-auto mb-8 md:mb-12 lg:mb-20">
               <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6 tracking-tight">Our Services</h2>
+              <div className="w-16 h-1 bg-gradient-to-r from-orange-500 to-amber-500 mx-auto rounded-full mb-6" />
               <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
                 Everything your brand needs to succeed online.
               </p>
             </div>
           </SectionReveal>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+          {/* Mobile: Carousel View */}
+          <div className="md:hidden">
+            <ModernCarousel autoPlay={true} autoPlayInterval={5000} showIndicators={true}>
+              {services.map((service, index) => (
+                <div key={index} className="px-4">
+                  <Link
+                    to={service.link}
+                    className="group relative bg-white/90 backdrop-blur-xl rounded-[2rem] p-6 border border-blue-100 shadow-xl shadow-blue-500/5 block h-full overflow-hidden flex flex-col items-center text-center min-h-[320px]"
+                  >
+                    <div className={`p-4 bg-gradient-to-br ${service.color} rounded-xl text-white mb-4 shadow-lg shadow-blue-500/10`}>
+                      {service.icon}
+                    </div>
+                    <h3 className="text-lg font-bold text-gray-950 mb-2 tracking-tight">{service.title}</h3>
+                    <p className="text-gray-600 mb-4 leading-relaxed flex-grow text-sm">{service.description}</p>
+                    <div className="inline-flex items-center text-blue-600 font-bold text-sm">
+                      View Solution <ArrowRight className="ml-2 w-4 h-4" />
+                    </div>
+                  </Link>
+                </div>
+              ))}
+            </ModernCarousel>
+          </div>
+
+          {/* Desktop: Grid View */}
+          <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
             {services.map((service, index) => (
               <SectionReveal key={index} delay={index * 0.05}>
                 <TiltCard>
@@ -245,8 +305,8 @@ export default function Home() {
 
       <SectionDivider type="curve" color="fill-indigo-50/40" />
 
-      {/* Why Choose Us Section - Soft Light Indigo Aesthetic */}
-      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-indigo-50/40 relative overflow-hidden border-b border-indigo-100/50">
+      {/* Why Choose Us Section - Darker Background */}
+      <section className="py-12 md:py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-50 relative overflow-hidden border-b border-slate-200">
         {/* Subtle Mesh Overlay */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.05)_0%,_transparent_70%)] z-[1]" />
 
@@ -254,11 +314,32 @@ export default function Home() {
           <SectionReveal>
             <div className="text-center mb-12 md:mb-20">
               <h2 className="text-3xl md:text-6xl font-bold text-gray-950 mb-4 md:mb-6 tracking-tight">Why Choose Us</h2>
-              <div className="w-16 h-1 bg-blue-600 mx-auto rounded-full" />
+              <div className="w-16 h-1 bg-gradient-to-r from-blue-600 to-cyan-500 mx-auto rounded-full" />
             </div>
           </SectionReveal>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 justify-center">
+
+          {/* Mobile: Carousel View */}
+          <div className="md:hidden">
+            <ModernCarousel autoPlay={true} autoPlayInterval={5000} showIndicators={true}>
+              {benefits.map((benefit, index) => (
+                <div key={index} className="px-4">
+                  <div className="bg-white/80 backdrop-blur-xl p-6 rounded-[2rem] border border-blue-100 shadow-lg shadow-blue-500/5 h-full flex flex-col items-center text-center min-h-[240px]">
+                    <div className="p-3 bg-blue-50 rounded-xl text-blue-600 mb-4">
+                      {benefit.icon}
+                    </div>
+                    <h3 className="text-lg font-bold text-gray-900 tracking-tight mb-2">{benefit.title}</h3>
+                    <p className="text-slate-600 leading-relaxed text-sm">
+                      {benefit.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </ModernCarousel>
+          </div>
+
+          {/* Desktop: Grid View */}
+          <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 justify-center">
             {benefits.map((benefit, index) => (
               <SectionReveal key={index} delay={index * 0.05}>
                 <MouseGlowCard>
@@ -289,15 +370,17 @@ export default function Home() {
         )
       }
 
-      {/* How We Work Section */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-blue-100/10 relative overflow-hidden border-y border-blue-200/20">
+      <SectionDivider type="curve" color="fill-blue-100/10" reverse />
+
+      {/* How We Work Section - Minimal Mobile Padding */}
+      <section className="py-10 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-blue-100/10 relative overflow-hidden border-y border-blue-200/20">
         {/* Particle Rain Background Restored */}
         <RainParticles />
         <div className="max-w-7xl mx-auto relative z-10">
           <SectionReveal>
             <div className="text-center mb-12 md:mb-20">
               <h2 className="text-3xl md:text-6xl font-bold text-gray-950 mb-4 md:mb-6 tracking-tight">How We Work</h2>
-              <div className="w-16 h-1 bg-blue-600 mx-auto rounded-full" />
+              <div className="w-16 h-1 bg-gradient-to-r from-orange-500 to-amber-500 mx-auto rounded-full" />
             </div>
           </SectionReveal>
 
@@ -326,7 +409,42 @@ export default function Home() {
               </svg>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-12 relative z-10">
+
+            {/* Mobile: Carousel View */}
+            <div className="md:hidden">
+              <ModernCarousel autoPlay={true} autoPlayInterval={6000} showIndicators={true}>
+                {[
+                  {
+                    icon: <Search className="w-10 h-10 text-blue-600" />,
+                    title: 'Discover',
+                    description: 'We start by understanding your goals, challenges, and vision to craft a tailored strategy.'
+                  },
+                  {
+                    icon: <Code className="w-10 h-10 text-blue-600" />,
+                    title: 'Design & Build',
+                    description: 'Our team brings your ideas to life with stunning designs and cutting-edge development.'
+                  },
+                  {
+                    icon: <CheckCircle className="w-10 h-10 text-blue-600" />,
+                    title: 'Launch & Optimize',
+                    description: 'We launch with precision and continuously optimize for growth and performance.'
+                  }
+                ].map((step, index) => (
+                  <div key={index} className="px-4">
+                    <div className="bg-white/80 backdrop-blur-xl p-6 rounded-[2rem] border border-blue-100 shadow-lg group min-h-[220px] flex flex-col items-center text-center">
+                      <div className="mb-4">
+                        {step.icon}
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-900 mb-2 tracking-tight">{step.title}</h3>
+                      <p className="text-slate-600 leading-relaxed text-sm">{step.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </ModernCarousel>
+            </div>
+
+            {/* Desktop: Grid View */}
+            <div className="hidden md:grid grid-cols-3 gap-8 md:gap-12 relative z-10">
               {[
                 {
                   icon: <Search className="w-10 h-10 text-blue-600" />,

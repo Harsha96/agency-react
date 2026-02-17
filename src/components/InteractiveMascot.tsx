@@ -1,13 +1,27 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, X } from 'lucide-react';
+
 import Mascot3D from './Mascot3D';
 
 export const InteractiveMascot = () => {
     const [hoverMessage, setHoverMessage] = useState<string | null>(null);
+    const [showScrollTop, setShowScrollTop] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
     const location = useLocation();
+
+    // Toggle button visibility based on scroll
+    useEffect(() => {
+        const toggleVisibility = () => {
+            if (window.scrollY > 300) {
+                setShowScrollTop(true);
+            } else {
+                setShowScrollTop(false);
+            }
+        };
+
+        window.addEventListener('scroll', toggleVisibility);
+        return () => window.removeEventListener('scroll', toggleVisibility);
+    }, []);
 
     // We check for contact page for the specific happy animation
     const isContactPage = location.pathname === '/contact';
@@ -36,8 +50,13 @@ export const InteractiveMascot = () => {
             let msg: string | null = null;
 
             if (isHoveringSelf) {
-                // Hovering the cat itself: Show page-specific context message
-                msg = getPageContextMessage(location.pathname);
+                // Check if hovering the scroll button specifically
+                if (interactive && interactive.getAttribute('aria-label') === 'Scroll to top') {
+                    msg = "Go to top! ☝️";
+                } else {
+                    // Hovering the cat itself: Show page-specific context message
+                    msg = getPageContextMessage(location.pathname);
+                }
             } else if (interactive) {
                 // Hovering other interactive elements - Context Awareness
                 const text = (interactive.textContent || '').toLowerCase();
@@ -97,8 +116,27 @@ export const InteractiveMascot = () => {
                 {/* 3D Robot Cat */}
                 <Mascot3D hoverMessage={hoverMessage} />
 
+                {/* Go To Top Button - Fixed Corner Position - Only visible after scroll */}
+                <div
+                    className={`absolute -bottom-2 -right-2 transition-all duration-500 transform ${showScrollTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}
+                >
+                    <button
+                        onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}
+                        className="w-8 h-8 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-full shadow-lg shadow-orange-500/30 flex items-center justify-center z-50 hover:scale-110 transition-transform duration-300"
+                        aria-label="Scroll to top"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="m18 15-6-6-6 6" />
+                        </svg>
+                    </button>
+                </div>
+
                 {/* Speech Bubble Tooltip - Visible on Hover Message or Self Hover */}
-                <div className={`absolute -top-16 right-0 bg-white border-2 border-slate-900 rounded-xl p-3 shadow-xl transition-opacity duration-300 whitespace-nowrap z-50 ${hoverMessage ? 'opacity-100' : 'opacity-0'}`}>
+                <div className={`absolute -top-24 right-0 bg-white border-2 border-slate-900 rounded-xl p-3 shadow-xl transition-opacity duration-300 whitespace-nowrap z-50 ${hoverMessage ? 'opacity-100' : 'opacity-0'}`}>
                     <p className="text-sm font-bold text-slate-900">
                         {displayMessage}
                     </p>

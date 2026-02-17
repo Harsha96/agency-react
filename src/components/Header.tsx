@@ -95,7 +95,7 @@ export default function Header() {
             </Link>
             <Link
               to="/contact"
-              className="px-6 py-2.5 bg-blue-600 text-white text-sm font-bold rounded-xl hover:bg-blue-700 transition-all duration-300 shadow-md hover:shadow-lg shadow-blue-500/20"
+              className="px-6 py-2.5 bg-gradient-to-r from-orange-500 to-amber-500 text-white text-sm font-bold rounded-xl hover:from-orange-600 hover:to-amber-600 transition-all duration-300 shadow-md hover:shadow-lg shadow-orange-500/20"
             >
               Contact Us
             </Link>
@@ -129,23 +129,23 @@ export default function Header() {
 
         {mobileMenuOpen && (
           <div className="md:hidden py-6 border-t border-gray-100 bg-white shadow-xl rounded-b-2xl overflow-hidden animate-fade-in-up">
-            <div className="flex flex-col space-y-3 px-4">
-              <Link to="/" className="text-base font-semibold text-gray-900 hover:text-blue-600 px-2 py-2 transition-colors">
+            <div className="flex flex-col space-y-2 px-6">
+              <Link to="/" className="text-base font-semibold text-gray-900 hover:text-blue-600 hover:bg-blue-50 px-4 py-4 rounded-xl transition-all min-h-[48px] flex items-center">
                 Home
               </Link>
-              <Link to="/about" className="text-base font-semibold text-gray-900 hover:text-blue-600 px-2 py-2 transition-colors">
+              <Link to="/about" className="text-base font-semibold text-gray-900 hover:text-blue-600 hover:bg-blue-50 px-4 py-4 rounded-xl transition-all min-h-[48px] flex items-center">
                 About
               </Link>
-              <Link to="/services" className="text-base font-semibold text-gray-900 hover:text-blue-600 px-2 py-2 transition-colors">
+              <Link to="/services" className="text-base font-semibold text-gray-900 hover:text-blue-600 hover:bg-blue-50 px-4 py-4 rounded-xl transition-all min-h-[48px] flex items-center">
                 Our Services
               </Link>
-              <Link to="/portfolio" className="text-base font-semibold text-gray-900 hover:text-blue-600 px-2 py-2 transition-colors">
+              <Link to="/portfolio" className="text-base font-semibold text-gray-900 hover:text-blue-600 hover:bg-blue-50 px-4 py-4 rounded-xl transition-all min-h-[48px] flex items-center">
                 Portfolio
               </Link>
-              <Link to="/blog" className="text-base font-semibold text-gray-900 hover:text-blue-600 px-2 py-2 transition-colors">
+              <Link to="/blog" className="text-base font-semibold text-gray-900 hover:text-blue-600 hover:bg-blue-50 px-4 py-4 rounded-xl transition-all min-h-[48px] flex items-center">
                 Blog
               </Link>
-              <Link to="/contact" className="inline-flex items-center justify-center py-3 bg-blue-600 text-white font-bold rounded-xl mt-4 shadow-lg shadow-blue-500/20">
+              <Link to="/contact" className="inline-flex items-center justify-center py-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold rounded-xl mt-4 shadow-lg shadow-orange-500/20">
                 Contact Us
               </Link>
               {user && (

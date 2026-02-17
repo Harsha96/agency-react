@@ -1,5 +1,6 @@
 import { Users, Target, Heart, Award, Lightbulb, Rocket } from 'lucide-react';
 import { ScrollReveal } from '../components/ScrollReveal';
+import { ModernCarousel } from '../components/ModernCarousel';
 
 export default function About() {
   const values = [
@@ -156,7 +157,25 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+          <div className="md:hidden mb-20">
+            <ModernCarousel autoPlay={true} autoPlayInterval={5000} showIndicators={true}>
+              {values.map((value, index) => (
+                <div key={index} className="px-4 h-full">
+                  <div
+                    className="bg-white border-2 border-gray-100 rounded-xl p-8 shadow-xl h-full flex flex-col items-center text-center"
+                  >
+                    <div className="inline-flex p-3 rounded-lg bg-blue-600 text-white mb-4">
+                      {value.icon}
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
+                    <p className="text-gray-600 leading-relaxed text-sm">{value.description}</p>
+                  </div>
+                </div>
+              ))}
+            </ModernCarousel>
+          </div>
+
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
             {values.map((value, index) => (
               <ScrollReveal key={index} delay={index * 100} width="100%">
                 <div
@@ -183,7 +202,34 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="md:hidden">
+            <ModernCarousel autoPlay={true} autoPlayInterval={6000} showIndicators={true}>
+              {team.map((member, index) => (
+                <div key={index} className="px-4">
+                  <div
+                    className="group bg-white rounded-xl overflow-hidden shadow-lg"
+                  >
+                    <div className="relative h-64 overflow-hidden bg-gray-200">
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                    <div className="p-6 text-center">
+                      <h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
+                      <p className="text-blue-600 font-medium mb-3">{member.role}</p>
+                      <p className="text-gray-600 text-sm leading-relaxed">{member.bio}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </ModernCarousel>
+          </div>
+
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, index) => (
               <ScrollReveal key={index} delay={index * 100} width="100%">
                 <div
