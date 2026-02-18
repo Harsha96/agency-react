@@ -6,6 +6,17 @@
 - [x] Update services section descriptions
 - [x] Update "Why Choose Us" section
 - [x] Update "Selected Work" (Project Showcase) section
-- [x] Update "How We Work" section
-- [x] Update "Our Promise" and CTA sections
-- [x] Verify all updates render correctly
+- [x] **Mascot "Go To Top" Button**
+    - [x] Integrated into `InteractiveMascot`.
+    - [x] Positioned in bottom-right corner.
+    - [x] Orange color, scroll visibility logic.
+- [x] **About Us Mobile Slider**
+    - [x] Implemented `MobileCarousel` for Values and Team sections.
+- [x] **Mascot "Go To Top" Button**
+    - [x] Integrated into `InteractiveMascot`.
+    - [x] Positioned in bottom-right corner.
+    - [x] Orange color, scroll visibility logic.
+- [x] **About Us Mobile Slider**
+    - [x] Implemented `MobileCarousel` for Values and Team sections.
+- [x] **Hero Text Support**
+    - [x] Refined Looping Glow Animation (Softened, 6s duration, no shadow).

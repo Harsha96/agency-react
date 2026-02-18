@@ -12,6 +12,7 @@ import type { Database } from '../lib/supabase';
 import { HeroParticles, RainParticles } from '../components/HeroParticles';
 import { SectionDivider } from '../components/SectionDivider';
 import { ModernCarousel } from '../components/ModernCarousel';
+import { Counter } from '../components/Counter';
 
 type CaseStudy = Database['case_studies'];
 
@@ -150,7 +151,7 @@ export default function Home() {
             style={{
               y: useScroll().scrollYProgress.get() * -20 // Subtle parallax
             }}
-            className="bg-blue-100/40 backdrop-blur-[100px] rounded-[3rem] shadow-[0_40px_100px_-25px_rgba(59,130,246,0.12)] border border-blue-200/40 p-10 md:p-16 lg:p-24 overflow-hidden relative group"
+            className="bg-blue-100/40 backdrop-blur-[100px] rounded-[3rem] shadow-[0_40px_100px_-25px_rgba(59,130,246,0.12)] border border-blue-200/40 pt-10 pb-8 px-6 sm:px-10 md:pt-16 md:pb-12 md:px-16 lg:pt-20 lg:pb-16 lg:px-24 overflow-hidden relative group"
           >
             {/* Inner Border Glow */}
             <div className="absolute inset-0 border border-slate-200 rounded-[3rem] pointer-events-none" />
@@ -160,11 +161,40 @@ export default function Home() {
 
             <div className="max-w-4xl">
               {/* Tagline First */}
-              <p className="text-sm sm:text-base font-semibold text-blue-600 mb-3 sm:mb-4 tracking-wide uppercase">From Concept to Product</p>
+              <p className="text-lg sm:text-xl md:text-2xl font-bold text-blue-600 mb-4 sm:mb-6 tracking-wider uppercase">From Concept to Design</p>
 
               {/* Main Heading */}
-              <h1 className="font-heading text-[32px] sm:text-[44px] md:text-[60px] lg:text-[70px] font-semibold text-gray-900 mb-4 sm:mb-6 md:mb-8 leading-[110%] sm:leading-[105%] md:leading-[100%] tracking-[0%]">
-                Design. Develop. <span className="text-blue-600">Deploy.</span>
+              <h1 className="font-heading text-[28px] sm:text-[38px] md:text-[52px] lg:text-[64px] font-bold text-gray-900 mb-4 sm:mb-6 md:mb-8 leading-[110%] sm:leading-[105%] md:leading-[100%] tracking-tight">
+                <motion.span
+                  animate={{
+                    color: ["#1f2937", "#2563eb", "#1f2937", "#1f2937"],
+                    scale: [1, 1.05, 1, 1],
+                  }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", times: [0, 0.2, 0.4, 1] }}
+                  className="inline-block"
+                >
+                  Design.
+                </motion.span>{' '}
+                <motion.span
+                  animate={{
+                    color: ["#1f2937", "#1f2937", "#2563eb", "#1f2937"],
+                    scale: [1, 1, 1.05, 1],
+                  }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", times: [0, 0.3, 0.5, 1] }}
+                  className="inline-block"
+                >
+                  Develop.
+                </motion.span>{' '}
+                <motion.span
+                  animate={{
+                    color: ["#1f2937", "#1f2937", "#1f2937", "#2563eb"],
+                    scale: [1, 1, 1, 1.05],
+                  }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", times: [0, 0.6, 0.8, 1] }}
+                  className="inline-block"
+                >
+                  Deploy.
+                </motion.span>
               </h1>
 
               {/* Description */}
@@ -179,37 +209,43 @@ export default function Home() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
-                  className="stats-badge text-center min-w-[110px] sm:min-w-[120px] md:min-w-0 py-2 sm:py-3"
+                  className="stats-badge text-center min-w-[90px] sm:min-w-[100px] md:min-w-0 py-1.5 sm:py-2 px-3 sm:px-4"
                 >
-                  <span className="stats-badge-number text-xl sm:text-2xl md:text-3xl">1K+</span>
-                  <span className="stats-badge-label text-[10px] sm:text-xs md:text-sm">Happy Clients</span>
+                  <span className="stats-badge-number text-lg sm:text-xl md:text-2xl">
+                    <Counter end={1} suffix="K+" />
+                  </span>
+                  <span className="stats-badge-label text-[9px] sm:text-[10px] md:text-xs">Happy Clients</span>
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
-                  className="stats-badge text-center min-w-[110px] sm:min-w-[120px] md:min-w-0 py-2 sm:py-3"
+                  className="stats-badge text-center min-w-[90px] sm:min-w-[100px] md:min-w-0 py-1.5 sm:py-2 px-3 sm:px-4"
                 >
-                  <span className="stats-badge-number text-xl sm:text-2xl md:text-3xl">500+</span>
-                  <span className="stats-badge-label text-[10px] sm:text-xs md:text-sm">Projects Delivered</span>
+                  <span className="stats-badge-number text-lg sm:text-xl md:text-2xl">
+                    <Counter end={500} suffix="+" />
+                  </span>
+                  <span className="stats-badge-label text-[9px] sm:text-[10px] md:text-xs">Projects Delivered</span>
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6 }}
-                  className="stats-badge text-center min-w-[110px] sm:min-w-[120px] md:min-w-0 py-2 sm:py-3"
+                  className="stats-badge text-center min-w-[90px] sm:min-w-[100px] md:min-w-0 py-1.5 sm:py-2 px-3 sm:px-4"
                 >
-                  <span className="stats-badge-number text-xl sm:text-2xl md:text-3xl">98%</span>
-                  <span className="stats-badge-label text-[10px] sm:text-xs md:text-sm">Client Satisfaction</span>
+                  <span className="stats-badge-number text-lg sm:text-xl md:text-2xl">
+                    <Counter end={98} suffix="%" />
+                  </span>
+                  <span className="stats-badge-label text-[9px] sm:text-[10px] md:text-xs">Client Satisfaction</span>
                 </motion.div>
               </div>
 
               {/* Mobile-optimized buttons with better touch targets */}
-              <div className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-6 w-full sm:w-auto">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 w-full sm:w-auto">
                 <MagneticWrapper>
                   <Link
                     to="/contact"
-                    className="group inline-flex items-center justify-center px-8 sm:px-10 py-4 sm:py-5 text-lg sm:text-xl bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold rounded-2xl hover:from-orange-600 hover:to-amber-600 transition-all duration-300 shadow-xl shadow-orange-500/30 active:scale-95 min-h-[48px] w-full sm:w-auto"
+                    className="group inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold rounded-xl hover:from-orange-600 hover:to-amber-600 transition-all duration-300 shadow-xl shadow-orange-500/30 active:scale-95 min-h-[44px] w-full sm:w-auto"
                   >
                     Get Started
                   </Link>
@@ -218,7 +254,7 @@ export default function Home() {
                 <MagneticWrapper>
                   <Link
                     to="/contact"
-                    className="group inline-flex items-center justify-center px-8 sm:px-10 py-4 sm:py-5 text-lg sm:text-xl bg-white/80 text-slate-900 font-bold rounded-2xl border-2 border-blue-100/50 hover:border-blue-600 hover:text-blue-600 backdrop-blur-sm transition-all duration-300 active:scale-95 min-h-[48px] w-full sm:w-auto"
+                    className="group inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg bg-white/80 text-slate-900 font-bold rounded-xl border-2 border-blue-100/50 hover:border-blue-600 hover:text-blue-600 backdrop-blur-sm transition-all duration-300 active:scale-95 min-h-[44px] w-full sm:w-auto"
                   >
                     Contact Us
                   </Link>
@@ -236,7 +272,7 @@ export default function Home() {
       <SectionDivider type="slant" color="fill-blue-50/60" />
 
       {/* Services Section - Darker Background */}
-      <section className="py-10 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-slate-100 relative z-20 overflow-hidden border-b border-slate-200">
+      <section className="py-8 md:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 bg-slate-100 relative z-20 overflow-hidden border-b border-slate-200">
 
         <div className="max-w-7xl mx-auto">
           <SectionReveal>
@@ -255,19 +291,27 @@ export default function Home() {
             <ModernCarousel autoPlay={true} autoPlayInterval={5000} showIndicators={true}>
               {services.map((service, index) => (
                 <div key={index} className="px-4">
-                  <Link
-                    to={service.link}
-                    className="group relative bg-white/90 backdrop-blur-xl rounded-[2rem] p-6 border border-blue-100 shadow-xl shadow-blue-500/5 block h-full overflow-hidden flex flex-col items-center text-center min-h-[320px]"
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.85, filter: "blur(12px)" }}
+                    whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                    viewport={{ once: true, amount: 0.4 }}
+                    transition={{ duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
+                    className="h-full"
                   >
-                    <div className={`p-4 bg-gradient-to-br ${service.color} rounded-xl text-white mb-4 shadow-lg shadow-blue-500/10`}>
-                      {service.icon}
-                    </div>
-                    <h3 className="text-lg font-bold text-gray-950 mb-2 tracking-tight">{service.title}</h3>
-                    <p className="text-gray-600 mb-4 leading-relaxed flex-grow text-sm">{service.description}</p>
-                    <div className="inline-flex items-center text-blue-600 font-bold text-sm">
-                      View Solution <ArrowRight className="ml-2 w-4 h-4" />
-                    </div>
-                  </Link>
+                    <Link
+                      to={service.link}
+                      className="group relative bg-white/90 backdrop-blur-xl rounded-[2rem] p-6 border border-blue-100 shadow-xl shadow-blue-500/5 block h-full overflow-hidden flex flex-col items-center text-center min-h-[320px]"
+                    >
+                      <div className={`p-4 bg-gradient-to-br ${service.color} rounded-xl text-white mb-4 shadow-lg shadow-blue-500/10`}>
+                        {service.icon}
+                      </div>
+                      <h3 className="text-lg font-bold text-gray-950 mb-2 tracking-tight">{service.title}</h3>
+                      <p className="text-gray-600 mb-4 leading-relaxed flex-grow text-sm">{service.description}</p>
+                      <div className="inline-flex items-center text-blue-600 font-bold text-sm">
+                        View Solution <ArrowRight className="ml-2 w-4 h-4" />
+                      </div>
+                    </Link>
+                  </motion.div>
                 </div>
               ))}
             </ModernCarousel>
@@ -306,7 +350,7 @@ export default function Home() {
       <SectionDivider type="curve" color="fill-indigo-50/40" />
 
       {/* Why Choose Us Section - Darker Background */}
-      <section className="py-12 md:py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-50 relative overflow-hidden border-b border-slate-200">
+      <section className="py-10 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 relative overflow-hidden border-b border-slate-200">
         {/* Subtle Mesh Overlay */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.05)_0%,_transparent_70%)] z-[1]" />
 
@@ -324,14 +368,24 @@ export default function Home() {
             <ModernCarousel autoPlay={true} autoPlayInterval={5000} showIndicators={true}>
               {benefits.map((benefit, index) => (
                 <div key={index} className="px-4">
-                  <div className="bg-white/80 backdrop-blur-xl p-6 rounded-[2rem] border border-blue-100 shadow-lg shadow-blue-500/5 h-full flex flex-col items-center text-center min-h-[240px]">
-                    <div className="p-3 bg-blue-50 rounded-xl text-blue-600 mb-4">
-                      {benefit.icon}
-                    </div>
-                    <h3 className="text-lg font-bold text-gray-900 tracking-tight mb-2">{benefit.title}</h3>
-                    <p className="text-slate-600 leading-relaxed text-sm">
-                      {benefit.description}
-                    </p>
+                  <div className="overflow-hidden h-full rounded-[2rem]">
+                    <motion.div
+                      initial={{ opacity: 0, y: 100 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.3 }}
+                      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                      className="h-full"
+                    >
+                      <div className="bg-white/80 backdrop-blur-xl p-6 rounded-[2rem] border border-blue-100 shadow-lg shadow-blue-500/5 h-full flex flex-col items-center text-center min-h-[240px]">
+                        <div className="p-3 bg-blue-50 rounded-xl text-blue-600 mb-4">
+                          {benefit.icon}
+                        </div>
+                        <h3 className="text-lg font-bold text-gray-900 tracking-tight mb-2">{benefit.title}</h3>
+                        <p className="text-slate-600 leading-relaxed text-sm">
+                          {benefit.description}
+                        </p>
+                      </div>
+                    </motion.div>
                   </div>
                 </div>
               ))}
@@ -373,7 +427,7 @@ export default function Home() {
       <SectionDivider type="curve" color="fill-blue-100/10" reverse />
 
       {/* How We Work Section - Minimal Mobile Padding */}
-      <section className="py-10 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-blue-100/10 relative overflow-hidden border-y border-blue-200/20">
+      <section className="py-8 md:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 bg-blue-100/10 relative overflow-hidden border-y border-blue-200/20">
         {/* Particle Rain Background Restored */}
         <RainParticles />
         <div className="max-w-7xl mx-auto relative z-10">
@@ -431,13 +485,20 @@ export default function Home() {
                   }
                 ].map((step, index) => (
                   <div key={index} className="px-4">
-                    <div className="bg-white/80 backdrop-blur-xl p-6 rounded-[2rem] border border-blue-100 shadow-lg group min-h-[220px] flex flex-col items-center text-center">
+                    <motion.div
+                      initial={{ opacity: 0, x: 80, rotateY: -30, filter: "blur(15px)" }}
+                      whileInView={{ opacity: 1, x: 0, rotateY: 0, filter: "blur(0px)" }}
+                      viewport={{ once: true, amount: 0.4 }}
+                      transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                      className="bg-white/80 backdrop-blur-xl p-6 rounded-[2rem] border border-blue-100 shadow-lg group min-h-[220px] flex flex-col items-center text-center origin-right"
+                      style={{ perspective: "1000px" }}
+                    >
                       <div className="mb-4">
                         {step.icon}
                       </div>
                       <h3 className="text-xl font-bold text-gray-900 mb-2 tracking-tight">{step.title}</h3>
                       <p className="text-slate-600 leading-relaxed text-sm">{step.description}</p>
-                    </div>
+                    </motion.div>
                   </div>
                 ))}
               </ModernCarousel>
@@ -499,7 +560,7 @@ export default function Home() {
 
       {/* Our Promise Section - Ultra Clean */}
       <SectionReveal>
-        <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600/5 via-indigo-600/5 to-cyan-500/5 backdrop-blur-md text-gray-900 border-y border-blue-100/50 relative overflow-hidden">
+        <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600/5 via-indigo-600/5 to-cyan-500/5 backdrop-blur-md text-gray-900 border-y border-blue-100/50 relative overflow-hidden">
           <div className="max-w-5xl mx-auto text-center relative z-10">
             <h2 className="text-3xl md:text-5xl font-bold mb-6 md:mb-10 tracking-tight">Our Promise</h2>
             <p className="text-xl md:text-3xl lg:text-4xl font-light mb-6 md:mb-8 leading-relaxed text-gray-700">
@@ -514,7 +575,7 @@ export default function Home() {
       </SectionReveal>
 
       {/* CTA Section - Luxury Dark */}
-      <section className="py-24 md:py-40 px-4 sm:px-6 lg:px-8 bg-slate-950 relative overflow-hidden">
+      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-slate-950 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-cyan-500/10 z-[1] blur-3xl opacity-50" />
         <div className="max-w-5xl mx-auto text-center relative z-10">
           <SectionReveal>
