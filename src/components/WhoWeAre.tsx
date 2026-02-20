@@ -1,15 +1,16 @@
 import { Target, Users, Zap, Lightbulb } from 'lucide-react';
 import { MouseGlowCard, TiltCard } from './InteractiveWrappers';
 import { MaskedReveal } from './SectionReveal';
+import { motion } from 'framer-motion';
 
 export const WhoWeAre = () => {
     return (
-        <section className="py-16 md:pt-24 md:pb-12 px-4 sm:px-6 lg:px-8 bg-slate-100/40 relative overflow-hidden border-y border-slate-200/50">
+        <section className="py-10 md:py-14 px-4 sm:px-6 lg:px-8 bg-slate-100/40 relative overflow-hidden border-y border-slate-200/50">
             {/* Ultra-subtle light overlay - Enhanced for depth */}
             <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50/10 to-white z-[1]" />
 
             <div className="max-w-7xl mx-auto relative z-10">
-                <div className="text-center mb-16 md:mb-24">
+                <div className="text-center mb-8 md:mb-10">
                     <MaskedReveal>
                         <h2 className="text-4xl md:text-6xl font-bold text-gray-950 mb-6 tracking-tight">Who We Are</h2>
                     </MaskedReveal>
@@ -36,8 +37,7 @@ export const WhoWeAre = () => {
                                                 <span className="text-blue-700 tracking-widest uppercase">Akinahs Collective</span>
                                             </div>
                                             <h3 className="text-2xl sm:text-3xl md:text-5xl font-black mb-4 md:mb-6 leading-[1.15] tracking-tight text-gray-950">
-                                                A full-service <br className="hidden md:block" />
-                                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">digital agency.</span>
+                                                A full-service <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">digital agency.</span>
                                             </h3>
                                             <div className="space-y-4">
                                                 <p className="text-sm sm:text-base md:text-xl text-gray-600 max-w-xl leading-relaxed">
@@ -118,27 +118,47 @@ export const WhoWeAre = () => {
                             <div className="bg-white/60 backdrop-blur-2xl p-8 md:p-12 relative group hover:bg-white/80 transition-all duration-700">
                                 <div className="flex flex-col lg:flex-row items-center justify-between gap-10 relative z-10">
                                     <div className="max-w-2xl text-center lg:text-left">
-                                        <div className="flex items-center justify-center lg:justify-start space-x-4 mb-6">
-                                            <div className="p-3 bg-yellow-400/10 rounded-xl">
-                                                <Zap className="w-6 h-6 md:w-7 md:h-7 text-yellow-500" />
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 20 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            transition={{ duration: 0.8 }}
+                                            className="flex items-center justify-center lg:justify-start space-x-4 mb-6"
+                                        >
+                                            <div className="p-3 bg-yellow-400/10 rounded-xl relative">
+                                                <div className="absolute inset-0 bg-yellow-400/20 rounded-xl animate-ping opacity-20" />
+                                                <Zap className="w-6 h-6 md:w-7 md:h-7 text-yellow-500 relative z-10" />
                                             </div>
                                             <h4 className="text-xl md:text-3xl font-black text-gray-950 tracking-tight">
                                                 Powered by Innovation
                                             </h4>
-                                        </div>
+                                        </motion.div>
                                         <p className="text-gray-600 text-base md:text-xl leading-relaxed">
                                             We use modern, future-ready technology to build solutions that last.
                                         </p>
                                     </div>
-                                    <div className="flex flex-wrap gap-2 md:gap-4 justify-center lg:justify-end max-w-lg">
-                                        {['React', 'TypeScript', 'Next.js', 'Node.js', 'Supabase', 'Python', 'AI/ML', 'Cloud'].map((tag, i) => (
-                                            <span
-                                                key={tag}
-                                                className={`px-3 py-1.5 md:px-6 md:py-2.5 rounded-lg md:rounded-xl bg-white border border-gray-100 text-[10px] md:text-sm font-black shadow-sm transition-all duration-300 hover:scale-105 hover:border-blue-300 cursor-default ${i % 2 === 0 ? 'text-blue-600' : 'text-indigo-600'}`}
-                                            >
-                                                {tag}
-                                            </span>
-                                        ))}
+                                    <div className="w-full lg:w-1/2 overflow-hidden relative pointer-events-none">
+                                        {/* Gradient masks for soft edges */}
+                                        <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white/80 to-transparent z-10" />
+                                        <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-white/80 to-transparent z-10" />
+
+                                        <motion.div
+                                            className="flex gap-4 whitespace-nowrap"
+                                            animate={{ x: [0, -1030] }}
+                                            transition={{
+                                                duration: 25,
+                                                repeat: Infinity,
+                                                ease: "linear"
+                                            }}
+                                        >
+                                            {[...['React', 'TypeScript', 'Next.js', 'Node.js', 'Supabase', 'Python', 'AI/ML', 'Cloud'], ...['React', 'TypeScript', 'Next.js', 'Node.js', 'Supabase', 'Python', 'AI/ML', 'Cloud']].map((tag, i) => (
+                                                <span
+                                                    key={i}
+                                                    className={`inline-block px-6 py-2.5 rounded-xl bg-white border border-gray-100 text-sm font-black shadow-sm transition-all duration-300 hover:border-blue-300 cursor-default ${i % 2 === 0 ? 'text-blue-600' : 'text-indigo-600'}`}
+                                                >
+                                                    {tag}
+                                                </span>
+                                            ))}
+                                        </motion.div>
                                     </div>
                                 </div>
                             </div>

@@ -14,14 +14,14 @@ export const ProjectShowcase = ({ projects }: ProjectShowcaseProps) => {
     if (!projects || projects.length === 0) return null;
 
     return (
-        <section className="py-20 md:py-32 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden border-y border-slate-100">
+        <section className="py-10 md:py-14 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden border-y border-slate-100">
             {/* Subtle Background Gradient */}
             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,_rgba(99,102,241,0.05)_0%,_transparent_50%)] z-[1]" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 {/* Section Header */}
                 <ScrollReveal>
-                    <div className="text-center mb-16 md:mb-24">
+                    <div className="text-center mb-8 md:mb-10">
                         <h2 className="text-4xl md:text-6xl font-bold text-gray-950 mb-6 tracking-tight">Selected Work</h2>
                         <div className="w-16 h-1 bg-gradient-to-r from-blue-600 to-cyan-500 mx-auto rounded-full mb-6" />
                         <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
@@ -35,7 +35,7 @@ export const ProjectShowcase = ({ projects }: ProjectShowcaseProps) => {
                     {projects.map((project, index) => (
                         <ScrollReveal key={project.id} delay={index * 100} width="100%">
                             <TiltCard className="h-full">
-                                <MouseGlowCard className="h-full rounded-[2rem] md:rounded-[2.5rem] border border-gray-100 overflow-hidden shadow-2xl shadow-blue-500/5">
+                                <MouseGlowCard className="h-full rounded-[1.5rem] md:rounded-[2rem] border border-gray-100 overflow-hidden shadow-2xl shadow-blue-500/5">
                                     {/* Card Container */}
                                     <div className={`relative h-full bg-white/60 backdrop-blur-2xl transition-all duration-500 hover:bg-white/80`}>
                                         {/* Desktop: Alternating Layout */}
@@ -59,7 +59,7 @@ export const ProjectShowcase = ({ projects }: ProjectShowcaseProps) => {
                                             </div>
 
                                             {/* Content Section */}
-                                            <div className={`p-10 md:p-16 flex flex-col justify-center ${index % 2 === 0 ? 'lg:col-start-2' : 'lg:col-start-1'}`}>
+                                            <div className={`p-8 md:p-10 lg:p-12 flex flex-col justify-center ${index % 2 === 0 ? 'lg:col-start-2' : 'lg:col-start-1'}`}>
                                                 {/* Blue Category Badge */}
                                                 <div className="flex items-center gap-3 mb-6">
                                                     {project.tech_stack.slice(0, 2).map((tech, i) => (
@@ -98,7 +98,7 @@ export const ProjectShowcase = ({ projects }: ProjectShowcaseProps) => {
                                         </div>
 
                                         {/* Mobile: Unified Card Layout */}
-                                        <div className="lg:hidden p-6 md:p-8">
+                                        <div className="lg:hidden p-5 md:p-6">
                                             <div className="relative rounded-2xl overflow-hidden mb-8 shadow-lg group">
                                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
                                                 <img

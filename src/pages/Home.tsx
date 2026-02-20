@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Target, Palette, Sparkles, Package, Lightbulb, Headphones, Shield, TrendingUp, Globe, Search, Code, CheckCircle, MessageSquare } from 'lucide-react';
+import { ArrowRight, Target, Palette, Sparkles, Package, Lightbulb, Headphones, Shield, TrendingUp, Globe, MessageSquare, Zap } from 'lucide-react';
 import { SectionReveal } from '../components/SectionReveal';
 import { WhoWeAre } from '../components/WhoWeAre';
 import { ProjectShowcase } from '../components/ProjectShowcase';
 import { MagneticWrapper } from '../components/MagneticWrapper';
-import { MouseGlowCard, TiltCard } from '../components/InteractiveWrappers';
+import { MouseGlowCard } from '../components/InteractiveWrappers';
 import { motion, useScroll } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
@@ -13,6 +13,7 @@ import { HeroParticles, RainParticles } from '../components/HeroParticles';
 import { SectionDivider } from '../components/SectionDivider';
 import { ModernCarousel } from '../components/ModernCarousel';
 import { Counter } from '../components/Counter';
+import { HowWeWorkAnimated } from '../components/HowWeWorkAnimated';
 
 type CaseStudy = Database['case_studies'];
 
@@ -41,40 +42,55 @@ export default function Home() {
 
   const services = [
     {
-      icon: <Palette className="w-8 h-8" />,
+      icon: <Palette className="w-10 h-10" />,
       title: 'Graphic Design & Branding',
       description: 'Visuals and identities that make your brand unforgettable.',
+      features: ['Logo design', 'Brand identity', 'Marketing materials', 'Packaging'],
       link: '/services/design',
-      color: 'from-blue-500 to-cyan-500',
+      color: 'from-blue-600 to-cyan-500',
+      iconColor: 'text-white',
+      shadow: 'shadow-blue-500/20',
     },
     {
-      icon: <TrendingUp className="w-8 h-8" />,
+      icon: <TrendingUp className="w-10 h-10" />,
       title: 'Digital Marketing & Social Media',
       description: 'Smart strategies to grow your reach and engagement.',
+      features: ['SM Management', 'Content strategy', 'Paid ads', 'Analytics'],
       link: '/services/seo',
-      color: 'from-violet-500 to-purple-500',
+      color: 'from-violet-600 to-purple-500',
+      iconColor: 'text-white',
+      shadow: 'shadow-violet-500/20',
     },
     {
-      icon: <Globe className="w-8 h-8" />,
+      icon: <Globe className="w-10 h-10" />,
       title: 'Website Design & Development',
       description: 'Fast, modern, and responsive websites built to perform.',
+      features: ['Custom design', 'Responsive dev', 'E-commerce', 'SEO'],
       link: '/services/web',
-      color: 'from-emerald-500 to-teal-500',
+      color: 'from-emerald-600 to-teal-500',
+      iconColor: 'text-white',
+      shadow: 'shadow-emerald-500/20',
     },
     {
-      icon: <Sparkles className="w-8 h-8" />,
+      icon: <Sparkles className="w-10 h-10" />,
       title: 'Software & AI Solutions',
       description: 'Custom systems designed to scale with your business.',
+      features: ['Custom software', 'AI automation', 'API integration', 'Mobile apps'],
       link: '/services/ai',
-      color: 'from-orange-500 to-red-500',
+      color: 'from-orange-600 to-amber-500',
+      iconColor: 'text-white',
+      shadow: 'shadow-orange-500/20',
     },
     {
-      icon: <Headphones className="w-8 h-8" />,
+      icon: <Headphones className="w-10 h-10" />,
       title: 'Content & Online Support',
       description: 'Clear content and ongoing support when you need it.',
+      features: ['Copywriting', 'Tech support', 'Maintenance', 'Consulting'],
       link: '/services/support',
-      color: 'from-pink-500 to-rose-500',
-    }
+      color: 'from-pink-600 to-rose-500',
+      iconColor: 'text-white',
+      shadow: 'shadow-pink-500/20',
+    },
   ];
 
   const benefits = [
@@ -111,7 +127,7 @@ export default function Home() {
     <div className="min-h-screen">
 
       {/* Hero Section - Full White Background with Premium Effects */}
-      <section className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-white">
+      <section className="relative min-h-[85vh] flex items-center pt-24 pb-4 overflow-hidden bg-white">
         {/* Hero Level Particle Magic - Adjusted for white background */}
         <HeroParticles />
 
@@ -139,7 +155,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full mb-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full mb-4">
           {/* Contained Hero Card - Premium Glassmorphism with Floating Motion */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -198,7 +214,7 @@ export default function Home() {
               </h1>
 
               {/* Description */}
-              <p className="text-sm sm:text-base md:text-lg font-normal text-slate-600 mb-6 sm:mb-8 md:mb-10 leading-[160%] sm:leading-[167%] max-w-2xl">
+              <p className="text-sm sm:text-base md:text-lg font-normal text-slate-600 mb-6 sm:mb-8 md:mb-10 leading-loose max-w-2xl">
                 Everything your brand needs to grow online. <br className="hidden sm:inline" />
                 <span className="sm:hidden"> </span>All your digital needs, in one place.
               </p>
@@ -269,16 +285,14 @@ export default function Home() {
         <WhoWeAre />
       </SectionReveal>
 
-      <SectionDivider type="slant" color="fill-blue-50/60" />
-
       {/* Services Section - Darker Background */}
-      <section className="py-8 md:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 bg-slate-100 relative z-20 overflow-hidden border-b border-slate-200">
+      <section className="py-6 md:py-10 lg:py-14 px-4 sm:px-6 lg:px-8 bg-slate-100 relative z-20 overflow-hidden border-b border-slate-200">
 
         <div className="max-w-7xl mx-auto">
           <SectionReveal>
-            <div className="text-center max-w-3xl mx-auto mb-8 md:mb-12 lg:mb-20">
-              <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6 tracking-tight">Our Services</h2>
-              <div className="w-16 h-1 bg-gradient-to-r from-orange-500 to-amber-500 mx-auto rounded-full mb-6" />
+            <div className="text-center max-w-3xl mx-auto mb-6 md:mb-10 lg:mb-14">
+              <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-3 md:mb-4 tracking-tight">Our Services</h2>
+              <div className="w-16 h-1 bg-gradient-to-r from-orange-500 to-amber-500 mx-auto rounded-full mb-4" />
               <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
                 Everything your brand needs to succeed online.
               </p>
@@ -298,19 +312,29 @@ export default function Home() {
                     transition={{ duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
                     className="h-full"
                   >
-                    <Link
-                      to={service.link}
-                      className="group relative bg-white/90 backdrop-blur-xl rounded-[2rem] p-6 border border-blue-100 shadow-xl shadow-blue-500/5 block h-full overflow-hidden flex flex-col items-center text-center min-h-[320px]"
-                    >
-                      <div className={`p-4 bg-gradient-to-br ${service.color} rounded-xl text-white mb-4 shadow-lg shadow-blue-500/10`}>
+                    <div className="relative bg-white rounded-[2.5rem] p-8 border border-slate-100 shadow-xl shadow-slate-200/50 flex flex-col items-center text-center h-full group">
+                      <div className={`inline-flex p-5 rounded-2xl bg-gradient-to-br ${service.color} text-white mb-6 transform transition-transform group-hover:scale-110 duration-500 shadow-lg ${service.shadow}`}>
                         {service.icon}
                       </div>
-                      <h3 className="text-lg font-bold text-gray-950 mb-2 tracking-tight">{service.title}</h3>
-                      <p className="text-gray-600 mb-4 leading-relaxed flex-grow text-sm">{service.description}</p>
-                      <div className="inline-flex items-center text-blue-600 font-bold text-sm">
-                        View Solution <ArrowRight className="ml-2 w-4 h-4" />
-                      </div>
-                    </Link>
+                      <h3 className="text-xl font-bold text-gray-950 mb-3 tracking-tight">{service.title}</h3>
+                      <p className="text-gray-600 mb-6 leading-relaxed flex-grow text-sm">{service.description}</p>
+
+                      <ul className="space-y-2.5 mb-8 w-full">
+                        {service.features?.slice(0, 3).map((feature, idx) => (
+                          <li key={idx} className="flex items-center justify-center text-gray-600 text-[11px] font-bold uppercase tracking-wider">
+                            <Zap className="w-3.5 h-3.5 text-blue-500 mr-2 flex-shrink-0" />
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      <Link
+                        to={service.link}
+                        className="inline-flex items-center justify-center w-full px-6 py-4 bg-gray-950 text-white font-bold rounded-2xl text-sm hover:bg-blue-600 transition-all shadow-lg hover:shadow-blue-500/20"
+                      >
+                        Explore Service <ArrowRight className="ml-2 w-4 h-4" />
+                      </Link>
+                    </div>
                   </motion.div>
                 </div>
               ))}
@@ -320,27 +344,39 @@ export default function Home() {
           {/* Desktop: Grid View */}
           <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
             {services.map((service, index) => (
-              <SectionReveal key={index} delay={index * 0.05}>
-                <TiltCard>
-                  <MouseGlowCard className="h-full">
-                    <Link
-                      to={service.link}
-                      className="group relative bg-blue-50/80 backdrop-blur-2xl rounded-[2.5rem] p-10 hover:bg-blue-100/50 transition-all duration-500 border border-blue-200/50 shadow-2xl shadow-blue-500/5 hover:border-blue-400/40 hover:shadow-blue-500/10 block h-full overflow-hidden flex flex-col items-center text-center"
-                    >
-                      {/* Dynamic Background Glow */}
-                      <div className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-10 blur-3xl transition-opacity duration-700`} />
+              <SectionReveal key={index} delay={index * 0.1}>
+                <div className="relative bg-white rounded-[2.5rem] p-8 lg:p-10 border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:border-blue-400/20 transition-all duration-500 flex flex-col items-center text-center h-full hover:-translate-y-2 group overflow-hidden">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-50 to-transparent opacity-50 -mr-16 -mt-16 rounded-full blur-2xl" />
 
-                      <div className={`p-5 bg-gradient-to-br ${service.color} rounded-2xl text-white mb-8 group-hover:scale-110 transition-transform duration-700 group-hover:rotate-6 shadow-lg shadow-blue-500/10`}>
-                        {service.icon}
-                      </div>
-                      <h3 className="text-2xl font-bold text-gray-950 mb-4 tracking-tight">{service.title}</h3>
-                      <p className="text-gray-600 mb-8 leading-relaxed flex-grow text-lg">{service.description}</p>
-                      <div className="inline-flex items-center text-blue-600 font-bold group-hover:translate-x-3 transition-transform duration-500">
-                        View Solution <ArrowRight className="ml-2 w-5 h-5" />
-                      </div>
-                    </Link>
-                  </MouseGlowCard>
-                </TiltCard>
+                  <div className={`inline-flex p-5 rounded-2xl bg-gradient-to-br ${service.color} text-white mb-8 transform transition-transform group-hover:scale-110 duration-500 shadow-lg ${service.shadow}`}>
+                    {service.icon}
+                  </div>
+
+                  <h3 className="text-xl md:text-2xl font-bold text-gray-950 mb-4 group-hover:text-blue-600 transition-colors leading-tight tracking-tight">
+                    {service.title}
+                  </h3>
+
+                  <p className="text-sm text-slate-600 leading-relaxed mb-8 flex-grow">
+                    {service.description}
+                  </p>
+
+                  <ul className="space-y-3 mb-10 w-full">
+                    {service.features?.map((feature, idx) => (
+                      <li key={idx} className="flex items-center justify-center text-[10px] sm:text-[12px] font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-800 transition-colors">
+                        <Zap className="w-4 h-4 text-blue-500 mr-2 flex-shrink-0" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <Link
+                    to={service.link}
+                    className="inline-flex items-center justify-center w-full px-6 py-4 bg-gray-950 text-white font-bold rounded-2xl hover:bg-blue-600 transition-all duration-300 shadow-lg hover:shadow-blue-500/20 group-hover:scale-[1.02]"
+                  >
+                    View Details
+                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
               </SectionReveal>
             ))}
           </div>
@@ -350,14 +386,14 @@ export default function Home() {
       <SectionDivider type="curve" color="fill-indigo-50/40" />
 
       {/* Why Choose Us Section - Darker Background */}
-      <section className="py-10 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 relative overflow-hidden border-b border-slate-200">
+      <section className="py-6 md:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 bg-slate-50 relative overflow-hidden border-b border-slate-200">
         {/* Subtle Mesh Overlay */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.05)_0%,_transparent_70%)] z-[1]" />
 
         <div className="max-w-7xl mx-auto relative z-10">
           <SectionReveal>
-            <div className="text-center mb-12 md:mb-20">
-              <h2 className="text-3xl md:text-6xl font-bold text-gray-950 mb-4 md:mb-6 tracking-tight">Why Choose Us</h2>
+            <div className="text-center mb-8 md:mb-14">
+              <h2 className="text-3xl md:text-6xl font-bold text-gray-950 mb-3 md:mb-4 tracking-tight">Why Choose Us</h2>
               <div className="w-16 h-1 bg-gradient-to-r from-blue-600 to-cyan-500 mx-auto rounded-full" />
             </div>
           </SectionReveal>
@@ -397,12 +433,23 @@ export default function Home() {
             {benefits.map((benefit, index) => (
               <SectionReveal key={index} delay={index * 0.05}>
                 <MouseGlowCard>
-                  <div className="bg-blue-100/40 backdrop-blur-xl p-8 lg:p-10 rounded-[2.5rem] border border-blue-200/40 hover:border-blue-500/30 hover:bg-blue-100/60 transition-all duration-500 h-full group flex flex-col items-center text-center">
-                    <div className="p-4 bg-blue-600/10 rounded-2xl text-blue-600 mb-6 group-hover:scale-110 transition-transform duration-500">
+                  <div className="bg-blue-100/40 backdrop-blur-xl p-6 lg:p-7 rounded-[1.5rem] border border-blue-200/40 hover:border-blue-500/30 hover:bg-blue-100/60 transition-all duration-500 h-full group flex flex-col items-center text-center">
+                    <motion.div
+                      animate={{
+                        rotate: [0, 5, -5, 0],
+                        y: [0, -3, 3, 0]
+                      }}
+                      transition={{
+                        duration: 4,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                      className="p-4 bg-blue-600/10 rounded-2xl text-blue-600 mb-6 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500 shadow-sm"
+                    >
                       {benefit.icon}
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900 tracking-tight mb-4">{benefit.title}</h3>
-                    <p className="text-slate-600 leading-relaxed text-base group-hover:text-slate-900 transition-colors">
+                    </motion.div>
+                    <h3 className="text-lg font-bold text-gray-900 tracking-tight mb-4">{benefit.title}</h3>
+                    <p className="text-slate-600 leading-relaxed text-sm group-hover:text-slate-900 transition-colors">
                       {benefit.description}
                     </p>
                   </div>
@@ -426,132 +473,23 @@ export default function Home() {
 
       <SectionDivider type="curve" color="fill-blue-100/10" reverse />
 
-      {/* How We Work Section - Minimal Mobile Padding */}
-      <section className="py-8 md:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 bg-blue-100/10 relative overflow-hidden border-y border-blue-200/20">
-        {/* Particle Rain Background Restored */}
+      {/* How We Work Section - Redesigned Circular Flow */}
+      <section className="py-6 md:py-10 lg:py-14 px-4 sm:px-6 lg:px-8 bg-blue-100/10 relative overflow-hidden border-y border-blue-200/20">
         <RainParticles />
         <div className="max-w-7xl mx-auto relative z-10">
           <SectionReveal>
-            <div className="text-center mb-12 md:mb-20">
-              <h2 className="text-3xl md:text-6xl font-bold text-gray-950 mb-4 md:mb-6 tracking-tight">How We Work</h2>
+            <div className="text-center mb-10 md:mb-16">
+              <h2 className="text-3xl md:text-6xl font-bold text-gray-950 mb-3 md:mb-4 tracking-tight">How We Work</h2>
               <div className="w-16 h-1 bg-gradient-to-r from-orange-500 to-amber-500 mx-auto rounded-full" />
+              <p className="mt-6 text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                A human-centered approach to building digital products that matter.
+              </p>
             </div>
           </SectionReveal>
 
-          <div className="relative">
-            {/* Connecting Flow Lines (Desktop) */}
-            <div className="hidden md:block absolute top-1/2 left-0 w-full -translate-y-1/2 z-0">
-              <svg className="w-full h-24 overflow-visible px-12">
-                <motion.path
-                  d="M 15 50 Q 50 0, 85 50 T 155 50 Q 190 0, 225 50 T 295 50"
-                  fill="none"
-                  stroke="url(#flowGradient)"
-                  strokeWidth="4"
-                  strokeDasharray="12 12"
-                  initial={{ strokeDashoffset: 0 }}
-                  animate={{ strokeDashoffset: -200 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  className="opacity-20"
-                />
-                <defs>
-                  <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#3b82f6" />
-                    <stop offset="50%" stopColor="#6366f1" />
-                    <stop offset="100%" stopColor="#06b6d4" />
-                  </linearGradient>
-                </defs>
-              </svg>
-            </div>
-
-
-            {/* Mobile: Carousel View */}
-            <div className="md:hidden">
-              <ModernCarousel autoPlay={true} autoPlayInterval={6000} showIndicators={true}>
-                {[
-                  {
-                    icon: <Search className="w-10 h-10 text-blue-600" />,
-                    title: 'Discover',
-                    description: 'We start by understanding your goals, challenges, and vision to craft a tailored strategy.'
-                  },
-                  {
-                    icon: <Code className="w-10 h-10 text-blue-600" />,
-                    title: 'Design & Build',
-                    description: 'Our team brings your ideas to life with stunning designs and cutting-edge development.'
-                  },
-                  {
-                    icon: <CheckCircle className="w-10 h-10 text-blue-600" />,
-                    title: 'Launch & Optimize',
-                    description: 'We launch with precision and continuously optimize for growth and performance.'
-                  }
-                ].map((step, index) => (
-                  <div key={index} className="px-4">
-                    <motion.div
-                      initial={{ opacity: 0, x: 80, rotateY: -30, filter: "blur(15px)" }}
-                      whileInView={{ opacity: 1, x: 0, rotateY: 0, filter: "blur(0px)" }}
-                      viewport={{ once: true, amount: 0.4 }}
-                      transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-                      className="bg-white/80 backdrop-blur-xl p-6 rounded-[2rem] border border-blue-100 shadow-lg group min-h-[220px] flex flex-col items-center text-center origin-right"
-                      style={{ perspective: "1000px" }}
-                    >
-                      <div className="mb-4">
-                        {step.icon}
-                      </div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2 tracking-tight">{step.title}</h3>
-                      <p className="text-slate-600 leading-relaxed text-sm">{step.description}</p>
-                    </motion.div>
-                  </div>
-                ))}
-              </ModernCarousel>
-            </div>
-
-            {/* Desktop: Grid View */}
-            <div className="hidden md:grid grid-cols-3 gap-8 md:gap-12 relative z-10">
-              {[
-                {
-                  icon: <Search className="w-10 h-10 text-blue-600" />,
-                  title: 'Understand',
-                  description: 'We listen first.',
-                  step: '01',
-                  accent: 'blue'
-                },
-                {
-                  icon: <Code className="w-10 h-10 text-indigo-600" />,
-                  title: 'Create',
-                  description: 'We design and build smart solutions.',
-                  step: '02',
-                  accent: 'indigo'
-                },
-                {
-                  icon: <CheckCircle className="w-10 h-10 text-blue-600" />,
-                  title: 'Deliver',
-                  description: 'We launch, support, and help you grow.',
-                  step: '03',
-                  accent: 'blue'
-                }
-              ].map((step, index) => (
-                <SectionReveal key={index} delay={index * 0.05}>
-                  <div className="relative p-10 bg-blue-50/60 backdrop-blur-sm rounded-[2.5rem] border border-blue-100/50 group transition-all duration-700 hover:bg-blue-100/40 hover:shadow-[0_20px_60px_-15px_rgba(59,130,246,0.15)] group">
-                    {/* Glowing Step Number */}
-                    <div className="absolute top-6 right-8 text-5xl font-black text-slate-200/50 group-hover:text-blue-500/20 group-hover:scale-125 transition-all duration-700 select-none">
-                      {step.step}
-                      <div className="absolute inset-0 blur-2xl bg-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </div>
-
-                    {/* Pulsing Icon Container */}
-                    <div className="relative p-5 bg-white rounded-2xl w-fit mb-8 shadow-sm group-hover:shadow-xl group-hover:shadow-blue-500/10 transition-all duration-700 transform group-hover:scale-110">
-                      <div className="absolute inset-0 bg-blue-500/5 rounded-2xl animate-pulse scale-150 opacity-0 group-hover:opacity-100" />
-                      {step.icon}
-                    </div>
-
-                    <h3 className="text-2xl md:text-3xl font-bold text-gray-950 mb-4 tracking-tight group-hover:text-blue-600 transition-colors duration-500">{step.title}</h3>
-                    <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-                      {step.description}
-                    </p>
-                  </div>
-                </SectionReveal>
-              ))}
-            </div>
-          </div>
+          <SectionReveal>
+            <HowWeWorkAnimated />
+          </SectionReveal>
         </div>
       </section>
 
@@ -560,7 +498,7 @@ export default function Home() {
 
       {/* Our Promise Section - Ultra Clean */}
       <SectionReveal>
-        <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600/5 via-indigo-600/5 to-cyan-500/5 backdrop-blur-md text-gray-900 border-y border-blue-100/50 relative overflow-hidden">
+        <section className="py-6 md:py-10 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600/5 via-indigo-600/5 to-cyan-500/5 backdrop-blur-md text-gray-900 border-y border-blue-100/50 relative overflow-hidden">
           <div className="max-w-5xl mx-auto text-center relative z-10">
             <h2 className="text-3xl md:text-5xl font-bold mb-6 md:mb-10 tracking-tight">Our Promise</h2>
             <p className="text-xl md:text-3xl lg:text-4xl font-light mb-6 md:mb-8 leading-relaxed text-gray-700">
@@ -574,18 +512,18 @@ export default function Home() {
         </section>
       </SectionReveal>
 
-      {/* CTA Section - Luxury Dark */}
-      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-slate-950 relative overflow-hidden">
+      {/* CTA Section - Luxury Dark - Resized */}
+      <section className="py-10 md:py-16 px-4 sm:px-6 lg:px-8 bg-slate-950 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-cyan-500/10 z-[1] blur-3xl opacity-50" />
         <div className="max-w-5xl mx-auto text-center relative z-10">
           <SectionReveal>
-            <h2 className="text-4xl sm:text-5xl md:text-8xl font-extrabold text-white mb-8 md:mb-10 tracking-tighter leading-[0.95]">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-white mb-6 md:mb-8 tracking-tighter leading-[0.95]">
               Ready to grow your <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-cyan-400">
                 digital presence?
               </span>
             </h2>
-            <p className="text-lg md:text-2xl text-slate-400 mb-12 md:mb-16 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-slate-400 mb-8 md:mb-12 leading-relaxed max-w-xl mx-auto">
               Let's build something impactful together.
             </p>
             <MagneticWrapper>

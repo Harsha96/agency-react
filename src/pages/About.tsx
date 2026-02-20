@@ -1,30 +1,8 @@
-import { Users, Target, Heart, Award, Lightbulb, Rocket } from 'lucide-react';
+import { Users, Target, Heart, Rocket } from 'lucide-react';
 import { ScrollReveal } from '../components/ScrollReveal';
 import { ModernCarousel } from '../components/ModernCarousel';
 
 export default function About() {
-  const values = [
-    {
-      icon: <Lightbulb className="w-8 h-8" />,
-      title: 'Innovation First',
-      description: 'Constantly exploring the latest AI trends.',
-    },
-    {
-      icon: <Heart className="w-8 h-8" />,
-      title: 'Client Success',
-      description: 'Your success is our success.',
-    },
-    {
-      icon: <Target className="w-8 h-8" />,
-      title: 'Quality Obsessed',
-      description: 'Meticulous attention to detail.',
-    },
-    {
-      icon: <Rocket className="w-8 h-8" />,
-      title: 'Fast Execution',
-      description: 'Quick delivery without quality compromise.',
-    },
-  ];
 
   const team = [
     {
@@ -87,9 +65,9 @@ export default function About() {
           </div>
         </div>
       </section> */}
-      <section className="relative bg-gradient-to-br from-blue-100 via-white to-blue-50 pt-24 md:pt-40 pb-16 md:pb-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gradient-to-br from-blue-100 via-white to-blue-50 pt-20 md:pt-32 pb-10 md:pb-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
-          <div className="max-w-4xl mx-auto mb-16 md:mb-20">
+          <div className="max-w-4xl mx-auto mb-12 md:mb-16">
             <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-6 md:mb-8">
               <Users className="w-3 h-3 md:w-4 md:h-4" />
               <span className="tracking-wide uppercase text-[10px] md:text-xs font-bold">Who We Are</span>
@@ -117,78 +95,73 @@ export default function About() {
           </div>
         </div>
       </section>
-      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-slate-50 overflow-hidden">
+      <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center mb-24 md:mb-32">
-            <div>
-              <h2 className="text-3xl md:text-5xl font-bold text-gray-950 mb-6 md:mb-8 tracking-tight">Our Story</h2>
-              <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center mb-16 md:mb-24">
+            <div className="order-2 md:order-1">
+              <h2 className="text-3xl md:text-5xl font-black text-gray-950 mb-6 md:mb-8 tracking-tight leading-tight">
+                Our story starts with a simple vision.
+              </h2>
+              <div className="space-y-6 text-lg text-gray-600 leading-relaxed text-left">
                 <p>
-                  Founded in 2019, AI Agency emerged from a simple observation: businesses were struggling to harness the power of artificial intelligence and modern technology.
+                  Founded in 2024, Akinahs Collective was born from a desire to bridge the gap between complex technology and meaningful business outcomes. We saw too many businesses struggling with fragmented digital strategies.
                 </p>
                 <p>
-                  We started with a mission to bridge that gap by combining cutting-edge AI capabilities with human creativity and strategic thinking. What began as a small team of AI enthusiasts has grown into a full-service digital agency.
-                </p>
-                <p>
-                  Today, we've helped over 50 businesses transform their operations, reach more customers, and make data-driven decisions that drive real growth.
+                  Today, we are a diverse team of designers, developers, and strategists dedicated to creating digital experiences that don't just look great, but drive real, measurable growth for our partners.
                 </p>
               </div>
             </div>
-            <div className="relative">
+            <div className="order-1 md:order-2 relative">
+              <div className="absolute inset-0 bg-blue-600/10 rounded-3xl rotate-3 translate-x-4 translate-y-4 -z-10" />
               <img
-                src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Team collaboration"
-                className="rounded-2xl shadow-2xl"
-                loading="lazy"
-                decoding="async"
+                src="https://images.unsplash.com/photo-1522071823991-b9671f9d7f1f?auto=format&fit=crop&q=80&w=1000"
+                alt="Our team working"
+                className="rounded-3xl shadow-2xl relative z-10 w-full object-cover aspect-video md:aspect-square"
               />
-              <div className="absolute -bottom-6 -left-6 bg-blue-600 text-white p-6 rounded-xl shadow-lg">
-                <Award className="w-12 h-12 mb-2" />
-                <div className="text-2xl font-bold">Top Rated</div>
-                <div className="text-sm opacity-90">AI Solutions Provider</div>
-              </div>
             </div>
           </div>
 
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">Our Values</h2>
-            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-              The principles that guide everything we do
-            </p>
+            <h2 className="text-3xl md:text-4xl font-black text-gray-950 mb-4">Values that drive us</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto italic font-medium">The principles behind every project we deliver.</p>
           </div>
 
-          <div className="md:hidden mb-20">
-            <ModernCarousel autoPlay={true} autoPlayInterval={5000} showIndicators={true}>
-              {values.map((value, index) => (
-                <div key={index} className="px-4 h-full">
-                  <div
-                    className="bg-white border-2 border-gray-100 rounded-xl p-8 shadow-xl h-full flex flex-col items-center text-center"
-                  >
-                    <div className="inline-flex p-3 rounded-lg bg-blue-600 text-white mb-4">
-                      {value.icon}
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
-                    <p className="text-gray-600 leading-relaxed text-sm">{value.description}</p>
-                  </div>
-                </div>
-              ))}
-            </ModernCarousel>
-          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="bg-white border border-slate-200 rounded-[2.5rem] p-8 flex flex-col items-center text-center hover:shadow-2xl hover:border-violet-200 transition-all duration-500 group relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-[#9C8CFF]" />
+              <div className="w-20 h-20 rounded-2xl bg-violet-50 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
+                <Users className="w-10 h-10 text-[#9C8CFF]" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-950 mb-4 tracking-tight">Client First</h3>
+              <p className="text-gray-600 leading-relaxed font-medium">Your success is our only metric. We build partnerships, not just products.</p>
+            </div>
 
-          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-            {values.map((value, index) => (
-              <ScrollReveal key={index} delay={index * 100} width="100%">
-                <div
-                  className="bg-white border-2 border-gray-100 rounded-xl p-8 shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1 hover-glow h-full"
-                >
-                  <div className="inline-flex p-3 rounded-lg bg-blue-600 text-white mb-4">
-                    {value.icon}
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{value.description}</p>
-                </div>
-              </ScrollReveal>
-            ))}
+            <div className="bg-white border border-slate-200 rounded-[2.5rem] p-8 flex flex-col items-center text-center hover:shadow-2xl hover:border-amber-200 transition-all duration-500 group relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-[#F7C36E]" />
+              <div className="w-20 h-20 rounded-2xl bg-amber-50 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
+                <Rocket className="w-10 h-10 text-[#F7C36E]" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-950 mb-4 tracking-tight">Innovation</h3>
+              <p className="text-gray-600 leading-relaxed font-medium">We stay at the edge of tech to give your business a competitive advantage.</p>
+            </div>
+
+            <div className="bg-white border border-slate-200 rounded-[2.5rem] p-8 flex flex-col items-center text-center hover:shadow-2xl hover:border-emerald-200 transition-all duration-500 group relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-[#48BB9B]" />
+              <div className="w-20 h-20 rounded-2xl bg-emerald-50 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
+                <Target className="w-10 h-10 text-[#48BB9B]" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-950 mb-4 tracking-tight">Excellence</h3>
+              <p className="text-gray-600 leading-relaxed font-medium">No cutting corners. We deliver high-end quality in every single line of code.</p>
+            </div>
+
+            <div className="bg-white border border-slate-200 rounded-[2.5rem] p-8 flex flex-col items-center text-center hover:shadow-2xl hover:border-rose-200 transition-all duration-500 group relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-[#E66F6B]" />
+              <div className="w-20 h-20 rounded-2xl bg-rose-50 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
+                <Heart className="w-10 h-10 text-[#E66F6B]" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-950 mb-4 tracking-tight">Integrity</h3>
+              <p className="text-gray-600 leading-relaxed font-medium">Honest communication and transparent processes at every stage.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -273,6 +246,6 @@ export default function About() {
           </a>
         </div>
       </section>
-    </div>
+    </div >
   );
 }

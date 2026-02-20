@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Linkedin, Twitter, Github } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Twitter, Github, Instagram } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -15,7 +15,7 @@ export default function Footer() {
               </div>
               <span className="font-bold text-2xl text-white group-hover:text-blue-400 transition-colors">Akinahs Collective</span>
             </Link>
-            <p className="text-sm leading-relaxed font-medium text-slate-400 italic">
+            <p className="text-sm leading-loose font-medium text-slate-400 italic mt-4">
               All your digital needs in one place
             </p>
             <div className="flex space-x-4">
@@ -27,6 +27,9 @@ export default function Footer() {
               </a>
               <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">
                 <Github className="w-5 h-5" />
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">
+                <Instagram className="w-5 h-5" />
               </a>
             </div>
           </div>

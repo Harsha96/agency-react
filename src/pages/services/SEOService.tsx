@@ -53,7 +53,7 @@ export default function SEOService() {
 
   return (
     <div className="min-h-screen">
-      <section className="relative bg-gray-50 pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gray-50 pt-24 md:pt-32 pb-10 md:pb-14 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -95,7 +95,7 @@ export default function SEOService() {
         </div>
       </section>
 
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-10 md:py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">What You Get</h2>
@@ -130,7 +130,7 @@ export default function SEOService() {
         </div>
       </section>
 
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section className="py-10 md:py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Real Results</h2>
@@ -156,7 +156,7 @@ export default function SEOService() {
         </div>
       </section>
 
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-600 to-cyan-600 text-white">
+      <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-600 to-cyan-600 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Dominate Search Results?</h2>
           <p className="text-xl mb-10 opacity-90">
