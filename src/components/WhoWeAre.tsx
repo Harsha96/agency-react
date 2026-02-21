@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export const WhoWeAre = () => {
     return (
-        <section className="py-10 md:py-14 px-4 sm:px-6 lg:px-8 bg-slate-100/40 relative overflow-hidden border-y border-slate-200/50">
+        <section className="py-10 md:py-14 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden border-y border-slate-200/60 shadow-sm">
             {/* Ultra-subtle light overlay - Enhanced for depth */}
             <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50/10 to-white z-[1]" />
 

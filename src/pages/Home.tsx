@@ -286,7 +286,7 @@ export default function Home() {
       </SectionReveal>
 
       {/* Services Section - Darker Background */}
-      <section className="py-6 md:py-10 lg:py-14 px-4 sm:px-6 lg:px-8 bg-slate-100 relative z-20 overflow-hidden border-b border-slate-200">
+      <section className="py-6 md:py-10 lg:py-14 px-4 sm:px-6 lg:px-8 bg-white relative z-20 overflow-hidden border-b border-slate-200/60 shadow-sm">
 
         <div className="max-w-7xl mx-auto">
           <SectionReveal>
@@ -386,7 +386,7 @@ export default function Home() {
       <SectionDivider type="curve" color="fill-indigo-50/40" />
 
       {/* Why Choose Us Section - Darker Background */}
-      <section className="py-6 md:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 bg-slate-50 relative overflow-hidden border-b border-slate-200">
+      <section className="py-6 md:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 bg-slate-50 relative overflow-hidden border-b border-slate-200/60 shadow-sm">
         {/* Subtle Mesh Overlay */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.05)_0%,_transparent_70%)] z-[1]" />
 
@@ -474,14 +474,14 @@ export default function Home() {
       <SectionDivider type="curve" color="fill-blue-100/10" reverse />
 
       {/* How We Work Section - Redesigned Circular Flow */}
-      <section className="py-6 md:py-10 lg:py-14 px-4 sm:px-6 lg:px-8 bg-blue-100/10 relative overflow-hidden border-y border-blue-200/20">
+      <section className="py-6 md:py-10 lg:py-14 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden border-y border-slate-200/60 shadow-sm">
         <RainParticles />
         <div className="max-w-7xl mx-auto relative z-10">
           <SectionReveal>
-            <div className="text-center mb-10 md:mb-16">
+            <div className="text-center mb-4 md:mb-6">
               <h2 className="text-3xl md:text-6xl font-bold text-gray-950 mb-3 md:mb-4 tracking-tight">How We Work</h2>
               <div className="w-16 h-1 bg-gradient-to-r from-orange-500 to-amber-500 mx-auto rounded-full" />
-              <p className="mt-6 text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+              <p className="mt-3 text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
                 A human-centered approach to building digital products that matter.
               </p>
             </div>
@@ -498,7 +498,7 @@ export default function Home() {
 
       {/* Our Promise Section - Ultra Clean */}
       <SectionReveal>
-        <section className="py-6 md:py-10 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600/5 via-indigo-600/5 to-cyan-500/5 backdrop-blur-md text-gray-900 border-y border-blue-100/50 relative overflow-hidden">
+        <section className="py-6 md:py-10 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-50 via-indigo-50/80 to-cyan-50/60 backdrop-blur-md text-gray-900 border-y border-blue-200/40 relative overflow-hidden shadow-sm">
           <div className="max-w-5xl mx-auto text-center relative z-10">
             <h2 className="text-3xl md:text-5xl font-bold mb-6 md:mb-10 tracking-tight">Our Promise</h2>
             <p className="text-xl md:text-3xl lg:text-4xl font-light mb-6 md:mb-8 leading-relaxed text-gray-700">

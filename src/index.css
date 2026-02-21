@@ -8,7 +8,7 @@
   }
 
   body {
-    @apply antialiased text-slate-900 bg-slate-50 overflow-x-hidden;
+    @apply antialiased text-slate-900 bg-slate-300 overflow-x-hidden;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 18px;
     font-weight: 400;
