@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom';
-import { Bot, Globe, ArrowRight, Zap, Palette, Megaphone, MessageSquare } from 'lucide-react';
-import { ScrollReveal } from '../components/ScrollReveal';
+import { Bot, Globe, ArrowRight, ArrowLeft, Zap, Palette, Megaphone, MessageSquare } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect, useCallback } from 'react';
 
 export default function Services() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
+
   const services = [
     {
       icon: <Palette className="w-12 h-12" />,
@@ -81,6 +85,85 @@ export default function Services() {
     },
   ];
 
+  const paginate = useCallback((newDirection: number) => {
+    setDirection(newDirection);
+    setCurrentIndex((prev) => {
+      if (newDirection === 1) {
+        return prev >= services.length - 1 ? 0 : prev + 1;
+      } else {
+        return prev <= 0 ? services.length - 1 : prev - 1;
+      }
+    });
+  }, [services.length]);
+
+  // Auto-play
+  useEffect(() => {
+    const timer = setInterval(() => paginate(1), 5000);
+    return () => clearInterval(timer);
+  }, [currentIndex, paginate]);
+
+  const slideVariants = {
+    enter: (dir: number) => ({
+      x: dir > 0 ? 300 : -300,
+      opacity: 0,
+      scale: 0.95,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      scale: 1,
+    },
+    exit: (dir: number) => ({
+      x: dir > 0 ? -300 : 300,
+      opacity: 0,
+      scale: 0.95,
+    }),
+  };
+
+  // Get visible cards (3 at a time for desktop)
+  const getVisibleCards = () => {
+    const cards = [];
+    for (let i = 0; i < 3; i++) {
+      const idx = (currentIndex + i) % services.length;
+      cards.push(services[idx]);
+    }
+    return cards;
+  };
+
+  const ServiceCard = ({ service }: { service: typeof services[0] }) => (
+    <div
+      className="relative bg-white rounded-3xl shadow-xl p-8 sm:p-10 border border-slate-100 h-full hover:shadow-2xl hover:border-blue-400/20 transition-all duration-500 flex flex-col items-center text-center group overflow-hidden"
+    >
+      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-50 to-transparent opacity-50 -mr-16 -mt-16 rounded-full blur-2xl" />
+
+      <div className={`inline-flex p-5 rounded-2xl bg-gradient-to-br ${service.color} text-white mb-8 transform transition-transform group-hover:scale-110 group-hover:rotate-3 duration-500 shadow-lg ${service.shadow}`}>
+        {service.icon}
+      </div>
+
+      <h3 className="text-xl md:text-2xl font-bold text-gray-950 mb-4 tracking-tight group-hover:text-blue-600 transition-colors">{service.title}</h3>
+      <p className="text-sm md:text-base text-gray-600 mb-8 leading-relaxed flex-grow">
+        {service.description}
+      </p>
+
+      <ul className="space-y-3 mb-10 w-full">
+        {service.features.map((feature, i) => (
+          <li key={i} className="flex items-center justify-center text-gray-600 text-[13px] font-bold uppercase tracking-widest group-hover:text-gray-900 transition-colors">
+            <Zap className="w-4 h-4 text-blue-500 mr-2 flex-shrink-0" />
+            <span>{feature}</span>
+          </li>
+        ))}
+      </ul>
+
+      <Link
+        to={service.link}
+        className="inline-flex items-center justify-center w-full px-6 py-4 bg-gray-950 text-white font-bold rounded-2xl hover:bg-blue-600 transition-all duration-300 shadow-lg hover:shadow-blue-500/20 group-hover:scale-[1.02]"
+      >
+        Explore Service
+        <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+      </Link>
+    </div>
+  );
+
   return (
     <div className="min-h-screen animate-fade-in">
       <section className="relative bg-gradient-to-br from-blue-100 via-white to-blue-50 pt-20 md:pt-24 pb-8 md:pb-10 px-4 sm:px-6 lg:px-8">
@@ -98,41 +181,99 @@ export default function Services() {
 
       <section className="py-8 md:py-14 px-4 sm:px-6 lg:px-8 bg-slate-50 overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 items-stretch mb-12 md:mb-16">
-            {services.map((service, index) => (
-              <ScrollReveal key={index} delay={index * 100} width="100%">
-                <div
-                  className="relative bg-white rounded-3xl shadow-xl p-8 sm:p-10 border border-slate-100 h-full hover:shadow-2xl hover:border-blue-400/20 transition-all duration-500 flex flex-col items-center text-center group overflow-hidden"
+
+          {/* Mobile: Single card slider */}
+          <div className="md:hidden relative">
+            <div className="relative overflow-hidden" style={{ minHeight: '520px' }}>
+              <AnimatePresence initial={false} custom={direction} mode="wait">
+                <motion.div
+                  key={currentIndex}
+                  custom={direction}
+                  variants={slideVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{
+                    x: { type: "spring", stiffness: 200, damping: 25 },
+                    opacity: { duration: 0.3 },
+                  }}
+                  drag="x"
+                  dragConstraints={{ left: 0, right: 0 }}
+                  dragElastic={0.2}
+                  onDragEnd={(_, { offset, velocity }) => {
+                    const swipe = Math.abs(offset.x) * velocity.x;
+                    if (swipe < -5000) paginate(1);
+                    else if (swipe > 5000) paginate(-1);
+                  }}
+                  className="absolute inset-0 px-2"
                 >
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-50 to-transparent opacity-50 -mr-16 -mt-16 rounded-full blur-2xl" />
+                  <ServiceCard service={services[currentIndex]} />
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </div>
 
-                  <div className={`inline-flex p-5 rounded-2xl bg-gradient-to-br ${service.color} text-white mb-8 transform transition-transform group-hover:scale-110 group-hover:rotate-3 duration-500 shadow-lg ${service.shadow}`}>
-                    {service.icon}
+          {/* Desktop: 3-card slider with arrows */}
+          <div className="hidden md:block relative">
+            {/* Navigation arrows */}
+            <button
+              onClick={() => paginate(-1)}
+              className="absolute -left-4 lg:-left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white shadow-lg border border-slate-200 flex items-center justify-center hover:bg-blue-50 hover:border-blue-300 transition-all duration-300 hover:scale-110"
+            >
+              <ArrowLeft className="w-5 h-5 text-slate-700" />
+            </button>
+            <button
+              onClick={() => paginate(1)}
+              className="absolute -right-4 lg:-right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white shadow-lg border border-slate-200 flex items-center justify-center hover:bg-blue-50 hover:border-blue-300 transition-all duration-300 hover:scale-110"
+            >
+              <ArrowRight className="w-5 h-5 text-slate-700" />
+            </button>
+
+            {/* Cards container */}
+            <div className="overflow-hidden px-6">
+              <AnimatePresence initial={false} custom={direction} mode="wait">
+                <motion.div
+                  key={currentIndex}
+                  custom={direction}
+                  variants={slideVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{
+                    x: { type: "spring", stiffness: 200, damping: 25 },
+                    opacity: { duration: 0.3 },
+                  }}
+                  className="grid grid-cols-3 gap-8 items-stretch"
+                >
+                  {getVisibleCards().map((service, i) => (
+                    <ServiceCard key={`${currentIndex}-${i}`} service={service} />
+                  ))}
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </div>
+
+          {/* Dot indicators */}
+          <div className="flex justify-center items-center gap-2 mt-8">
+            {services.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  setDirection(index > currentIndex ? 1 : -1);
+                  setCurrentIndex(index);
+                }}
+                className="group relative"
+                aria-label={`Go to slide ${index + 1}`}
+              >
+                {index === currentIndex ? (
+                  <div className="flex items-center gap-1 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full px-3 py-1.5 shadow-md">
+                    <div className="w-1.5 h-1.5 bg-white rounded-full" />
+                    <span className="text-xs font-semibold text-white">{index + 1}</span>
                   </div>
-
-                  <h3 className="text-xl md:text-2xl font-bold text-gray-950 mb-4 tracking-tight group-hover:text-blue-600 transition-colors">{service.title}</h3>
-                  <p className="text-sm md:text-base text-gray-600 mb-8 leading-relaxed flex-grow">
-                    {service.description}
-                  </p>
-
-                  <ul className="space-y-3 mb-10 w-full">
-                    {service.features.map((feature, i) => (
-                      <li key={i} className="flex items-center justify-center text-gray-600 text-[13px] font-bold uppercase tracking-widest group-hover:text-gray-900 transition-colors">
-                        <Zap className="w-4 h-4 text-blue-500 mr-2 flex-shrink-0" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <Link
-                    to={service.link}
-                    className="inline-flex items-center justify-center w-full px-6 py-4 bg-gray-950 text-white font-bold rounded-2xl hover:bg-blue-600 transition-all duration-300 shadow-lg hover:shadow-blue-500/20 group-hover:scale-[1.02]"
-                  >
-                    Explore Service
-                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </div>
-              </ScrollReveal>
+                ) : (
+                  <div className="w-2 h-2 rounded-full bg-slate-300 hover:bg-orange-400 transition-all duration-300" />
+                )}
+              </button>
             ))}
           </div>
         </div>

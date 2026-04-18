@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Calendar, User, ArrowLeft } from 'lucide-react';
-import { supabase } from '../lib/supabase';
-import type { Database } from '../lib/supabase';
-
-type Blog = Database['blogs'];
+import { blogs as mockBlogs } from '../lib/data';
+import type { Blog } from '../lib/data';
 
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
@@ -13,23 +11,15 @@ export default function BlogPost() {
 
   useEffect(() => {
     if (slug) {
-      loadBlog();
+      // Simulate loading
+      const timer = setTimeout(() => {
+        const foundBlog = mockBlogs.find(b => b.slug === slug);
+        setBlog(foundBlog || null);
+        setLoading(false);
+      }, 500);
+      return () => clearTimeout(timer);
     }
   }, [slug]);
-
-  const loadBlog = async () => {
-    const { data, error } = await supabase
-      .from('blogs')
-      .select('*')
-      .eq('slug', slug)
-      .eq('published', true)
-      .maybeSingle();
-
-    if (!error && data) {
-      setBlog(data);
-    }
-    setLoading(false);
-  };
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);

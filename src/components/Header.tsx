@@ -1,12 +1,10 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import { useAuth } from '../contexts/AuthContext';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const { user, signOut } = useAuth();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -99,23 +97,7 @@ export default function Header() {
             >
               Contact Us
             </Link>
-            {user && (
-              <>
-                <Link
-                  to="/admin"
-                  className={`text-sm font-semibold tracking-wide transition-colors ${isActive('/admin') ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600'
-                    }`}
-                >
-                  Admin
-                </Link>
-                <button
-                  onClick={() => signOut()}
-                  className="text-sm font-semibold tracking-wide text-gray-600 hover:text-blue-600 transition-colors"
-                >
-                  Logout
-                </button>
-              </>
-            )}
+            {/* Auth links removed */}
           </div>
 
           <button
@@ -148,19 +130,7 @@ export default function Header() {
               <Link to="/contact" className="inline-flex items-center justify-center py-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold rounded-xl mt-4 shadow-lg shadow-orange-500/20">
                 Contact Us
               </Link>
-              {user && (
-                <div className="border-t border-gray-100 pt-4 mt-4 flex flex-col space-y-3">
-                  <Link to="/admin" className="text-base font-semibold text-gray-900 hover:text-blue-600 px-2 py-2 transition-colors">
-                    Admin
-                  </Link>
-                  <button
-                    onClick={() => signOut()}
-                    className="text-base font-semibold text-gray-900 hover:text-blue-600 text-left px-2 py-2"
-                  >
-                    Logout
-                  </button>
-                </div>
-              )}
+              {/* Mobile Auth links removed */}
             </div>
           </div>
         )}

@@ -1,31 +1,21 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BookOpen, Calendar, User, ArrowRight } from 'lucide-react';
-import { supabase } from '../lib/supabase';
-import type { Database } from '../lib/supabase';
-
-type Blog = Database['blogs'];
+import { blogs as mockBlogs } from '../lib/data';
+import type { Blog } from '../lib/data';
 
 export default function Blog() {
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    loadBlogs();
+    // Simulate loading
+    const timer = setTimeout(() => {
+      setBlogs(mockBlogs);
+      setLoading(false);
+    }, 500);
+    return () => clearTimeout(timer);
   }, []);
-
-  const loadBlogs = async () => {
-    const { data, error } = await supabase
-      .from('blogs')
-      .select('*')
-      .eq('published', true)
-      .order('created_at', { ascending: false });
-
-    if (!error && data) {
-      setBlogs(data);
-    }
-    setLoading(false);
-  };
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);

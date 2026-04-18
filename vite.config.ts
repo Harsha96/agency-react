@@ -13,8 +13,7 @@ export default defineConfig({
         manualChunks: {
           'react-vendor': ['react', 'react-dom', 'react-router-dom'],
           'three-vendor': ['three', '@react-three/fiber', '@react-three/drei'],
-          'animation': ['framer-motion'],
-          'supabase': ['@supabase/supabase-js']
+          'animation': ['framer-motion']
         }
       }
     },

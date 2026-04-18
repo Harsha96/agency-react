@@ -1,31 +1,21 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { supabase } from '../lib/supabase';
-import type { Database } from '../lib/supabase';
-
-type CaseStudy = Database['case_studies'];
+import { caseStudies as mockCaseStudies } from '../lib/data';
+import type { CaseStudy } from '../lib/data';
 
 export default function Portfolio() {
   const [caseStudies, setCaseStudies] = useState<CaseStudy[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    loadCaseStudies();
+    // Simulate loading
+    const timer = setTimeout(() => {
+      setCaseStudies(mockCaseStudies);
+      setLoading(false);
+    }, 500);
+    return () => clearTimeout(timer);
   }, []);
-
-  const loadCaseStudies = async () => {
-    const { data, error } = await supabase
-      .from('case_studies')
-      .select('*')
-      .eq('published', true)
-      .order('created_at', { ascending: false });
-
-    if (!error && data) {
-      setCaseStudies(data);
-    }
-    setLoading(false);
-  };
 
   return (
     <div className="min-h-screen">

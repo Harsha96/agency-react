@@ -1,6 +1,5 @@
 import { useState, FormEvent } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
-import { supabase } from '../lib/supabase';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -18,17 +17,11 @@ export default function Contact() {
     setError('');
     setSuccess(false);
 
-    const { error: submitError } = await supabase
-      .from('contact_requests')
-      .insert([formData]);
-
-    if (submitError) {
-      setError('Failed to submit your message. Please try again.');
-    } else {
-      setSuccess(true);
-      setFormData({ name: '', email: '', message: '' });
-    }
-
+    // Simulate network delay
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    
+    setSuccess(true);
+    setFormData({ name: '', email: '', message: '' });
     setLoading(false);
   };
 

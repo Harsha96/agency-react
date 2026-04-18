@@ -42,8 +42,7 @@ self.addEventListener('fetch', (event: any) => {
     if (
         event.request.destination === 'image' ||
         url.hostname.includes('pexels.com') ||
-        url.hostname.includes('unsplash.com') ||
-        url.hostname.includes('supabase.co')
+        url.hostname.includes('unsplash.com')
     ) {
         event.respondWith(
             caches.open(IMAGE_CACHE_NAME).then((cache) => {

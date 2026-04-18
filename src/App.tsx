@@ -1,8 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { AuthProvider } from './contexts/AuthContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import ProtectedRoute from './components/ProtectedRoute';
 import ScrollToTop from './components/ScrollToTop';
 import SmoothScroll from './components/SmoothScroll';
 import { lazy, Suspense, useEffect } from 'react';
@@ -22,8 +20,6 @@ const Portfolio = lazy(() => import('./pages/Portfolio'));
 const Blog = lazy(() => import('./pages/Blog'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
 const Contact = lazy(() => import('./pages/Contact'));
-const Login = lazy(() => import('./pages/Login'));
-const Admin = lazy(() => import('./pages/Admin'));
 
 import { InteractiveMascot } from './components/InteractiveMascot';
 import GlobalBackground from './components/GlobalBackground';
@@ -43,7 +39,7 @@ function AppContent() {
       preloadRoute(() => import('./pages/About'));
       preloadRoute(() => import('./pages/Services'));
       preloadRoute(() => import('./pages/Contact'));
-    }, 2000); // Wait 2s after initial load to avoid blocking main content
+    }, 2000); //Harsha Wait 2s after initial load to avoid blocking main content
 
     return () => clearTimeout(timer);
   }, []);
@@ -72,15 +68,6 @@ function AppContent() {
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />
                 <Route path="/contact" element={<Contact />} />
-                <Route path="/login" element={<Login />} />
-                <Route
-                  path="/admin"
-                  element={
-                    <ProtectedRoute>
-                      <Admin />
-                    </ProtectedRoute>
-                  }
-                />
               </Routes>
             </Suspense>
           </div>
@@ -94,11 +81,9 @@ function AppContent() {
 
 function App() {
   return (
-    <AuthProvider>
-      <Router>
-        <AppContent />
-      </Router>
-    </AuthProvider>
+    <Router>
+      <AppContent />
+    </Router>
   );
 }
 

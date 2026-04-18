@@ -7,38 +7,26 @@ import { MagneticWrapper } from '../components/MagneticWrapper';
 import { MouseGlowCard } from '../components/InteractiveWrappers';
 import { motion, useScroll } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import { supabase } from '../lib/supabase';
-import type { Database } from '../lib/supabase';
+import { caseStudies } from '../lib/data';
+import type { CaseStudy } from '../lib/data';
 import { HeroParticles, RainParticles } from '../components/HeroParticles';
 import { SectionDivider } from '../components/SectionDivider';
 import { ModernCarousel } from '../components/ModernCarousel';
 import { Counter } from '../components/Counter';
 import { HowWeWorkAnimated } from '../components/HowWeWorkAnimated';
 
-type CaseStudy = Database['case_studies'];
-
 export default function Home() {
-  const [caseStudies, setCaseStudies] = useState<CaseStudy[]>([]);
+  const [activeCaseStudies, setActiveCaseStudies] = useState<CaseStudy[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    loadCaseStudies();
+    // Simulate loading
+    const timer = setTimeout(() => {
+      setActiveCaseStudies(caseStudies.slice(0, 3));
+      setLoading(false);
+    }, 500);
+    return () => clearTimeout(timer);
   }, []);
-
-  const loadCaseStudies = async () => {
-    // Only fetching 3 for the showcase, but showcasing them in a premium way
-    const { data, error } = await supabase
-      .from('case_studies')
-      .select('*')
-      .eq('published', true)
-      .order('created_at', { ascending: false })
-      .limit(3);
-
-    if (!error && data) {
-      setCaseStudies(data);
-    }
-    setLoading(false);
-  };
 
   const services = [
     {
@@ -464,9 +452,9 @@ export default function Home() {
 
       {/* STYLISH Project Showcase Section */}
       {
-        !loading && caseStudies.length > 0 && (
+        !loading && activeCaseStudies.length > 0 && (
           <SectionReveal>
-            <ProjectShowcase projects={caseStudies} />
+            <ProjectShowcase projects={activeCaseStudies} />
           </SectionReveal>
         )
       }

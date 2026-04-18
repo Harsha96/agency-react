@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 
 interface ScrollMagicProps {
@@ -50,14 +50,13 @@ export function ScrollCombineEffect({ children, className = '' }: ScrollMagicPro
 
     // Cards come from sides and combine in center
     const xLeft = useTransform(smoothProgress, [0, 1], [-200, 0]);
-    const xRight = useTransform(smoothProgress, [0, 1], [200, 0]);
     const opacity = useTransform(smoothProgress, [0, 0.5, 1], [0, 1, 1]);
     const rotate = useTransform(smoothProgress, [0, 1], [10, 0]);
 
     return (
-        <div ref={ref} className={className}>
+        <motion.div ref={ref} style={{ x: xLeft, opacity, rotate }} className={className}>
             {children}
-        </div>
+        </motion.div>
     );
 }
 

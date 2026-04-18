@@ -3,7 +3,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
 import * as THREE from 'three';
 
-function NeuralNode({ position, connections, color }: { position: [number, number, number], connections: [number, number, number][], color: string }) {
+function NeuralNode({ position, color }: { position: [number, number, number], connections?: [number, number, number][], color: string }) {
     const nodeRef = useRef<THREE.Mesh>(null!);
     const glowRef = useRef<THREE.Mesh>(null!);
 

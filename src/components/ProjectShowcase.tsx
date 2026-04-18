@@ -2,9 +2,7 @@ import { ScrollReveal } from './ScrollReveal';
 import { ArrowRight, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { MouseGlowCard, TiltCard } from './InteractiveWrappers';
-import type { Database } from '../lib/supabase';
-
-type CaseStudy = Database['case_studies'];
+import type { CaseStudy } from '../lib/data';
 
 interface ProjectShowcaseProps {
     projects: CaseStudy[];
